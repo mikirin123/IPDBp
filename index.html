@@ -1,4 +1,17 @@
+import sqlite3
+import os
+from datetime import datetime  # 追加
 
+def generate_html():
+    conn = sqlite3.connect('game_data.db')
+    cursor = conn.cursor()
+    
+    cursor.execute('SELECT * FROM characters')
+    characters = cursor.fetchall()
+    
+    last_updated = datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 追加
+
+    html_content = f'''
     <!DOCTYPE html>
     <html lang="ja">
     <head>
@@ -9,6 +22,7 @@
         <link rel="icon" href="icon.ico" type="image/x-icon">
         <link rel="apple-touch-icon" href="icon.ico">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9647262951514669" crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-9647262951514669">
     </head>
     <body>
         <div class="banner">
@@ -24,7 +38,7 @@
                 <a href="#" id="possession-import">インポート</a>
             </div>
         </div>
-        <div class="last-updated">最終更新日時: 2025-01-15 05:33:25</div>  <!-- 追加 -->
+        <div class="last-updated">最終更新日時: {last_updated}</div>  <!-- 追加 -->
         <div class="popup">
             <div class="popup-header"></div>
             <div class="popup-content"></div>
@@ -170,32 +184,21 @@
                         <th class="hidden">入手方法</th>
                         <th class="hidden">実装日</th>
                     </tr>
-    <tr><td class="hidden">2</td><td class="hidden">長瀬琴乃</td><td><img src="images\長瀬琴乃 月光惑う光耀の幻影
-.png" width="50" alt="月光惑う光耀の幻影
- 長瀬琴乃"><br><a href="details/長瀬琴乃 月光惑う光耀の幻影
-.html">月光惑う光耀の幻影
- 長瀬琴乃</a></td><td class="hidden">★5</td><td>ビジュアル</td><td>スコアラー</td><td class="hidden">SPAP</td><td class="hidden">ジェムストーンズ
-</td><td>66859
-</td><td>58449
-</td><td>91248
-</td><td>5220</td><td class="hidden">【SP】私は負けません……！
-</td><td class="hidden">1540%のスコア獲得、ビジュアルブースト状態の段階数が多い程効果上昇 スタミナ:563
-</td><td class="hidden">【A】取り戻した情熱
-</td><td class="hidden">440%のスコア獲得、消費したスタミナが多い程効果上昇 ビジュアルタイプ3人に5段階ビジュアルブースト効果[27ビート] スタミナ:225 CT:30
-</td><td class="hidden">【P】悔しさも燃料に
-</td><td class="hidden">自身に4段階Aスキルスコア上昇効果[33ビート] 自身に4段階テンションUP効果[33ビート] スタミナ:263 CT:50
-</td><td>SPスコアアップ</td><td class="hidden">フェス</td><td class="hidden">2023/3/28
-</td></tr><tr><td class="hidden">61</td><td class="hidden">成宮すず</td><td><img src="images\成宮すず にゃんて素晴らしい放課後！.png" width="50" alt="にゃんて素晴らしい放課後！ 成宮すず"><br><a href="details/成宮すず にゃんて素晴らしい放課後！.html">にゃんて素晴らしい放課後！ 成宮すず</a></td><td class="hidden">★5</td><td>ダンス</td><td>スコアラー</td><td class="hidden">SPAP</td><td class="hidden">桜が丘女子高等学校</td><td>58870</td><td>91038</td><td>66649</td><td>5220</td><td class="hidden">【SP】もう許してにゃ～ん！</td><td class="hidden">1700%のスコア獲得、強化効果が多い程効果上昇 スタミナ:545</td><td class="hidden">【A】にゃんにゃんコンビ</td><td class="hidden">290%のスコア獲得、コンボ数が多い程効果上昇 自身に4段階ダンス上昇効果[40ビート] 自身に4段階クリティカル係数上昇効果[40ビート] スタミナ:159 CT:30</td><td class="hidden">【P】憧れの部活動</td><td class="hidden">自身に6段階テンションUP効果[65ビート] 自身に7段階の集目効果[65ビート] スタミナ:432 ライブ中1回のみ</td><td>コインアップ【プロモーション】</td><td class="hidden">コラボ</td><td class="hidden">2023/4/28</td></tr><tr><td class="hidden">62</td><td class="hidden">伊吹渚</td><td><img src="images\伊吹渚 背中を追って.png" width="50" alt="背中を追って 伊吹渚"><br><a href="details/伊吹渚 背中を追って.html">背中を追って 伊吹渚</a></td><td class="hidden">★3</td><td>ボーカル</td><td>サポーター</td><td class="hidden">APP</td><td class="hidden">×</td><td>73271
-</td><td>58974
-</td><td>51825
-</td><td>4437</td><td class="hidden">【A】背中追いかけて
-</td><td class="hidden">400%のスコア獲得 スタミナが低い1人のスタミナを4800回復 スタミナ:146 CT:40
-</td><td class="hidden">【P】青春全力ダッシュ
-</td><td class="hidden">センターに8段階ボーカル上昇効果[36ビート] スタミナ:236 CT:50
-</td><td class="hidden">【P】まだまだ前へ
-</td><td class="hidden">ビート時 120%のスコア獲得 スタミナ:169 確率10% CT:40
-</td><td>なし</td><td class="hidden">恒常</td><td class="hidden">リリース時
-</td></tr>
+    '''
+    
+    for character in characters:
+        html_content += '<tr>'
+        for i, item in enumerate(character):
+            if i == 2:  # アイドル名の列
+                card_name_with_image = f'<img src="images\{character[1]} {item}.png" width="50" alt="{item} {character[1]}"><br><a href="details/{character[1]} {item}.html">{item} {character[1]}</a>'
+                html_content += f'<td>{card_name_with_image}</td>'
+            elif i in [0, 1, 3, 6, 7, 12, 13, 14, 15, 16, 17, 19, 20]:
+                html_content += f'<td class="hidden">{item}</td>'
+            else:
+                html_content += f'<td>{item}</td>'
+        html_content += '</tr>'
+    
+    html_content += '''
                 </table>
             </div>
         </div>
@@ -217,4 +220,71 @@
         <script src="script.js"></script>
     </body>
     </html>
+    '''
     
+    with open('index.html', 'w', encoding='utf-8') as file:
+        file.write(html_content)
+    
+    generate_detail_pages(characters)  # 追加
+
+    conn.close()
+
+def generate_detail_pages(characters):
+    for character in characters:
+        detail_content = f'''
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{character[2]} {character[1]}</title>
+            <link rel="stylesheet" href="../style.css">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9647262951514669" crossorigin="anonymous"></script>
+            <meta name="google-adsense-account" content="ca-pub-9647262951514669">
+        </head>
+        <body>
+            <div class="banner">
+                アイドルリスト for IDOLY PRIDE
+                <div class="menu">⋮</div>
+                <div class="menu-content">
+                    <a href="../index.html">戻る</a>
+                </div>
+            </div>
+            <div class="container">
+                <h1>{character[2]} {character[1]}</h1>
+                <img src="../images/{character[1]} {character[2]}.png" alt="{character[2]} {character[1]}">
+                <table>
+                    <tr><th>ID</th><td>{character[0]}</td></tr>
+                    <tr><th>キャラ</th><td>{character[1]}</td></tr>
+                    <tr><th>アイドル名</th><td>{character[2]}</td></tr>
+                    <tr><th>初期レアリティ</th><td>{character[3]}</td></tr>
+                    <tr><th>傾向</th><td>{character[4]}</td></tr>
+                    <tr><th>タイプ</th><td>{character[5]}</td></tr>
+                    <tr><th>スキル構成</th><td>{character[6]}</td></tr>
+                    <tr><th>衣装</th><td>{character[7]}</td></tr>
+                    <tr><th>ボーカル</th><td>{character[8]}</td></tr>
+                    <tr><th>ダンス</th><td>{character[9]}</td></tr>
+                    <tr><th>ビジュアル</th><td>{character[10]}</td></tr>
+                    <tr><th>スタミナ</th><td>{character[11]}</td></tr>
+                    <tr><th>ライブスキル1名前</th><td>{character[12]}</td></tr>
+                    <tr><th>ライブスキル1効果</th><td>{character[13]}</td></tr>
+                    <tr><th>ライブスキル2名前</th><td>{character[14]}</td></tr>
+                    <tr><th>ライブスキル2効果</th><td>{character[15]}</td></tr>
+                    <tr><th>ライブスキル3名前</th><td>{character[16]}</td></tr>
+                    <tr><th>ライブスキル3効果</th><td>{character[17]}</td></tr>
+                    <tr><th>エール</th><td>{character[18]}</td></tr>
+                    <tr><th>入手方法</th><td>{character[19]}</td></tr>
+                    <tr><th>実装日</th><td>{character[20]}</td></tr>
+                </table>
+            </div>
+        </body>
+        </html>
+        '''
+        
+        os.makedirs('details', exist_ok=True)
+        filename = f'details/{character[1]} {character[2]}.html'.replace('\n', '')
+        with open(filename, 'w', encoding='utf-8') as file:
+            file.write(detail_content)
+
+if __name__ == "__main__":
+    generate_html()
