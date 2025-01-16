@@ -217,18 +217,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.menu-content a').forEach(item => {
         item.addEventListener('click', function() {
-            const menuName = this.textContent;
-            popupHeader.textContent = menuName;
+            const menuName = this.innerText;
+            popupHeader.innerText = menuName;
             if (menuName === 'エクスポート' || menuName === 'インポート') {
                 menuContent.style.display = 'none';
             } else if (menuName === 'つかいかた') {
-                popupContent.textContent = 'アイドルの一覧を見ることができます。\nフィルタ、並び替え、キーワード検索も活用してみてください！';
+                popupContent.innerText = 'アイプラのゲーム内で実装されている\n全アイドル（カード）の一覧になります。\n\n絞り込み・検索機能も付いているので、ぜひご活用ください';
                 popup.style.display = 'block';
             } else if (menuName === 'このツールについて') {
-                popupContent.textContent = 'このツールは○○が作成しています。';
+                popupContent.innerHTML = 'このツールはmikirinが開発しています。<br>改善要望・不具合報告は<a href="https://x.com/miki_aipr">twitter</a>までお願いします。';
                 popup.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
-                popupContent.textContent = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
+                popupContent.innerText = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
                 popup.style.display = 'block';
             }
         });
@@ -243,8 +243,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('possession-info').addEventListener('click', function() {
         const popupHeader = document.querySelector('.popup-header');
         const popupContent = document.querySelector('.popup-content');
-        popupHeader.textContent = '所持アイドルチェックについて';
-        popupContent.textContent = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
+        popupHeader.innerText = '所持アイドルチェックについて';
+        popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタや~~に使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されているため、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すには、テキストをコピーし移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストをペーストして、インポートボタンを押してください。</p>';
         document.querySelector('.popup').style.display = 'block';
     });
 
@@ -260,5 +260,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.import-popup button.save').addEventListener('click', saveImportedPossession);
     document.querySelector('.import-popup button.close').addEventListener('click', function() {
         document.querySelector('.import-popup').style.display = 'none';
+    });
+
+    const hintIcons = document.querySelectorAll('.hint-icon');
+    const hintPopups = document.querySelectorAll('.hint-popup');
+
+    hintIcons.forEach((hintIcon, index) => {
+        const hintPopup = hintPopups[index];
+        hintIcon.addEventListener('click', function() {
+            hintPopup.style.display = hintPopup.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        hintIcons.forEach((hintIcon, index) => {
+            const hintPopup = hintPopups[index];
+            if (!hintIcon.contains(event.target) && !hintPopup.contains(event.target)) {
+                hintPopup.style.display = 'none';
+            }
+        });
     });
 });
