@@ -385,11 +385,13 @@ h2::before {
     .banner {
         text-align: center; /* バナーの文字を中央寄せに変更 */
         font-size: 100%;
-        padding: 10px; /* 余白を追加 */
+        /*padding: 10px; /* 余白を追加 */
         width: 100%; /* バナーの横幅を100%に設定 */
     }
 
-
+    .banner .menu {
+        right: 10px;
+    }
 
     .container {
         flex-direction: column;
@@ -448,6 +450,6 @@ h2::before {
 
     .live-skill-table-container table {
         width: 100%;
-        font-size: 5px;
+        font-size: 8px;
     }
 }
