@@ -69,6 +69,15 @@ function applyFilters() {
         if (filters.possession === '所持' && !possessedCards.has(character.card_name)) show = false;
 
         row.style.display = show ? '' : 'none';
+        if (show) {
+            if (character.trend === 'ボーカル') {
+                cells[4].style.color = '#FF469D';
+            } else if (character.trend === 'ダンス') {
+                cells[4].style.color = '#3ABAFF';
+            } else if (character.trend === 'ビジュアル') {
+                cells[4].style.color = '#FFA900';
+            }
+        }
     });
 
     if (filters.sort) {
