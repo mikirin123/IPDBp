@@ -389,9 +389,7 @@ h2::before {
         width: 100%; /* バナーの横幅を100%に設定 */
     }
 
-    .banner .menu {
-        right: 10px;
-    }
+
 
     .container {
         flex-direction: column;
