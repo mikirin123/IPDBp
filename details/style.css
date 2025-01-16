@@ -440,4 +440,13 @@ h2::before {
     .popup, .export-popup, .import-popup {
         width: 90%;
     }
+
+    .live-skill-table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .live-skill-table-container table {
+        width: 100%;
+    }
 }
