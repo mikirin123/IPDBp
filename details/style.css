@@ -450,5 +450,6 @@ h2::before {
 
     .live-skill-table-container table {
         width: 100%;
+        font-size: 10px;
     }
 }
