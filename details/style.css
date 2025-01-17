@@ -385,7 +385,7 @@ h2::before {
     .banner {
         text-align: center; /* バナーの文字を中央寄せに変更 */
         font-size: 100%;
-        /*padding: 10px; /* 余白を追加 */
+        padding: 10px; /* 余白を追加 */
         width: 100%; /* バナーの横幅を100%に設定 */
     }
 
@@ -401,8 +401,7 @@ h2::before {
 
     .left-column {
         width: 90%;
-        margin-bottom: 20px;
-        padding-left: 0; /* 余白を追加 */
+        margin-bottom: 20px; /* 余白を追加 */
     }
 
     .right-column {
@@ -455,5 +454,17 @@ h2::before {
 
     .live-skill-table-container th, .live-skill-table-container td {
         font-size: 10px !important; /* 文字サイズを10pxに変更し、重要度を高く設定 */
+    }
+
+    .right-column table {
+        font-size: 12px; /* テーブルの文字サイズを調整 */
+    }
+
+    .right-column th, .right-column td {
+        padding: 6px; /* テーブルのパディングを調整 */
+    }
+
+    .right-column h2 {
+        font-size: 18px; /* 見出しの文字サイズを調整 */
     }
 }
