@@ -231,13 +231,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (menuName === 'エクスポート' || menuName === 'インポート') {
                 menuContent.style.display = 'none';
             } else if (menuName === 'つかいかた') {
-                popupContent.innerText = 'アイプラのゲーム内で実装されている\n全アイドル（カード）の一覧になります。\n\n絞り込み・検索機能も付いているので、ぜひご活用ください';
+                popupContent.innerText = 'アイプラのゲーム内で実装されている\nアイドルの一覧になります。\n\n絞り込み・検索機能も付いているので\nご活用ください';
                 popup.style.display = 'block';
             } else if (menuName === 'このツールについて') {
-                popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<a href="https://x.com/miki_aipr">twitter</a>までお願いします。';
+                popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr">twitter(@miki_aipr)</a>までお願いします。';
                 popup.style.display = 'block';
             } else if (menuName === '更新情報') {
-                popupContent.innerHTML = '2021/6/24(リリース日)までの登場アイドルを追加しました。';
+                popupContent.innerHTML = '2025/1/18更新<br><br>ゲームリリース時点の登場アイドルを追加しました。';
                 popup.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
                 popupContent.innerText = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const popupHeader = document.querySelector('.popup-header');
         const popupContent = document.querySelector('.popup-content');
         popupHeader.innerText = '更新情報';
-        popupContent.innerHTML = '2021/6/24(リリース日)までの登場アイドルを追加しました。';
+        popupContent.innerHTML = '2025/1/18更新<br><br>ゲームリリース時点の登場アイドルを追加しました。';
         document.querySelector('.popup').style.display = 'block';
     });
 
