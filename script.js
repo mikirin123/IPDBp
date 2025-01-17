@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const popupHeader = document.querySelector('.popup-header');
         const popupContent = document.querySelector('.popup-content');
         popupHeader.innerText = '所持アイドルチェックについて';
-        popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタや~~に使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されているため、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すには、テキストをコピーし移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストをペーストして、インポートボタンを押してください。</p>';
+        popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されているため、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すには、テキストをコピーして移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストをペーストして、インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p>';
         document.querySelector('.popup').style.display = 'block';
     });
 
