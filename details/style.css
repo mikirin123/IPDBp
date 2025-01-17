@@ -11,9 +11,6 @@ h1 {
     margin-top: 20px;
 }
 
-h3 {
-    display: inline;
-}
 .banner {
     background-color: #3200FF;
     color: white;
@@ -137,10 +134,6 @@ h3 {
     background-color: darkgray;
 }
 
-.filters .possession-filter {
-    margin-top: 10px;
-}
-
 .table-container {
     width: 75%;
 }
@@ -244,11 +237,6 @@ h2::before {
 
 .popup-close:hover {
     background-color: #1a0080;
-}
-
-.possession-mode .checkbox {
-    display: inline-block;
-    margin-right: 10px;
 }
 
 .possession-buttons {
