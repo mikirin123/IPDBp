@@ -446,11 +446,13 @@ h2::before {
     .live-skill-table-container {
         overflow-x: auto;
         width: 100%;
-        font-size: 8px;
     }
 
     .live-skill-table-container table {
         width: 100%;
-        font-size: 8px;
+    }
+
+    .live-skill-table-container th, .live-skill-table-container td {
+        font-size: 10px;
     }
 }
