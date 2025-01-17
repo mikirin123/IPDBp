@@ -234,7 +234,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupContent.innerText = 'アイプラのゲーム内で実装されている\n全アイドル（カード）の一覧になります。\n\n絞り込み・検索機能も付いているので、ぜひご活用ください';
                 popup.style.display = 'block';
             } else if (menuName === 'このツールについて') {
-                popupContent.innerHTML = 'このツールはmikirinが開発しています。<br>改善要望・不具合報告は<a href="https://x.com/miki_aipr">twitter</a>までお願いします。';
+                popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<a href="https://x.com/miki_aipr">twitter</a>までお願いします。';
+                popup.style.display = 'block';
+            } else if (menuName === '更新情報') {
+                popupContent.innerHTML = '2021/6/24(リリース日)までの登場アイドルを追加しました。';
                 popup.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
                 popupContent.innerText = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
@@ -254,6 +257,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const popupContent = document.querySelector('.popup-content');
         popupHeader.innerText = '所持アイドルチェックについて';
         popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタや~~に使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されているため、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すには、テキストをコピーし移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストをペーストして、インポートボタンを押してください。</p>';
+        document.querySelector('.popup').style.display = 'block';
+    });
+
+    document.getElementById('news').addEventListener('click', function() {
+        const popupHeader = document.querySelector('.popup-header');
+        const popupContent = document.querySelector('.popup-content');
+        popupHeader.innerText = '更新情報';
+        popupContent.innerHTML = '2021/6/24(リリース日)までの登場アイドルを追加しました。';
         document.querySelector('.popup').style.display = 'block';
     });
 
