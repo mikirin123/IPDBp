@@ -455,16 +455,4 @@ h2::before {
     .live-skill-table-container th, .live-skill-table-container td {
         font-size: 10px !important; /* 文字サイズを10pxに変更し、重要度を高く設定 */
     }
-
-    .right-column table {
-        font-size: 12px; /* テーブルの文字サイズを調整 */
-    }
-
-    .right-column th, .right-column td {
-        padding: 6px; /* テーブルのパディングを調整 */
-    }
-
-    .right-column h2 {
-        font-size: 18px; /* 見出しの文字サイズを調整 */
-    }
 }
