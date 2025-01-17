@@ -144,7 +144,6 @@ function togglePossessionMode() {
             } else {
                 possessedCards.delete(row.cells[2].innerText);
             }
-            savePossession(); // チェックボックスの変更時に保存
         });
         if (possessionMode) {
             row.cells[2].prepend(checkbox);
