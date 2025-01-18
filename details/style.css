@@ -45,17 +45,22 @@ h1 {
 }
 
 table {
-    width: auto;
+    width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 10px;
-    min-width: 800px; /* 必要に応じて調整 */
-    table-layout: auto;
+    table-layout: fixed;
+}
+
+.basic-info-table, .status-table, .live-skill-table {
+    width: 100%;
+    table-layout: fixed;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 4px;
+    word-wrap: break-word;
 }
 
 th {
@@ -80,11 +85,6 @@ th {
     .left-column, .right-column {
         flex: none;
         width: 100%;
-        padding: 0;
-    }
-
-    .right-column {
-        padding-top: 20px;
     }
 
     table {
@@ -99,10 +99,11 @@ th {
     .banner {
         font-size: 18px;
         padding: 5px 10px;
+        width: 105%;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .br-sp {
