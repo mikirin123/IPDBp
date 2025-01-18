@@ -20,424 +20,47 @@ h1 {
     position: relative;
 }
 
-.banner .menu {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.menu-content {
-    display: none;
-    position: absolute;
-    right: 20px;
-    top: 100%;
-    background-color: white;
-    color: black;
-    border: 1px solid #ddd;
-    z-index: 1;
-}
-
-.menu-content a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-}
-
-.menu-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.menu-content .separator {
-    border-top: 1px solid #ddd;
-    margin: 5px 0;
-}
-
 .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     padding: 20px;
 }
 
 .left-column {
-    width: 30%;
+    flex: 1;
     text-align: center;
+    padding-right: 10px;
 }
 
 .right-column {
-    width: 65%;
+    flex: 2;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 20px;;
     background-color: #fff;
-    border: 1px solid #ddd;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.right-column h2 {
-    margin-top: 20px;
-}
-
-.right-column table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.right-column th, .right-column td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-.right-column th {
-    background-color: #f2f2f2;
-}
-
-.filters {
-    width: 20%;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-right: 10px;
-    font-size: 11px;
-}
-
-.filters select,
-.filters input[type="text"],
-.filters input[type="checkbox"],
-.filters input[type="radio"] {
-    font-size: 12px;
-    width: auto;
-    accent-color: #3200FF;
-    vertical-align: middle;
-}
-
-.filters button[type="button"] {
-    background-color: #3200FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.filters button[type="button"]:hover {
-    background-color: #1a0080;
-}
-
-.filters button[type="button"].reset {
-    background-color: gray;
-    color: white;
-}
-
-.filters button[type="button"].reset:hover {
-    background-color: darkgray;
+    border: 1px solid #fff;
 }
 
 .table-container {
-    width: 75%;
+    overflow-x: auto;
 }
 
 table {
     width: auto;
     border-collapse: collapse;
-    background-color: #fff;
-    text-align: center;
-    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    font-size: 10px;
+    min-width: 800px; /* 必要に応じて調整 */
+    table-layout: auto;
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    white-space: nowrap;
-    font-size: 12px;
 }
 
 th {
     background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.hidden {
-    display: none;
-}
-
-#scrollToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #3200FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    display: none;
-}
-
-#scrollToTopBtn:hover {
-    background-color: #1a0080;
-}
-
-h2 {
-    position: relative;
-    padding-left: 20px;
-}
-
-h2::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 100%;
-    background-color: #3200FF;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid #ddd;
-    z-index: 2;
-    width: 500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-bottom: 50px;
-}
-
-.popup-header {
-    background-color: #3200FF;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;
-}
-
-.popup-content {
-    padding: 20px;
-    text-align: center;
-}
-
-.popup-close {
-    background-color: #3200FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-}
-
-.popup-close:hover {
-    background-color: #1a0080;
-}
-
-.possession-buttons {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.possession-buttons button {
-    background-color: #3200FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.possession-buttons button:hover {
-    background-color: #1a0080;
-}
-
-.possession-buttons .select-all {
-    background-color: gray;
-}
-
-.possession-buttons .select-all:hover {
-    background-color: darkgray;
-}
-
-.export-popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid #ddd;
-    z-index: 2;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-}
-
-.export-popup textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-}
-
-.export-popup button {
-    background-color: #3200FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.export-popup button:hover {
-    background-color: #1a0080;
-}
-
-.import-popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid #ddd;
-    z-index: 2;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-}
-
-.import-popup textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-}
-
-.import-popup button {
-    background-color: #3200FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.import-popup button:hover {
-    background-color: #1a0080;
-}
-
-.last-updated {
     text-align: left;
-    margin-top: 10px;
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #555;
-    padding-left: 10px;
-}
-
-.hint-icon {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-color: #3200FF;
-    color: white;
-    text-align: center;
-    line-height: 16px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.hint-popup {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 3;
-}
-
-@media (max-width: 768px) {
-    body {
-        min-width: 100%;
-    }
-
-    .banner {
-        text-align: center;
-        font-size: 100%;
-        width: 100%;
-        margin-right: 0;
-    }
-
-    .banner .menu {
-        right: 10px;
-    }
-
-    .container {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .left-column {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .right-column {
-        width: 90%;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .filters {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .table-container {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    th, td {
-        font-size: 10px;
-        padding: 4px;
-    }
-
-    .possession-buttons {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #scrollToTopBtn {
-        bottom: 10px;
-        right: 10px;
-        padding: 5px 10px;
-    }
-
-    .popup, .export-popup, .import-popup {
-        width: 90%;
-    }
 }
 
 .br-sp {
@@ -445,16 +68,44 @@ h2::before {
 }
 
 @media (max-width: 768px) {
-    .br-sp {
-        display: block !important;
+    body {
+        min-width: 100%;
     }
-}
 
-.live-skill-table-container {
-    overflow-x: auto;
-    width: 100%;
-}
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
 
-.live-skill-table-container table {
-    width: 100%;
+    .left-column, .right-column {
+        flex: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .right-column {
+        padding-top: 20px;
+    }
+
+    table {
+        font-size: 8px;
+        min-width: 100%;
+    }
+
+    th, td {
+        padding: 4px;
+    }
+
+    .banner {
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .br-sp {
+        display: block;
+    }
 }
