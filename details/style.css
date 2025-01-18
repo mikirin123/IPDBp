@@ -379,7 +379,8 @@ h2::before {
         text-align: center; /* バナーの文字を中央寄せに変更 */
         font-size: 100%;
         padding: 10px; /* 余白を追加 */
-        width: 100%; /* バナーの横幅を100%に設定 */
+        width: calc(100% - 20px); /* バナーの横幅を100%に設定し、左右の余白を考慮 */
+        margin: 0 auto; /* バナーを中央に配置 */
     }
 
     .banner .menu {
