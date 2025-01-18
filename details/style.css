@@ -57,6 +57,10 @@ table {
     table-layout: fixed;
 }
 
+th,td.basic-info-table, th,td.status-table {
+    font-size: 12px;
+}
+
 th, td {
     border: 1px solid #ddd;
     padding: 4px;
@@ -108,5 +112,10 @@ th {
 
     .br-sp {
         display: block;
+    }
+
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
