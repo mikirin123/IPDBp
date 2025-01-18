@@ -315,6 +315,33 @@ h2::before {
     background-color: #1a0080;
 }
 
+.settings-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 2;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.settings-popup button {
+    background-color: #3200FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.settings-popup button:hover {
+    background-color: #1a0080;
+}
+
 .last-updated {
     text-align: left;
     margin-top: 10px;

@@ -299,4 +299,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    const settingsPopup = document.querySelector('.settings-popup');
+    const settingsButton = document.querySelector('#settings');
+    const settingsCloseButton = settingsPopup.querySelector('.close');
+    const imageDisplayCheckbox = settingsPopup.querySelector('input[name="image-display"]');
+
+    settingsButton.addEventListener('click', function() {
+        settingsPopup.style.display = 'block';
+    });
+
+    settingsCloseButton.addEventListener('click', function() {
+        settingsPopup.style.display = 'none';
+    });
+
+    imageDisplayCheckbox.addEventListener('change', function() {
+        localStorage.setItem('imageDisplay', this.checked);
+        applyImageDisplaySetting();
+    });
+
+    function applyImageDisplaySetting() {
+        const displayImages = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.style.display = displayImages ? '' : 'none';
+        });
+    }
+
+    applyImageDisplaySetting();
+    imageDisplayCheckbox.checked = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
 });
