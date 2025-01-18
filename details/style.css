@@ -158,6 +158,10 @@ th, td {
     font-size: 12px;
 }
 
+td.live-skill-table-container {
+    font-size: 8px;
+}
+
 th {
     background-color: #f2f2f2;
 }
@@ -446,10 +450,6 @@ h2::before {
 
     .live-skill-table-container table {
         width: 100%;
-    }
-
-    .live-skill-table-container th, .live-skill-table-container td {
-        font-size: 10px !important;
     }
 }
 
