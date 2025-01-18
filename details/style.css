@@ -158,10 +158,6 @@ th, td {
     font-size: 12px;
 }
 
-td.live-skill-table-container {
-    font-size: 8px;
-}
-
 th {
     background-color: #f2f2f2;
 }
@@ -442,15 +438,6 @@ h2::before {
     .popup, .export-popup, .import-popup {
         width: 90%;
     }
-
-    .live-skill-table-container {
-        overflow-x: auto;
-        width: 100%;
-    }
-
-    .live-skill-table-container table {
-        width: 100%;
-    }
 }
 
 .br-sp {
@@ -461,4 +448,13 @@ h2::before {
     .br-sp {
         display: block !important;
     }
+}
+
+.live-skill-table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.live-skill-table-container table {
+    width: 100%;
 }
