@@ -102,6 +102,7 @@ th {
     .banner {
         text-align: center;
         font-size: 100%;
+        width: 105%;
     }
 
     h1 {
