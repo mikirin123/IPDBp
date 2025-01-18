@@ -449,7 +449,7 @@ h2::before {
     }
 
     .live-skill-table-container th, .live-skill-table-container td {
-        font-size: 10px!important;
+        font-size: 10px !important;
     }
 }
 
@@ -459,6 +459,6 @@ h2::before {
 
 @media (max-width: 768px) {
     .br-sp {
-        display:block;
+        display: block !important;
     }
 }
