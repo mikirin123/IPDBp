@@ -102,7 +102,6 @@ function resetFilters() {
         row.style.display = '';
     });
 
-    // 並び替えを解除
     rows.sort((a, b) => {
         const aId = parseInt(a.getElementsByTagName('td')[0].innerText);
         const bId = parseInt(b.getElementsByTagName('td')[0].innerText);

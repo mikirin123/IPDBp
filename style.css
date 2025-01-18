@@ -3,7 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    min-width: 1200px; /* ページの幅を一定に保つ */
+    min-width: 1200px;
 }
 
 h1 {
@@ -14,13 +14,14 @@ h1 {
 h3 {
     display: inline;
 }
+
 .banner {
     background-color: #3200FF;
     color: white;
-    text-align: left; /* 文字を左寄せに変更 */
+    text-align: left;
     padding: 10px 20px;
     font-size: 24px;
-    position: relative; /* 相対位置を設定 */
+    position: relative;
 }
 
 .banner .menu {
@@ -47,7 +48,7 @@ h3 {
     padding: 10px;
     text-decoration: none;
     color: black;
-    font-size: 16px; /* 文字サイズを16pxに変更 */
+    font-size: 16px;
 }
 
 .menu-content a:hover {
@@ -80,8 +81,8 @@ h3 {
 .filters input[type="radio"] {
     font-size: 12px;
     width: auto;
-    accent-color: #3200FF; /* 追加 */
-    vertical-align: middle; /* 追加 */
+    accent-color: #3200FF;
+    vertical-align: middle;
 }
 
 .filters button[type="button"] {
@@ -182,9 +183,9 @@ h2::before {
     background-color: white;
     border: 1px solid #ddd;
     z-index: 2;
-    width: 500px; /* 幅を500pxに変更 */
+    width: 500px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-bottom: 50px; /* 閉じるボタンのための余白を追加 */
+    padding-bottom: 50px;
 }
 
 .popup-header {
@@ -348,12 +349,12 @@ h2::before {
 
 @media (max-width: 768px) {
     body {
-        min-width: 100%; /* ページの幅をデバイスに合わせる */
+        min-width: 100%;
     }
 
     .banner {
-        text-align: center; /* バナーの文字を中央寄せに変更 */
-        font-size:100%;
+        text-align: center;
+        font-size: 100%;
     }
 
     .banner .menu {
