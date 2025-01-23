@@ -24,6 +24,24 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.back-button {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: #3200FF;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #3200FF;
+}
+
+.back-button:hover {
+    background-color: #3200FF;
+    color: white;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
