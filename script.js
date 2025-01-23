@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr">twitter(@miki_aipr)</a>までお願いします。';
                 popup.style.display = 'block';
             } else if (menuName === '更新情報') {
-                popupContent.innerHTML = '2025/1/18更新<br><br>ゲームリリース時点の登場アイドルを追加しました。';
+                popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><br>2025/1/18更新<br><br>・ゲームリリース時点の登場アイドルの追加';
                 popup.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
                 popupContent.innerText = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const popupHeader = document.querySelector('.popup-header');
         const popupContent = document.querySelector('.popup-content');
         popupHeader.innerText = '更新情報';
-        popupContent.innerHTML = '2025/1/18更新<br><br>ゲームリリース時点の登場アイドルを追加しました。';
+        popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善';
         document.querySelector('.popup').style.display = 'block';
     });
 
