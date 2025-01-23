@@ -13,6 +13,7 @@ function applyFilters() {
         keyword: formData.get('keyword'),
         possession: formData.get('possession')
     };
+    const sortOrder = formData.get('sort-order') || 'asc';
 
     const rows = Array.from(document.querySelectorAll('#character-table tr:not(:first-child)'));
     rows.forEach(row => {
@@ -84,9 +85,17 @@ function applyFilters() {
         rows.sort((a, b) => {
             const aCells = a.getElementsByTagName('td');
             const bCells = b.getElementsByTagName('td');
-            const aValue = parseInt(aCells[filters.sort === 'ボーカル' ? 8 : filters.sort === 'ダンス' ? 9 : filters.sort === 'ビジュアル' ? 10 : 11].innerText);
-            const bValue = parseInt(bCells[filters.sort === 'ボーカル' ? 8 : filters.sort === 'ダンス' ? 9 : filters.sort === 'ビジュアル' ? 10 : 11].innerText);
-            return bValue - aValue;
+            let comparison = 0;
+            if (filters.sort === 'id') {
+                const aId = parseInt(aCells[0].innerText);
+                const bId = parseInt(bCells[0].innerText);
+                comparison = aId - bId;
+            } else {
+                const aValue = parseInt(aCells[filters.sort === 'ボーカル' ? 8 : filters.sort === 'ダンス' ? 9 : filters.sort === 'ビジュアル' ? 10 : 11].innerText);
+                const bValue = parseInt(bCells[filters.sort === 'ボーカル' ? 8 : filters.sort === 'ダンス' ? 9 : filters.sort === 'ビジュアル' ? 10 : 11].innerText);
+                comparison = aValue - bValue;
+            }
+            return sortOrder === 'asc' ? comparison : -comparison;
         });
 
         const table = document.getElementById('character-table');
@@ -128,10 +137,14 @@ document.getElementById('scrollToTopBtn').addEventListener('click', function() {
 
 let possessionMode = false;
 let possessedCards = new Set();
+let initialPossessedCards = new Set();
 
 function togglePossessionMode() {
     possessionMode = !possessionMode;
     const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
+    if (possessionMode) {
+        initialPossessedCards = new Set(possessedCards);
+    }
     rows.forEach(row => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -164,6 +177,15 @@ function selectAllPossession() {
         const checkbox = row.cells[2].querySelector('.checkbox');
         checkbox.checked = true;
         possessedCards.add(row.cells[2].innerText);
+    });
+}
+
+function deselectAllPossession() {
+    const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
+    rows.forEach(row => {
+        const checkbox = row.cells[2].querySelector('.checkbox');
+        checkbox.checked = false;
+        possessedCards.delete(row.cells[2].innerText);
     });
 }
 
@@ -205,6 +227,19 @@ function saveImportedPossession() {
     togglePossessionMode();
 }
 
+function exitWithoutSaving() {
+    possessedCards = new Set(initialPossessedCards);
+    const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
+    rows.forEach(row => {
+        const checkbox = row.cells[2].querySelector('.checkbox');
+        if (checkbox) {
+            checkbox.remove();
+        }
+    });
+    document.querySelector('.possession-buttons').style.display = 'none';
+    possessionMode = false;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const menu = document.querySelector('.menu');
     const menuContent = document.querySelector('.menu-content');
@@ -230,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (menuName === 'エクスポート' || menuName === 'インポート') {
                 menuContent.style.display = 'none';
             } else if (menuName === 'つかいかた') {
-                popupContent.innerText = 'アイプラのゲーム内で実装されている\nアイドルの一覧になります。\n\n絞り込み・検索機能も付いているので\nご活用ください';
+                popupContent.innerText = 'アイプラのゲーム内で実装されている\nアイドルの詳細を確認できます。\n\nフィルタ・並び替え・検索機能や\n所持アイドルチェック機能もご活用ください。';
                 popup.style.display = 'block';
             } else if (menuName === 'このツールについて') {
                 popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr">twitter(@miki_aipr)</a>までお願いします。';
@@ -280,6 +315,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.import-popup button.close').addEventListener('click', function() {
         document.querySelector('.import-popup').style.display = 'none';
     });
+
+    document.querySelector('.possession-buttons .deselect-all').addEventListener('click', deselectAllPossession);
+    document.querySelector('.possession-buttons .exit-without-saving').addEventListener('click', exitWithoutSaving);
 
     const hintIcons = document.querySelectorAll('.hint-icon');
     const hintPopups = document.querySelectorAll('.hint-popup');

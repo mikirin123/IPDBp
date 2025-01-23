@@ -27,7 +27,7 @@
                 <a href="#" id="settings">設定</a>
             </div>
         </div>
-        <div class="last-updated">最終更新日時: 2025-01-18 23:15:19 <a href="#" id="news">[詳細]</a></div>
+        <div class="last-updated">最終更新日時: 2025-01-23 16:31:17 <a href="#" id="news">[詳細]</a></div>
         <div class="popup">
             <div class="popup-header"></div>
             <div class="popup-content"></div>
@@ -38,10 +38,10 @@
                 <h2>フィルタ</h2>
                 <form id="filter-form">
                     <div>
-                        <h3>キャラ</h3>
+                        <h3 id="no_br">キャラ</h3>
                         <div class="hint-icon">?</div>
                         <div class="hint-popup">コラボキャラは入手方法からフィルタできます</div>
-                        <br><br>
+                        <br>
                         <select name="character">
                             <option value="">すべて</option>
                             <option value="長瀬琴乃">長瀬琴乃</option>
@@ -67,20 +67,18 @@
                             <option value="長瀬麻奈">長瀬麻奈</option>
                         </select>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>初期レアリティ</h3>
-                        <br><br>
                         <label><input type="checkbox" name="rarity" value="★1">★1</label>
                         <label><input type="checkbox" name="rarity" value="★2">★2</label>
                         <label><input type="checkbox" name="rarity" value="★3">★3</label>
                         <label><input type="checkbox" name="rarity" value="★4">★4</label>
                         <label><input type="checkbox" name="rarity" value="★5">★5</label>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>入手方法</h3>
-                        <br><br>
                         <select name="obtain">
                             <option value="">すべて</option>
                             <option value="恒常">恒常</option>
@@ -93,34 +91,30 @@
                             <option value="その他">その他</option>
                         </select>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>傾向</h3>
-                        <br><br>
                         <label><input type="checkbox" name="trend" value="ボーカル"><font color="#FF469D">ボーカル</font></label>
                         <label><input type="checkbox" name="trend" value="ダンス"><font color="#3ABAFF">ダンス</font></label>
                         <label><input type="checkbox" name="trend" value="ビジュアル"><font color="#FFA900">ビジュアル</font></label>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>タイプ</h3>
-                        <br><br>
                         <label><input type="checkbox" name="type" value="スコアラー">スコアラー</label>
                         <label><input type="checkbox" name="type" value="バッファー">バッファー</label>
                         <label><input type="checkbox" name="type" value="サポーター">サポーター</label>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>スキル構成</h3>
-                        <br><br>
                         <label><input type="checkbox" name="skill" value="SP所持">SP所持</label>
                         <label><input type="checkbox" name="skill" value="SP未所持">SP未所持</label>
                         <label><input type="checkbox" name="skill" value="AA">AA</label>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>エール</h3>
-                        <br><br>
                         <select name="support">
                             <option value="">すべて</option>
                             <option value="なし">なし</option>
@@ -144,18 +138,24 @@
                             <option value="元気回復アップ">元気回復アップ</option>
                         </select>
                     </div>
-                    <br>
+                    
                     <div>
                         <h3>所持アイドル</h3>
-                        <br><br>
+                        
                         <label><input type="checkbox" name="possession" value="所持">所持アイドルのみ表示</label>
                     </div>
                     <div>
                         <h2>並び替え</h2>
-                        <label><input type="radio" name="sort" value="ボーカル"><font color="#FF469D">ボーカル</font></label>
+                        <label><input type="radio" name="sort" value="id" id="sort-id" checked>実装順</label>
+                        
+                        <label><input type="radio" name="sort" value="ボーカル" ><font color="#FF469D">ボーカル</font></label>
                         <label><input type="radio" name="sort" value="ダンス"><font color="#3ABAFF">ダンス</font></label>
                         <label><input type="radio" name="sort" value="ビジュアル"><font color="#FFA900">ビジュアル</font></label>
                         <label><input type="radio" name="sort" value="スタミナ">スタミナ</label>
+                        <div class="sort-order">
+                            <label><input type="radio" name="sort-order" value="asc" checked>昇順</label>
+                            <label><input type="radio" name="sort-order" value="desc">降順</label>
+                        </div>
                     </div>
                     <div>
                         <h2>キーワード検索</h2>
@@ -474,8 +474,7 @@
 </td><td>54665
 </td><td>86202
 </td><td>63075
-</td><td>6380</td><td class="hidden">
-【SP】ここから宇宙へ！
+</td><td>6380</td><td class="hidden">【SP】ここから宇宙へ！
 </td><td class="hidden">2000%のスコア獲得 スタミナ:562
 </td><td class="hidden">【A】水面の私へ
 </td><td class="hidden">520%のスコア獲得、残スタミナが多い程効果上昇 スタミナ:188 CT:50
@@ -544,7 +543,7 @@
 </td><td>81891
 </td><td>59921
 </td><td>6061</td><td class="hidden">【SP】必ずトップになろう！
-</td><td class="hidden">1200%のスコア獲得、強化効果が多い程効果上昇 ダンスアップ状態の時 550%のスコア獲得 スタミナ:524
+</td><td class="hidden">1200%のスコア獲得、強化効果が多い程効果上昇 ダンス上昇状態の時 550%のスコア獲得 スタミナ:524
 </td><td class="hidden">【A】家族の力
 </td><td class="hidden">530%のスコア獲得 スタミナ:149 CT:30
 </td><td class="hidden">【P】負けない気持ち
@@ -608,7 +607,7 @@
 .jpeg" width="50" alt="秘密会議
  天動瑠依"><br><a href="details/天動瑠依 秘密会議
 .html">秘密会議
- 天動瑠依</a></td><td class="hidden">★5</td><td style="color:#FFA900">ビジュアル</td><td>サポーター</td><td class="hidden">APP</td><td class="hidden">なし</td><td>58974
+ 天動瑠依</a></td><td class="hidden">★3</td><td style="color:#FFA900">ビジュアル</td><td>サポーター</td><td class="hidden">APP</td><td class="hidden">なし</td><td>58974
 </td><td>51825
 </td><td>73271
 </td><td>4437</td><td class="hidden">【A】作戦通りに
@@ -890,8 +889,7 @@
 </td><td class="hidden">【P】駆け引き上手
 </td><td class="hidden">全員に5段階ビートスコア上昇効果[45ビート] 全員の低下効果回復 スタミナ:280 CT:50
 </td><td class="hidden">【P】差し伸べられる手
-</td><td class="hidden">誰かがSPスキル発動前 対象1人のスタミナを5800回復 対象1人に8段階消費スタミナ低下効果[33ビート] スタミナ:277 CT:50 エール
-</td><td>アクセサリアップ</td><td class="hidden">限定</td><td class="hidden">2021/6/24</td></tr><tr><td class="hidden">52</td><td class="hidden">長瀬琴乃</td><td><img src="images/idols_icon/長瀬琴乃 出発の時
+</td><td class="hidden">誰かがSPスキル発動前 対象1人のスタミナを5800回復 対象1人に8段階消費スタミナ低下効果[33ビート] スタミナ:277 CT:50</td><td>アクセサリアップ</td><td class="hidden">限定</td><td class="hidden">2021/6/24</td></tr><tr><td class="hidden">52</td><td class="hidden">長瀬琴乃</td><td><img src="images/idols_icon/長瀬琴乃 出発の時
 .jpeg" width="50" alt="出発の時
  長瀬琴乃"><br><a href="details/長瀬琴乃 出発の時
 .html">出発の時
@@ -948,8 +946,10 @@
             </div>
         </div>
         <div class="possession-buttons" style="display: none;">
-            <button onclick="savePossession()">保存</button>
-            <button class="select-all" onclick="selectAllPossession()">全て選択</button>
+            <button onclick="savePossession()">保存して終了</button>
+            <button class="select-all" onclick="selectAllPossession()">全選択</button>
+            <button class="deselect-all" onclick="deselectAllPossession()">全解除</button>
+            <button class="exit-without-saving" onclick="exitWithoutSaving()">保存せず終了</button>
         </div>
         <div class="export-popup">
             <textarea readonly></textarea>
