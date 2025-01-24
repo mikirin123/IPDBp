@@ -597,7 +597,7 @@ h2::before {
         padding: 5px 10px;
     }
 
-    .popup, .export-popup, .import-popup ,.settings-popup-header {
+    .popup, .export-popup, .import-popup ,.settings-popup {
         width: 90%;
     }
 
