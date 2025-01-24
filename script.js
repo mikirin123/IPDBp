@@ -379,4 +379,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     applyImageDisplaySetting();
     imageDisplayCheckbox.checked = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
+
+    function updateColumnNamesForMobile() {
+        const isMobile = window.innerWidth <= 768;
+        const tableHeaders = document.querySelectorAll('#character-table th');
+        tableHeaders.forEach(header => {
+            if (header.innerText.includes('ボーカル') || header.innerText.includes('Vo.')) {
+                header.innerHTML = isMobile ? '<font color="#FF469D">Vo.</font>' : '<font color="#FF469D">ボーカル</font>';
+            } else if (header.innerText.includes('ダンス') || header.innerText.includes('Da.')) {
+                header.innerHTML = isMobile ? '<font color="#3ABAFF">Da.</font>' : '<font color="#3ABAFF">ダンス</font>';
+            } else if (header.innerText.includes('ビジュアル') || header.innerText.includes('Vi.')) {
+                header.innerHTML = isMobile ? '<font color="#FFA900">Vi.</font>' : '<font color="#FFA900">ビジュアル</font>';
+            } else if (header.innerText.includes('スタミナ') || header.innerText.includes('St.')) {
+                header.innerHTML = isMobile ? 'St.' : 'スタミナ';
+            }
+        });
+    }
+
+    window.addEventListener('resize', updateColumnNamesForMobile);
+    updateColumnNamesForMobile();
 });
