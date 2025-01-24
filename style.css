@@ -99,6 +99,10 @@ h3 {
     margin: 5px 0;
 }
 
+.filters input[type="checkbox"]{
+    margin-right: 2px;
+}
+
 .filters button[type="button"] {
     background-color: #3200FF;
     color: white;
@@ -160,7 +164,7 @@ table {
 
 th, td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 8px;
     white-space: nowrap;
     font-size: 0.9em;
 }
@@ -480,6 +484,7 @@ h2::before {
     .table-container {
         width: 100%;
         overflow-x: auto;
+        padding: 15px;
     }
 
     table {
