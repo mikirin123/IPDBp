@@ -73,10 +73,21 @@ function applyFilters() {
         if (show) {
             if (character.trend === 'ボーカル') {
                 cells[4].style.color = '#FF469D';
+                cells[4].classList.add('trend-vocal');
             } else if (character.trend === 'ダンス') {
                 cells[4].style.color = '#3ABAFF';
+                cells[4].classList.add('trend-dance');
             } else if (character.trend === 'ビジュアル') {
                 cells[4].style.color = '#FFA900';
+                cells[4].classList.add('trend-visual');
+            }
+
+            if (character.type === 'スコアラー') {
+                cells[5].classList.add('type-scorer');
+            } else if (character.type === 'バッファー') {
+                cells[5].classList.add('type-buffer');
+            } else if (character.type === 'サポーター') {
+                cells[5].classList.add('type-supporter');
             }
         }
     });

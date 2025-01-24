@@ -511,5 +511,42 @@ h2::before {
     .popup, .export-popup, .import-popup {
         width: 90%;
     }
+
+    .trend-vocal {
+        background: url('images/k1_vocal.PNG') no-repeat center center;
+        background-size:75%;
+    }
+
+    .trend-dance {
+        background: url('images/k2_dance.PNG') no-repeat center center;
+        background-size: 75%;
+    }
+
+    .trend-visual {
+        background: url('images/k3_visual.PNG') no-repeat center center;
+        background-size: 75%;
+    }
+
+    .type-scorer {
+        background: url('images/t1_scorer.PNG') no-repeat center center;
+        background-size: 50%;
+    }
+
+    .type-buffer {
+        background: url('images/t2_buffer.PNG') no-repeat center center;
+        background-size: 50%;
+    }
+
+    .type-supporter {
+        background: url('images/t3_supporter.PNG') no-repeat center center;
+        background-size: 50%;
+    }
+
+    .trend-vocal, .trend-dance, .trend-visual,
+    .type-scorer, .type-buffer, .type-supporter {
+        text-indent: -9999px;
+        width: 50px; /* Adjust the width as needed */
+        height: 50px; /* Adjust the height as needed */
+    }
 }
 
