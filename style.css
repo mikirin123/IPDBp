@@ -490,9 +490,7 @@ h2::before {
     }
 
     #scrollToTopBtn {
-        bottom: 10px;
-        right: 10px;
-        padding: 5px 10px;
+        display: none;
     }
 
     .popup, .export-popup, .import-popup {
