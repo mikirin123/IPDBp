@@ -99,8 +99,9 @@ h3 {
     margin: 5px 0;
 }
 
-.filters input[type="checkbox"]{
-    margin-right: 2px;
+.filters input[type="checkbox"],
+.filters input[type="radio"]{
+    margin-right: 3px;
 }
 
 .filters button[type="button"] {
