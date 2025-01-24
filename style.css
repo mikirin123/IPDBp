@@ -18,6 +18,11 @@ h2, h3 {
     color: #3200FF;
 }
 
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .banner {
     background-color: #3200FF;
     color: white;
@@ -194,6 +199,9 @@ h2 {
     position: relative;
     padding-left: 20px;
     font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
 }
 
 h2::before {
@@ -326,7 +334,6 @@ h2::before {
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    padding: 10px;
 }
 
 .export-popup button {
@@ -364,7 +371,7 @@ h2::before {
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    padding: 10px;
+    
 }
 
 .import-popup button {
