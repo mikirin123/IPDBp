@@ -337,13 +337,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.popup').style.display = 'block';
     });
 
-    document.getElementById('news').addEventListener('click', function() {
-        const popupHeader = document.querySelector('.popup-header');
-        const popupContent = document.querySelector('.popup-content');
-        popupHeader.innerText = '更新情報';
-        popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善';
-        document.querySelector('.popup').style.display = 'block';
-    });
+    document.getElementById('news').addEventListener('click', openNewsPopup);
+    document.querySelector('.news-popup-overlay').addEventListener('click', closeNewsPopup);
+    document.querySelector('.popup-close').addEventListener('click', closeNewsPopup);
 
     document.getElementById('possession-check').addEventListener('click', togglePossessionMode);
     document.getElementById('possession-export').addEventListener('click', exportPossession);
@@ -459,3 +455,25 @@ function closeSettingsPopup() {
 document.querySelector('#settings').addEventListener('click', openSettingsPopup);
 document.querySelector('.settings-popup button.close').addEventListener('click', closeSettingsPopup);
 document.querySelector('.settings-popup-overlay').addEventListener('click', closeSettingsPopup);
+
+function openNewsPopup() {
+    const popup = document.querySelector('.popup');
+    const popupOverlay = document.querySelector('.news-popup-overlay');
+    const popupHeader = document.querySelector('.popup-header');
+    const popupContent = document.querySelector('.popup-content');
+    popupHeader.innerText = '更新情報';
+    popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><br>2025/1/18更新<br><br>・ゲームリリース時点の登場アイドルの追加';
+    popup.style.display = 'block';
+    popupOverlay.style.display = 'block';
+}
+
+function closeNewsPopup() {
+    const popup = document.querySelector('.popup');
+    const popupOverlay = document.querySelector('.news-popup-overlay');
+    popup.style.display = 'none';
+    popupOverlay.style.display = 'none';
+}
+
+document.getElementById('news').addEventListener('click', openNewsPopup);
+document.querySelector('.news-popup-overlay').addEventListener('click', closeNewsPopup);
+document.querySelector('.popup-close').addEventListener('click', closeNewsPopup);
