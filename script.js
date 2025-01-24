@@ -204,6 +204,7 @@ function deselectAllPossession() {
 
 function exportPossession() {
     const exportPopup = document.querySelector('.export-popup');
+    const exportPopupOverlay = document.querySelector('.export-popup-overlay');
     const textarea = exportPopup.querySelector('textarea');
     const ids = Array.from(possessedCards).map(cardName => {
         const row = Array.from(document.querySelectorAll('#character-table tr')).find(row => row.cells[2].innerText === cardName);
@@ -211,6 +212,14 @@ function exportPossession() {
     }).filter(id => id !== '');
     textarea.value = ids.join('\n');
     exportPopup.style.display = 'block';
+    exportPopupOverlay.style.display = 'block';
+}
+
+function closeExportPopup() {
+    const exportPopup = document.querySelector('.export-popup');
+    const exportPopupOverlay = document.querySelector('.export-popup-overlay');
+    exportPopup.style.display = 'none';
+    exportPopupOverlay.style.display = 'none';
 }
 
 function copyToClipboard() {
@@ -221,7 +230,16 @@ function copyToClipboard() {
 
 function importPossession() {
     const importPopup = document.querySelector('.import-popup');
+    const importPopupOverlay = document.querySelector('.import-popup-overlay');
     importPopup.style.display = 'block';
+    importPopupOverlay.style.display = 'block';
+}
+
+function closeImportPopup() {
+    const importPopup = document.querySelector('.import-popup');
+    const importPopupOverlay = document.querySelector('.import-popup-overlay');
+    importPopup.style.display = 'none';
+    importPopupOverlay.style.display = 'none';
 }
 
 function saveImportedPossession() {
@@ -280,22 +298,34 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (menuName === 'つかいかた') {
                 popupContent.innerText = 'アイプラのゲーム内で実装されている\nアイドルの詳細を確認できます。\n\nフィルタ・並び替え・検索機能や\n所持アイドルチェック機能もご活用ください。';
                 popup.style.display = 'block';
+                popupOverlay.style.display = 'block';
             } else if (menuName === 'このツールについて') {
                 popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr">twitter(@miki_aipr)</a>までお願いします。';
                 popup.style.display = 'block';
+                popupOverlay.style.display = 'block';
             } else if (menuName === '更新情報') {
                 popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><br>2025/1/18更新<br><br>・ゲームリリース時点の登場アイドルの追加';
                 popup.style.display = 'block';
+                popupOverlay.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
                 popupContent.innerText = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
                 popup.style.display = 'block';
+                popupOverlay.style.display = 'block';
             }
         });
     });
 
-    popupClose.addEventListener('click', function() {
+    const popupOverlay = document.createElement('div');
+    popupOverlay.classList.add('popup-overlay');
+    document.body.appendChild(popupOverlay);
+
+    function closePopup() {
         popup.style.display = 'none';
-    });
+        popupOverlay.style.display = 'none';
+    }
+
+    popupClose.addEventListener('click', closePopup);
+    popupOverlay.addEventListener('click', closePopup);
 
     possessedCards = new Set(JSON.parse(localStorage.getItem('possessedCards') || '[]'));
 
@@ -320,14 +350,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('possession-import').addEventListener('click', importPossession);
 
     document.querySelector('.export-popup button.copy').addEventListener('click', copyToClipboard);
-    document.querySelector('.export-popup button.close').addEventListener('click', function() {
-        document.querySelector('.export-popup').style.display = 'none';
-    });
+    document.querySelector('.export-popup button.close').addEventListener('click', closeExportPopup);
+    document.querySelector('.export-popup-overlay').addEventListener('click', closeExportPopup);
 
     document.querySelector('.import-popup button.save').addEventListener('click', saveImportedPossession);
-    document.querySelector('.import-popup button.close').addEventListener('click', function() {
-        document.querySelector('.import-popup').style.display = 'none';
-    });
+    document.querySelector('.import-popup button.close').addEventListener('click', closeImportPopup);
+    document.querySelector('.import-popup-overlay').addEventListener('click', closeImportPopup);
 
     document.querySelector('.possession-buttons .deselect-all').addEventListener('click', deselectAllPossession);
     document.querySelector('.possession-buttons .exit-without-saving').addEventListener('click', exitWithoutSaving);
@@ -357,13 +385,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageDisplayCheckbox = settingsPopup.querySelector('input[name="image-display"]');
     const buttonLayoutCheckbox = settingsPopup.querySelector('input[name="button-layout"]');
 
-    settingsButton.addEventListener('click', function() {
-        settingsPopup.style.display = 'block';
-    });
-
-    settingsCloseButton.addEventListener('click', function() {
-        settingsPopup.style.display = 'none';
-    });
+    settingsButton.addEventListener('click', openSettingsPopup);
+    settingsCloseButton.addEventListener('click', closeSettingsPopup);
 
     imageDisplayCheckbox.addEventListener('change', function() {
         localStorage.setItem('imageDisplay', this.checked);
@@ -418,3 +441,21 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', updateColumnNamesForMobile);
     updateColumnNamesForMobile();
 });
+
+function openSettingsPopup() {
+    const settingsPopup = document.querySelector('.settings-popup');
+    const settingsPopupOverlay = document.querySelector('.settings-popup-overlay');
+    settingsPopup.style.display = 'block';
+    settingsPopupOverlay.style.display = 'block';
+}
+
+function closeSettingsPopup() {
+    const settingsPopup = document.querySelector('.settings-popup');
+    const settingsPopupOverlay = document.querySelector('.settings-popup-overlay');
+    settingsPopup.style.display = 'none';
+    settingsPopupOverlay.style.display = 'none';
+}
+
+document.querySelector('#settings').addEventListener('click', openSettingsPopup);
+document.querySelector('.settings-popup button.close').addEventListener('click', closeSettingsPopup);
+document.querySelector('.settings-popup-overlay').addEventListener('click', closeSettingsPopup);
