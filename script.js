@@ -355,6 +355,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsButton = document.querySelector('#settings');
     const settingsCloseButton = settingsPopup.querySelector('.close');
     const imageDisplayCheckbox = settingsPopup.querySelector('input[name="image-display"]');
+    const buttonLayoutCheckbox = settingsPopup.querySelector('input[name="button-layout"]');
 
     settingsButton.addEventListener('click', function() {
         settingsPopup.style.display = 'block';
@@ -369,6 +370,11 @@ document.addEventListener('DOMContentLoaded', function() {
         applyImageDisplaySetting();
     });
 
+    buttonLayoutCheckbox.addEventListener('change', function() {
+        localStorage.setItem('buttonLayout', this.checked);
+        applyButtonLayoutSetting();
+    });
+
     function applyImageDisplaySetting() {
         const displayImages = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
         const images = document.querySelectorAll('img');
@@ -377,8 +383,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function applyButtonLayoutSetting() {
+        const horizontalLayout = JSON.parse(localStorage.getItem('buttonLayout') || 'false');
+        const possessionButtons = document.querySelector('.possession-buttons');
+        if (horizontalLayout) {
+            possessionButtons.style.flexDirection = 'row';
+        } else {
+            possessionButtons.style.flexDirection = 'column';
+        }
+    }
+
     applyImageDisplaySetting();
     imageDisplayCheckbox.checked = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
+
+    applyButtonLayoutSetting();
+    buttonLayoutCheckbox.checked = JSON.parse(localStorage.getItem('buttonLayout') || 'false');
 
     function updateColumnNamesForMobile() {
         const isMobile = window.innerWidth <= 768;

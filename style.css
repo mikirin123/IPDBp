@@ -421,6 +421,11 @@ h2::before {
     background-color: #1a0080;
 }
 
+.settings-popup label {
+    display: block;
+    margin-bottom: 10px;
+}
+
 .last-updated {
     text-align: left;
     margin-top: 10px;
@@ -498,8 +503,16 @@ h2::before {
     }
 
     .possession-buttons {
-        left: 50%;
-        transform: translateX(-50%);
+        right: 10px;
+        left: auto;
+        transform: none;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .possession-buttons button {
+        width: 100%;
+        padding: 10px;
     }
 
     #scrollToTopBtn {
@@ -515,32 +528,32 @@ h2::before {
 
     .trend-vocal {
         background: url('images/k1_vocal.png') no-repeat center center;
-        background-size:70%;
+        background-size:75%;
     }
 
     .trend-dance {
         background: url('images/k2_dance.png') no-repeat center center;
-        background-size: 70%;
+        background-size: 75%;
     }
 
     .trend-visual {
         background: url('images/k3_visual.png') no-repeat center center;
-        background-size: 70%;
+        background-size: 75%;
     }
 
     .type-scorer {
         background: url('images/t1_scorer.png') no-repeat center center;
-        background-size: 45%;
+        background-size: 50%;
     }
 
     .type-buffer {
         background: url('images/t2_buffer.png') no-repeat center center;
-        background-size: 45%;
+        background-size: 50%;
     }
 
     .type-supporter {
         background: url('images/t3_supporter.png') no-repeat center center;
-        background-size: 45%;
+        background-size: 50%;
     }
 
     .trend-vocal, .trend-dance, .trend-visual,
