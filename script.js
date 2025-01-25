@@ -1,3 +1,5 @@
+const update_info = '2025/1/25<br><br>・スマホ時の表示簡略化<br>・ポップアップにオーバーレイ追加<br>・オーバーレイクリック時にポップアップ消去<br>・設定に所持キャラチェックモードボタン配置追加<br><br>2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><br>2025/1/18更新<br><br>・ゲームリリース時点の登場アイドルの追加';
+
 function applyFilters() {
     const form = document.getElementById('filter-form');
     const formData = new FormData(form);
@@ -304,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === '更新情報') {
-                popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><br>2025/1/18更新<br><br>・ゲームリリース時点の登場アイドルの追加';
+                popupContent.innerHTML = update_info;
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
@@ -333,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const popupHeader = document.querySelector('.popup-header');
         const popupContent = document.querySelector('.popup-content');
         popupHeader.innerText = '所持アイドルチェックについて';
-        popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されているため、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すには、テキストをコピーして移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストをペーストして、インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p>';
+        popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されており、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーして移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストを貼り付けて、インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p>';
         document.querySelector('.popup').style.display = 'block';
     });
 
@@ -462,7 +464,7 @@ function openNewsPopup() {
     const popupHeader = document.querySelector('.popup-header');
     const popupContent = document.querySelector('.popup-content');
     popupHeader.innerText = '更新情報';
-    popupContent.innerHTML = '2025/1/23更新<br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><br>2025/1/18更新<br><br>・ゲームリリース時点の登場アイドルの追加';
+    popupContent.innerHTML = update_info;
     popup.style.display = 'block';
     popupOverlay.style.display = 'block';
 }
