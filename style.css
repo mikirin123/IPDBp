@@ -58,13 +58,14 @@ h3 {
 .menu-content {
     display: none;
     position: absolute;
-    right: 30px;
+    right: 45px;
     top: 100%;
     background-color: white;
     color: black;
     border: 1px solid #ddd;
     z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
 }
 
 .menu-content a {
@@ -562,6 +563,9 @@ h2::before {
         align-items: center;
     }
 
+    .menu-content {
+        font-size: 15px;
+    }
     .filters {
         width: 90%;
         margin-bottom: 20px;
