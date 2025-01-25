@@ -112,6 +112,7 @@ th {
     .container {
         flex-direction: column;
         padding: 10px;
+        padding-top: 50px; /* Adjust padding to avoid overlap */
     }
 
     .left-column, .right-column {
@@ -128,7 +129,7 @@ th {
     }
 
     .banner {
-        text-align: center;
+        text-align:left; /* Change text alignment to left */
         font-size: 1.2em;
     }
 

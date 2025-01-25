@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.banner_title').addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    const bannerTitle = document.querySelector('.banner_title');
+    bannerTitle.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 });
