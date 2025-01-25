@@ -20,13 +20,17 @@ h1 {
     text-align: left;
     padding: 15px 30px;
     font-size: 1.5em;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .back-button {
     position: absolute;
-    right: 30px;
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
     background-color: white;
@@ -46,6 +50,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    padding-top: 70px; /* Adjusted for fixed banner */
 }
 
 .left-column {
@@ -95,6 +100,9 @@ th {
     display: none;
 }
 
+.banner_title {
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
     body {
