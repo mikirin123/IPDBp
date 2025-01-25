@@ -275,6 +275,11 @@ function exitWithoutSaving() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const menu = document.querySelector('.menu');
+    menu.tagName = 'button'; // Change the tag to button
+    menu.style.position = 'absolute';
+    menu.style.right = '60px'; // Adjusted from 30px to 50px
+    menu.style.top = '50%';
+    menu.style.transform = 'translateY(-50%)';
     const menuContent = document.querySelector('.menu-content');
     const popup = document.querySelector('.popup');
     const popupHeader = document.querySelector('.popup-header');
@@ -438,6 +443,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', updateColumnNamesForMobile);
     updateColumnNamesForMobile();
+
+    const bannerTitle = document.querySelector('.banner_title');
+    bannerTitle.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
 
 function openSettingsPopup() {

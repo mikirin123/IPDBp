@@ -29,17 +29,30 @@ h3 {
     text-align: left;
     padding: 15px 30px;
     font-size: 1.5em;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .banner .menu {
     position: absolute;
-    right: 30px;
+    right: 60px; /* Adjusted from 30px to 50px */
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 1.2em;
+    background-color: #3200FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.banner_title {
+    cursor: pointer;
 }
 
 .menu-content {
@@ -76,6 +89,7 @@ h3 {
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
+    padding-top: 70px; /* Adjusted for fixed banner */
 }
 
 .filters {
