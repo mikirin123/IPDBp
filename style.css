@@ -504,15 +504,6 @@ h2::before {
     text-align: left !important;
 }
 
-.last-updated {
-    text-align: left;
-    margin-top: 10px;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-    color: #555;
-    padding-left: 10px;
-}
-
 #no_br{
     display: inline-block;
 }
@@ -558,7 +549,7 @@ h2::before {
     }
 
     .banner {
-        text-align: center;
+        text-align: left; /* Change text alignment to left */
         font-size: 1.2em;
     }
 
