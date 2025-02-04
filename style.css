@@ -536,6 +536,10 @@ h2::before {
     max-width:max-content;
 }
 
+.news-content {
+    text-align: left;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;

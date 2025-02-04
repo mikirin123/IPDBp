@@ -1,4 +1,4 @@
-const update_info = '<b>2025/1/25更新</b><br><br>・スマホ時の表示簡略化<br>・ポップアップにオーバーレイ追加<br>・オーバーレイクリック時にポップアップ消去<br>・設定に所持キャラチェックモードボタン配置追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加';
+const update_info = '<div class="news-content"><b>2025/1/25更新</b><br><br>・スマホ時の表示簡略化<br>・ポップアップにオーバーレイ追加<br>・オーバーレイクリック時にポップアップ消去<br>・設定に所持キャラチェックモードボタン配置追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
 
 function applyFilters() {
     const form = document.getElementById('filter-form');
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
-                popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されており、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーして移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストを貼り付けて、インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p>';
+                popupContent.innerHTML = '<div class="news-content"><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br><b>エクスポート</b><br><br>所持アイドル情報はブラウザー上に保存されており、<br>別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><b>インポート</b><br><br>エクスポートしたテキストを貼り付けて<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p></div>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             }
