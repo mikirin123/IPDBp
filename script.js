@@ -146,8 +146,10 @@ window.onscroll = function() {
 };
 
 document.getElementById('scrollToTopBtn').addEventListener('click', function() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 let possessionMode = false;

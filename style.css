@@ -531,8 +531,7 @@ h2::before {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 3;
     border-radius: 5px;
-    max-width: 200px; /* Add max-width for better display */
-    word-wrap: break-word; /* Ensure text wraps within the popup */
+    max-width:max-content;
 }
 
 @media (max-width: 768px) {
