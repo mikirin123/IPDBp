@@ -245,6 +245,7 @@ h2::before {
     background-color: white;
     z-index: 2;
     width: 500px;
+    max-height: 70%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding-bottom: 50px;
     border-radius: 10px;
@@ -601,8 +602,19 @@ h2::before {
 
     .popup, .export-popup, .import-popup ,.settings-popup {
         width: 90%;
+        overflow-y: auto;
+        padding-bottom: 3%;
     }
 
+    .popup-header {
+        position: sticky;
+        top: 0;
+    }
+
+    .popup-close {
+        position: sticky;
+        bottom: 0;
+    }
     .trend-vocal {
         background: url('images/k1_vocal.png') no-repeat center center;
         background-size:75%;
