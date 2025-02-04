@@ -258,6 +258,7 @@ function saveImportedPossession() {
     });
     localStorage.setItem('possessedCards', JSON.stringify(Array.from(possessedCards)));
     document.querySelector('.import-popup').style.display = 'none';
+    document.querySelector('.import-popup-overlay').style.display = 'none'; // 追加
     togglePossessionMode();
     togglePossessionMode();
 }
@@ -338,9 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     possessedCards = new Set(JSON.parse(localStorage.getItem('possessedCards') || '[]'));
 
-    document.getElementById('news').addEventListener('click', openNewsPopup);
-    document.querySelector('.news-popup-overlay').addEventListener('click', closeNewsPopup);
-    document.querySelector('.popup-close').addEventListener('click', closeNewsPopup);
+
 
     document.getElementById('possession-check').addEventListener('click', togglePossessionMode);
     document.getElementById('possession-export').addEventListener('click', exportPossession);
@@ -464,25 +463,3 @@ function closeSettingsPopup() {
 document.querySelector('#settings').addEventListener('click', openSettingsPopup);
 document.querySelector('.settings-popup button.close').addEventListener('click', closeSettingsPopup);
 document.querySelector('.settings-popup-overlay').addEventListener('click', closeSettingsPopup);
-
-function openNewsPopup() {
-    const popup = document.querySelector('.popup');
-    const popupOverlay = document.querySelector('.news-popup-overlay');
-    const popupHeader = document.querySelector('.popup-header');
-    const popupContent = document.querySelector('.popup-content');
-    popupHeader.innerText = '更新情報';
-    popupContent.innerHTML = update_info;
-    popup.style.display = 'block';
-    popupOverlay.style.display = 'block';
-}
-
-function closeNewsPopup() {
-    const popup = document.querySelector('.popup');
-    const popupOverlay = document.querySelector('.news-popup-overlay');
-    popup.style.display = 'none';
-    popupOverlay.style.display = 'none';
-}
-
-document.getElementById('news').addEventListener('click', openNewsPopup);
-document.querySelector('.news-popup-overlay').addEventListener('click', closeNewsPopup);
-document.querySelector('.popup-close').addEventListener('click', closeNewsPopup);
