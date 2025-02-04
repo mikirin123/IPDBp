@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
-                popupContent.innerText = '所持アイドルチェックでは、保存、エクスポートを忘れずにしましょう。';
+                popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されており、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーして移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストを貼り付けて、インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             }
@@ -335,14 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
     popupOverlay.addEventListener('click', closePopup);
 
     possessedCards = new Set(JSON.parse(localStorage.getItem('possessedCards') || '[]'));
-
-    document.getElementById('possession-info').addEventListener('click', function() {
-        const popupHeader = document.querySelector('.popup-header');
-        const popupContent = document.querySelector('.popup-content');
-        popupHeader.innerText = '所持アイドルチェックについて';
-        popupContent.innerHTML = '<p style="text-align:left">○所持アイドルチェック<br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br>○エクスポート<br><br>所持アイドル情報はブラウザー上に保存されており、別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーして移行先の環境でインポートしてください。<br><br>○インポート<br><br>エクスポートしたテキストを貼り付けて、インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p>';
-        document.querySelector('.popup').style.display = 'block';
-    });
 
     document.getElementById('news').addEventListener('click', openNewsPopup);
     document.querySelector('.news-popup-overlay').addEventListener('click', closeNewsPopup);
@@ -368,15 +360,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     hintIcons.forEach((hintIcon, index) => {
         const hintPopup = hintPopups[index];
-        hintIcon.addEventListener('click', function() {
+        hintIcon.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent event from bubbling up
             hintPopup.style.display = hintPopup.style.display === 'block' ? 'none' : 'block';
         });
     });
 
     window.addEventListener('click', function(event) {
-        hintIcons.forEach((hintIcon, index) => {
-            const hintPopup = hintPopups[index];
-            if (!hintIcon.contains(event.target) && !hintPopup.contains(event.target)) {
+        hintPopups.forEach(hintPopup => {
+            if (!hintPopup.contains(event.target)) {
                 hintPopup.style.display = 'none';
             }
         });
