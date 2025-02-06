@@ -540,6 +540,17 @@ h2::before {
     text-align: left;
 }
 
+a.idol_link {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px dashed black;
+}
+
+a:hover.idol_link  {
+    background-color: #ddd;
+    border-bottom:none;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
