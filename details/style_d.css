@@ -104,6 +104,26 @@ th {
     cursor: pointer;
 }
 
+.table_details {
+    text-align: right;
+    margin-top: -15px;
+}
+
+hr {
+    border-top: 1px dashed #333;
+}
+
+a.idol_link {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px dashed black;
+}
+
+a:hover.idol_link  {
+    background-color: #ddd;
+    border-bottom:none;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
