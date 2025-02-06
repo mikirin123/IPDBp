@@ -169,4 +169,8 @@ a:hover.idol_link  {
     .back-button {
         display: none;
     }
+
+    .skill-details {
+        font-size: 0.8em;
+    }
 }
