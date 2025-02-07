@@ -85,7 +85,7 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 10px;
     word-wrap: break-word;
 }
@@ -110,7 +110,7 @@ th {
 }
 
 hr {
-    border-top: 1px dashed #333;
+    border-top: 2px dashed #333;
 }
 
 a.idol_link {
