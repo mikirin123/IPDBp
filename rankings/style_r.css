@@ -60,7 +60,7 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 2px solid rgb(102, 153, 204);
     padding: 10px;
     word-wrap: break-word;
 }
