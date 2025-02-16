@@ -696,5 +696,10 @@ a:hover.idol_link  {
         width: 50px; /* Adjust the width as needed */
         height: 50px; /* Adjust the height as needed */
     }
+
+    .search-bar-container {
+        width: 95%; /* Increase width for mobile */
+        margin: 70px auto 0 auto; /* Center align for mobile */
+    }
 }
 

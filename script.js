@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function() {
     searchBar.type = 'text';
     searchBar.id = 'search-bar';
     searchBar.className = 'search-bar';
-    searchBar.placeholder = 'アイドル名、衣装・ヘアスタイル、スキル名、スキル効果で検索';
+    searchBar.placeholder = 'アイドル名、衣装、スキル名、スキル効果で検索';
 
     searchBarContainer.appendChild(searchIcon);
     searchBarContainer.appendChild(searchBar);
