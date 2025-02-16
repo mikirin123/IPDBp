@@ -1,4 +1,4 @@
-const update_info = '<div class="news-content"><b>2025/2/16更新</b><br><br>・2022年12月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックモードのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
+const update_info = '<div class="news-content"><b>2025/2/16更新</b><br><br>・2023年3月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br>・検索バーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックモードのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
 
 function applyFilters() {
     const form = document.getElementById('filter-form');
@@ -12,10 +12,10 @@ function applyFilters() {
         skill: formData.getAll('skill'),
         support: formData.get('support'),
         sort: formData.get('sort'),
-        keyword: formData.get('keyword'),
         possession: formData.get('possession')
     };
     const sortOrder = formData.get('sort-order') || 'asc';
+    const keyword = document.getElementById('search-bar').value.toLowerCase();
 
     const rows = Array.from(document.querySelectorAll('#character-table tr:not(:first-child)'));
     rows.forEach(row => {
@@ -54,22 +54,19 @@ function applyFilters() {
             if (filters.skill.includes('AA') && !character.skill.includes('AA')) show = false;
         }
         if (filters.support && filters.support !== character.support) show = false;
-        if (filters.keyword) {
-            const keyword = filters.keyword.toLowerCase();
-            if (!(
-                character.card_name.toLowerCase().includes(keyword) ||
-                character.costume.toLowerCase().includes(keyword) ||
-                character.live_skill1_name.toLowerCase().includes(keyword) ||
-                character.live_skill1_effect.toLowerCase().includes(keyword) ||
-                character.live_skill2_name.toLowerCase().includes(keyword) ||
-                character.live_skill2_effect.toLowerCase().includes(keyword) ||
-                character.live_skill3_name.toLowerCase().includes(keyword) ||
-                character.live_skill3_effect.toLowerCase().includes(keyword)
-            )) {
-                show = false;
-            }
-        }
         if (filters.possession === '所持' && !possessedCards.has(character.card_name)) show = false;
+        if (keyword && !(
+            character.card_name.toLowerCase().includes(keyword) ||
+            character.costume.toLowerCase().includes(keyword) ||
+            character.live_skill1_name.toLowerCase().includes(keyword) ||
+            character.live_skill1_effect.toLowerCase().includes(keyword) ||
+            character.live_skill2_name.toLowerCase().includes(keyword) ||
+            character.live_skill2_effect.toLowerCase().includes(keyword) ||
+            character.live_skill3_name.toLowerCase().includes(keyword) ||
+            character.live_skill3_effect.toLowerCase().includes(keyword)
+        )) {
+            show = false;
+        }
 
         row.style.display = show ? '' : 'none';
         if (show) {
@@ -119,6 +116,7 @@ function applyFilters() {
 function resetFilters() {
     const form = document.getElementById('filter-form');
     form.reset();
+    document.getElementById('search-bar').value = '';
     const rows = Array.from(document.querySelectorAll('#character-table tr:not(:first-child)'));
     rows.forEach(row => {
         row.style.display = '';
@@ -339,8 +337,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     possessedCards = new Set(JSON.parse(localStorage.getItem('possessedCards') || '[]'));
 
-
-
     document.getElementById('possession-check').addEventListener('click', togglePossessionMode);
     document.getElementById('possession-export').addEventListener('click', exportPossession);
     document.getElementById('possession-import').addEventListener('click', importPossession);
@@ -443,6 +439,54 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+
+    const searchBarContainer = document.createElement('div');
+    searchBarContainer.className = 'search-bar-container';
+
+    const searchIcon = document.createElement('span');
+    searchIcon.className = 'search-icon';
+
+    const searchBar = document.createElement('input');
+    searchBar.type = 'text';
+    searchBar.id = 'search-bar';
+    searchBar.className = 'search-bar';
+    searchBar.placeholder = 'アイドル名、衣装・ヘアスタイル、スキル名、スキル効果で検索';
+
+    searchBarContainer.appendChild(searchIcon);
+    searchBarContainer.appendChild(searchBar);
+    document.body.insertBefore(searchBarContainer, document.querySelector('.container'));
+
+    searchBar.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const keyword = searchBar.value.toLowerCase();
+            const rows = Array.from(document.querySelectorAll('#character-table tr:not(:first-child)'));
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                const character = {
+                    card_name: cells[2].innerText,
+                    costume: cells[7].innerText,
+                    live_skill1_name: cells[12].innerText,
+                    live_skill1_effect: cells[13].innerText,
+                    live_skill2_name: cells[14].innerText,
+                    live_skill2_effect: cells[15].innerText,
+                    live_skill3_name: cells[16].innerText,
+                    live_skill3_effect: cells[17].innerText
+                };
+                let show = (
+                    character.card_name.toLowerCase().includes(keyword) ||
+                    character.costume.toLowerCase().includes(keyword) ||
+                    character.live_skill1_name.toLowerCase().includes(keyword) ||
+                    character.live_skill1_effect.toLowerCase().includes(keyword) ||
+                    character.live_skill2_name.toLowerCase().includes(keyword) ||
+                    character.live_skill2_effect.toLowerCase().includes(keyword) ||
+                    character.live_skill3_name.toLowerCase().includes(keyword) ||
+                    character.live_skill3_effect.toLowerCase().includes(keyword)
+                );
+                row.style.display = show ? '' : 'none';
+            });
+        }
     });
 });
 
