@@ -1,4 +1,4 @@
-const update_info = '<div class="news-content"><b>2025/2/16更新</b><br><br>・2023年3月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br>・検索バーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックモードのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
+const update_info = '<div class="news-content"><b>2025/2/16更新</b><br><br>・2023年3月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br>・検索バーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
 
 function applyFilters() {
     const form = document.getElementById('filter-form');
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
-                popupContent.innerHTML = '<div class="news-content"><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br><b>エクスポート</b><br><br>所持アイドル情報はブラウザー上に保存されており、<br>別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><b>インポート</b><br><br>エクスポートしたテキストを貼り付けて<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p></div>';
+                popupContent.innerHTML = '<div class="news-content"><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br><hr><b>エクスポート</b><br><br>所持アイドル情報はブラウザー上に保存されており、<br>別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><hr><b>インポート</b><br><br>エクスポートしたテキストを貼り付けて<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p></div>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             }
