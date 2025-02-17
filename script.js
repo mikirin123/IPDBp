@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (menuName === 'エクスポート' || menuName === 'インポート') {
                 menuContent.style.display = 'none';
             } else if (menuName === 'つかいかた') {
-                popupContent.innerText = 'アイプラのゲーム内で実装されている\nアイドルの詳細を確認できます。\n\nフィルタ・並び替え・検索機能や\n所持アイドルチェック機能もご活用ください。';
+                popupContent.innerHTML = 'アイプラのゲーム内で実装されている<br>アイドルの詳細を確認できます。<br><br>フィルタ・並び替え・検索機能や<br>所持アイドルチェック機能もご活用ください。<br><br><hr><div class="news-content"><b>ステータスランキング</b><br><br>アイドルのステータス、パワーを<br>ランキング形式で確認できます。<br><br><hr><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br><b>エクスポート</b><br><br>所持アイドル情報はブラウザー上に保存されており、<br>別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><b>インポート</b><br><br>エクスポートしたテキストを貼り付けて<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p><hr></div>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === 'このツールについて') {
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === '所持アイドルチェックについて') {
-                popupContent.innerHTML = '<div class="news-content"><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>所持アイドル情報はフィルタに使用できます。<br><br><hr><b>エクスポート</b><br><br>所持アイドル情報はブラウザー上に保存されており、<br>別の環境には引き継がれません。<br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><hr><b>インポート</b><br><br>エクスポートしたテキストを貼り付けて<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p></div>';
+                popupContent.innerHTML = '';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             }
