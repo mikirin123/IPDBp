@@ -132,7 +132,7 @@ a:hover.idol_link  {
     .container {
         flex-direction: column;
         padding: 10px;
-        padding-top: 50px; /* Adjust padding to avoid overlap */
+        padding-top: 45px; /* Adjust padding to avoid overlap */
     }
 
     .left-column, .right-column {
@@ -146,11 +146,14 @@ a:hover.idol_link  {
 
     th, td {
         padding: 8px;
+        font-size: 0.75em;
     }
 
     .banner {
         text-align:left; /* Change text alignment to left */
         font-size: 1.2em;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     h1 {
@@ -164,6 +167,7 @@ a:hover.idol_link  {
     h2 {
         margin-top: 10px;
         margin-bottom: 10px;
+        font-size: 1.2em;
     }
 
     .back-button {
@@ -171,6 +175,10 @@ a:hover.idol_link  {
     }
 
     .skill-details {
-        font-size: 0.8em;
+        font-size: 0.75em;
+    }
+
+    .table_details{
+        font-size: 0.75em;
     }
 }
