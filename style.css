@@ -589,10 +589,17 @@ a:hover.idol_link  {
     .banner {
         text-align: left; /* Change text alignment to left */
         font-size: 1.2em;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .banner .menu {
-        right: 10px;
+        right:10px;
+    }
+
+    .menu{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .container {
@@ -621,7 +628,7 @@ a:hover.idol_link  {
     }
 
     th, td {
-        font-size: 0.8em;
+        font-size: 0.75em;
         padding: 4px;
     }
 
@@ -699,7 +706,7 @@ a:hover.idol_link  {
 
     .search-bar-container {
         width: 95%; /* Increase width for mobile */
-        margin: 70px auto 0 auto; /* Center align for mobile */
+        margin: 55px auto 0 auto; /* Center align for mobile */
     }
 }
 
