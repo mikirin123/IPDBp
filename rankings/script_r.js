@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('th.sortable').forEach(th => th.addEventListener('click', (() => {
         const table = th.closest('table');
-        const idx = Array.from(th.parentNode.children).indexOf(th) + 1; // インデックスを修正
+        const idx = Array.from(th.parentNode.children).indexOf(th); // インデックスを修正
         const isSameColumn = th.classList.contains('sorted');
         const isAscending = th.classList.contains('sorted-asc');
         document.querySelectorAll('th.sortable').forEach(th => th.classList.remove('sorted', 'sorted-asc'));
