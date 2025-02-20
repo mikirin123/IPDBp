@@ -19,8 +19,9 @@ h2, h3 {
 }
 
 h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 16px;
 }
 
 .banner {
@@ -28,7 +29,7 @@ h3 {
     color: white;
     text-align: left;
     padding: 15px 30px;
-    font-size: 1.5em;
+    font-size: 18px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -43,7 +44,7 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 18px;
     background-color: #3200FF;
     color: white;
     border: none;
@@ -58,20 +59,22 @@ h3 {
 .menu-content {
     display: none;
     position: absolute;
-    right: 45px;
-    top: 100%;
+    right: 65px;
+    top: 85%;
     background-color: white;
     color: black;
     border: 1px solid #ddd;
     z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .menu-content a {
     display: block;
-    padding: 10px 20px;
+    padding: 11px 20px;
+    padding-right: 30px;
     text-decoration: none;
     color: black;
     font-size: 1em;
@@ -79,11 +82,16 @@ h3 {
 
 .menu-content a:hover {
     background-color: #f1f1f1;
+    border-radius: 7px;
 }
 
-.menu-content .separator {
+.menu-content {
     border-top: 1px solid #ddd;
     margin: 5px 0;
+}
+
+.separator {
+    border-top: 1px solid #ddd;
 }
 
 .container {
@@ -100,7 +108,7 @@ h3 {
     background-color: #fff;
     border: 1px solid #ddd;
     margin-right: 20px;
-    font-size: 0.9em;
+    font-size: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -108,7 +116,7 @@ h3 {
 .filters input[type="text"],
 .filters input[type="checkbox"],
 .filters input[type="radio"] {
-    font-size: 1em;
+    font-size: 14px;
     width: auto;
     accent-color: #3200FF;
     vertical-align: middle;
@@ -183,7 +191,7 @@ th, td {
     border: 2px solid #ddd;
     padding: 8px;
     white-space: nowrap;
-    font-size: 0.9em;
+    font-size: 14px;
 }
 
 th {
@@ -218,10 +226,10 @@ tr:nth-child(even) {
 
 h2 {
     position: relative;
-    padding-left: 20px;
-    font-size: 1.5em;
+    padding-left: 15px;
+    font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     
 }
 
@@ -566,7 +574,7 @@ a:hover.idol_link  {
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 14px;
     margin-top: 5px;
 }
 
@@ -581,6 +589,13 @@ a:hover.idol_link  {
     background-size: contain;
 }
 
+.menu_icon{
+    width: 17px;
+    position: relative;
+    right: 8px;
+    top: 2px;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -588,7 +603,6 @@ a:hover.idol_link  {
 
     .banner {
         text-align: left; /* Change text alignment to left */
-        font-size: 1.2em;
         padding-top: 10px;
         padding-bottom: 10px;
     }
@@ -607,9 +621,6 @@ a:hover.idol_link  {
         align-items: center;
     }
 
-    .menu-content {
-        font-size: 15px;
-    }
     .filters {
         width: 90%;
         margin-bottom: 20px;
@@ -628,7 +639,7 @@ a:hover.idol_link  {
     }
 
     th, td {
-        font-size: 0.75em;
+        font-size: 10px;
         padding: 4px;
     }
 
