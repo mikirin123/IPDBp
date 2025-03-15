@@ -719,5 +719,9 @@ a:hover.idol_link  {
         width: 95%; /* Increase width for mobile */
         margin: 55px auto 0 auto; /* Center align for mobile */
     }
-}
+
+    .yell_icon {
+        width: 40px;
+    }
+    }
 
