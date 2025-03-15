@@ -27,7 +27,7 @@ function applyFilters() {
             trend: cells[4].innerText,
             type: cells[5].innerText,
             skill: cells[6].innerText,
-            support: cells[18].innerText,
+            support: cells[18].getAttribute("value"),
             vocal: parseInt(cells[8].innerText),
             dance: parseInt(cells[9].innerText),
             visual: parseInt(cells[10].innerText),
