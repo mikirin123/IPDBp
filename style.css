@@ -711,8 +711,6 @@ a:hover.idol_link  {
     .trend-vocal, .trend-dance, .trend-visual,
     .type-scorer, .type-buffer, .type-supporter {
         text-indent: -9999px;
-        width: 50px; /* Adjust the width as needed */
-        height: 50px; /* Adjust the height as needed */
     }
 
     .search-bar-container {
@@ -721,7 +719,7 @@ a:hover.idol_link  {
     }
 
     .yell_icon {
-        width: 40px;
+        width: 30px;
     }
     }
 
