@@ -19,7 +19,7 @@ h1 {
     color: white;
     text-align: left;
     padding: 15px 30px;
-    font-size: 16px;
+    font-size: 18px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -109,10 +109,6 @@ th {
     margin-top: -15px;
 }
 
-hr {
-    border-top: 2px dashed #333;
-}
-
 a.idol_link {
     color: black;
     text-decoration: none;
@@ -131,13 +127,21 @@ a:hover.idol_link  {
 
     .container {
         flex-direction: column;
-        padding: 10px;
+        padding: 0px;
         padding-top: 45px; /* Adjust padding to avoid overlap */
     }
 
     .left-column, .right-column {
         flex: none;
         width: 100%;
+    }
+
+    .left-column {
+        padding: 5px 20px; 
+    }
+
+    .right-column {
+        padding: 10px 20px;
     }
 
     table {
@@ -158,6 +162,7 @@ a:hover.idol_link  {
 
     h1 {
         font-size: 1.5em;
+        margin-top: 10px;
     }
 
     .br-sp {
