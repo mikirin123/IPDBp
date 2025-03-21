@@ -143,7 +143,7 @@ a:hover.idol_link  {
     }
 
     .right-column {
-        padding: 5px;
+        padding: 6px;
     }
 
     table {
@@ -160,11 +160,6 @@ a:hover.idol_link  {
         font-size: 1.2em;
         padding-top: 10px;
         padding-bottom: 10px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-        margin-top: 10px;
     }
 
     .br-sp {
