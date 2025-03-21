@@ -206,7 +206,7 @@ a:hover.idol_link  {
     }
 
     .ranking-table-container {
-        padding: 10px 0px;
+        padding: 10px 0px 10px 5px;
         margin-top: 50px;
     }
 }
