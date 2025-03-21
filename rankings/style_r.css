@@ -160,7 +160,7 @@ a:hover.idol_link  {
         min-width: 100%;
         overflow-x: auto;
         display: block;
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .idol_icon {
@@ -202,7 +202,7 @@ a:hover.idol_link  {
     }
 
     .ranking-table th, .ranking-table td {
-        padding: 8px 4px;
+        padding: 7px 3px;
     }
 
     .ranking-table-container {
