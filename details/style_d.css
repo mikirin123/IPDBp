@@ -137,11 +137,13 @@ a:hover.idol_link  {
     }
 
     .left-column {
-        padding: 5px 20px; 
+        padding-right: 0;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .right-column {
-        padding: 10px 20px;
+        padding: 5px;
     }
 
     table {
