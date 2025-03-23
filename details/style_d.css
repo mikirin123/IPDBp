@@ -120,6 +120,25 @@ a:hover.idol_link  {
     border-bottom:none;
 }
 
+.personal-details-table {
+    white-space:nowrap;
+    width: auto;
+    padding-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.personal-details-table th {
+    text-align: center;
+}
+
+.personal-details-phone {
+    display: none;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -182,5 +201,17 @@ a:hover.idol_link  {
 
     .table_details{
         font-size: 0.8em;
+    }
+
+    .personal-details {
+        display: none;
+    }
+
+    .personal-details-phone {
+        display:block
+    }
+
+    .personal-details-table th {
+        text-align: left;
     }
 }
