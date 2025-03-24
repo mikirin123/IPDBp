@@ -148,10 +148,19 @@ a:hover.idol_link  {
     font-size: 14px;
     margin-top: 10px;
     background-color: white;
+    
 }
 
-.else-idols table th,td {
-    padding: 6px;
+.else-idols th,td {
+    padding: 4px;
+}
+
+.else-idols table th {
+    border: none;
+}
+
+.else-idols table td {
+    border: none;
 }
 
 .else-idols table td {
@@ -260,8 +269,7 @@ a:hover.idol_link  {
     .else-idols-phone th {
         text-align: center;
         padding-top: 2px;
-        padding-bottom: 0px;
-        background-color: white;
+        padding-bottom: 0px;;
     }
 
     .else-idols-phone td {
