@@ -147,7 +147,7 @@ a:hover.idol_link  {
     margin-left: auto;
     font-size: 14px;
     margin-top: 10px;
-    background-color: white;
+    background-color: #f8f8f8
     
 }
 
@@ -157,19 +157,14 @@ a:hover.idol_link  {
 
 .else-idols table th {
     border: none;
+    background-color: #f8f8f8
 }
 
 .else-idols table td {
     border: none;
-}
-
-.else-idols table td {
     text-align: left;
 }
 
-.else-idols table th {
-    background-color: white;
-}
 
 .else-idols-phone {
     display: none;
