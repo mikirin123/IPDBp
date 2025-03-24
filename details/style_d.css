@@ -139,6 +139,33 @@ a:hover.idol_link  {
     display: none;
 }
 
+.else-idols table {
+    white-space:nowrap;
+    width: auto;
+    padding-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.else-idols table th,td {
+    padding: 6px;
+}
+
+.else-idols table td {
+    text-align: left;
+}
+
+.else-idols table th {
+    background-color: white;
+}
+
+.else-idols-phone {
+    display: none;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -213,5 +240,31 @@ a:hover.idol_link  {
 
     .personal-details-table th {
         text-align: left;
+    }
+
+    .else-idols {
+        display: none;
+    }
+
+    .else-idols-phone {
+        display: block;
+    }
+
+    .else-idols-phone table {
+        white-space:nowrap;
+        width: auto;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .else-idols-phone th {
+        text-align: center;
+        padding-top: 2px;
+        padding-bottom: 0px;
+        background-color: white;
+    }
+
+    .else-idols-phone td {
+        padding: 3px;
     }
 }
