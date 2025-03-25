@@ -692,32 +692,32 @@ a:hover.idol_link  {
         bottom: 0;
     }
     .trend-vocal {
-        background: url('images/k1_vocal.png') no-repeat center center;
+        background: url('images/icon_vocal.webp') no-repeat center center;
         background-size:75%;
     }
 
     .trend-dance {
-        background: url('images/k2_dance.png') no-repeat center center;
+        background: url('images/icon_dance.webp') no-repeat center center;
         background-size: 75%;
     }
 
     .trend-visual {
-        background: url('images/k3_visual.png') no-repeat center center;
+        background: url('images/icon_visual.webp') no-repeat center center;
         background-size: 75%;
     }
 
     .type-scorer {
-        background: url('images/t1_scorer.png') no-repeat center center;
+        background: url('images/icon_scorer.webp') no-repeat center center;
         background-size: 50%;
     }
 
     .type-buffer {
-        background: url('images/t2_buffer.png') no-repeat center center;
+        background: url('images/icon_buffer.webp') no-repeat center center;
         background-size: 50%;
     }
 
     .type-supporter {
-        background: url('images/t3_supporter.png') no-repeat center center;
+        background: url('images/icon_supporter.webp') no-repeat center center;
         background-size: 50%;
     }
 
@@ -734,5 +734,9 @@ a:hover.idol_link  {
     .yell_icon {
         width: 30px;
     }
+
+    .idol_image {
+        width: 55px;
     }
+}
 
