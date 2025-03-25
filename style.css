@@ -317,6 +317,7 @@ if
     bottom: 20px;
     display: flex;
     gap: 10px;
+    display: none;
 }
 
 .possession-buttons button {
@@ -594,6 +595,18 @@ a:hover.idol_link  {
     position: relative;
     right: 8px;
     top: 2px;
+}
+
+.t_vocal,.trend-vocal {
+    color:#FF469D;
+}
+
+.t_dance,.trend-dance {
+    color:#3ABAFF;
+}
+
+.t_visual,.trend-visual {
+    color:#FFA900;
 }
 
 @media (max-width: 768px) {

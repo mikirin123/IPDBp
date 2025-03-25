@@ -69,26 +69,6 @@ function applyFilters() {
         }
 
         row.style.display = show ? '' : 'none';
-        if (show) {
-            if (character.trend === 'ボーカル') {
-                cells[4].style.color = '#FF469D';
-                cells[4].classList.add('trend-vocal');
-            } else if (character.trend === 'ダンス') {
-                cells[4].style.color = '#3ABAFF';
-                cells[4].classList.add('trend-dance');
-            } else if (character.trend === 'ビジュアル') {
-                cells[4].style.color = '#FFA900';
-                cells[4].classList.add('trend-visual');
-            }
-
-            if (character.type === 'スコアラー') {
-                cells[5].classList.add('type-scorer');
-            } else if (character.type === 'バッファー') {
-                cells[5].classList.add('type-buffer');
-            } else if (character.type === 'サポーター') {
-                cells[5].classList.add('type-supporter');
-            }
-        }
     });
 
     if (filters.sort) {
@@ -304,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (menuName === 'エクスポート' || menuName === 'インポート') {
                 menuContent.style.display = 'none';
             } else if (menuName === 'つかいかた') {
-                popupContent.innerHTML = 'アイプラのゲーム内で実装されている<br>アイドルの詳細を確認できます。<br><br>フィルタ・並び替え・検索機能や<br>所持アイドルチェックも<br>活用してみてください。<br><br><hr><div class="news-content"><b>ステータスランキング</b><br><br>アイドルのステータス、パワーを<br>ランキング形式で確認できます。<br><br><hr><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>この情報はフィルタに使用できます。<br><br><b>エクスポート</b><br><br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><b>インポート</b><br><br>エクスポートしたテキストをペーストし<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。</p></div>';
+                popupContent.innerHTML = '<div class="news-content"><b>メインページ</b><br><br>アイプラのゲーム内で実装されている<br>アイドルの詳細を確認できます。<br><br>フィルタ・並び替え・検索機能や<br>所持アイドルチェックも活用してみてください。<br><br><hr><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>この情報はフィルタに使用できます。<br><br><b>エクスポート</b><br><br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><b>インポート</b><br><br>エクスポートしたテキストをペーストし<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。<br><br><hr><b>ステータスランキング</b><br><br>アイドルのステータス、パワーを<br>ランキング形式で確認できます。</p></div>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === 'このツールについて') {

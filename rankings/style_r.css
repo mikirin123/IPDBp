@@ -127,7 +127,7 @@ th.sortable.sorted-asc::after {
 }
 
 .ranking-table th, .ranking-table td {
-    padding: 9px 7px;
+    padding: 9px 9px;
     text-align: center;
     white-space: nowrap;
 }

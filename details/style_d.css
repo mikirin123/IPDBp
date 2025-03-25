@@ -65,6 +65,7 @@ h1 {
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: fit-content;
 }
 
 .table-container {
@@ -74,7 +75,6 @@ h1 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
     font-size: 0.9em;
     table-layout: fixed;
 }
@@ -106,7 +106,6 @@ th {
 
 .table_details {
     text-align: right;
-    margin-top: -15px;
 }
 
 a.idol_link {
@@ -168,6 +167,18 @@ a:hover.idol_link  {
 
 .else-idols-phone {
     display: none;
+}
+
+.t_vocal {
+    color:#FF469D;
+}
+
+.t_dance {
+    color:#3ABAFF;
+}
+
+.t_visual {
+    color:#FFA900;
 }
 
 @media (max-width: 768px) {
