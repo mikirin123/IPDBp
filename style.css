@@ -98,8 +98,8 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px;
-    padding-top: 10px
+    padding: 30px;
+    padding-top: 10px;
 }
 
 .filters {
@@ -515,6 +515,10 @@ if
     z-index: 1;
 }
 
+#settings {
+    display: none;
+}
+
 #settings-text {
     text-align: left !important;
 }
@@ -566,7 +570,7 @@ a:hover.idol_link  {
 .search-bar-container {
     position: relative;
     width: calc(100% - 60px);
-    margin: 70px 30px 0 30px; /* Adjusted for fixed banner */
+    margin: 0px 30px 0 30px; /* Adjusted for fixed banner */
 }
 
 .search-bar {
@@ -609,6 +613,10 @@ a:hover.idol_link  {
     color:#FFA900;
 }
 
+.top-container {
+    padding-top: 65px;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -632,19 +640,27 @@ a:hover.idol_link  {
     .container {
         flex-direction: column;
         align-items: center;
+        margin: 10px;
+        padding: 10px;
+        padding-top: 0px;
     }
 
     .filters {
-        width: 90%;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        margin: 0px;
+        padding: 10px;
     }
 
     .table-container {
         width: 100%;
         overflow-x: auto;
-        padding: 15px;
+        margin: 0px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .top-container {
+        padding-top: 0px;
     }
 
     table {

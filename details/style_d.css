@@ -19,7 +19,7 @@ h1 {
     color: white;
     text-align: left;
     padding: 15px 30px;
-    font-size: 18px;
+    font-size: 20px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -61,11 +61,18 @@ h1 {
 
 .right-column {
     flex: 2;
+}
+
+.right-container {
+    
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-height: fit-content;
+}
+
+.right-container-2 {
 }
 
 .table-container {
@@ -146,8 +153,7 @@ a:hover.idol_link  {
     margin-left: auto;
     font-size: 14px;
     margin-top: 10px;
-    background-color: #f8f8f8
-    
+    background-color: #f8f8f8;
 }
 
 .else-idols th,td {
@@ -181,6 +187,28 @@ a:hover.idol_link  {
     color:#FFA900;
 }
 
+.awakening :empty {
+    display: none;
+}
+
+tr:has(td:empty)  {
+    display: none;
+}
+
+
+.af_image {
+    width: 90%;
+    background-color: black;
+    padding: 30px 0px;
+}
+
+.bf_image {
+    width: 65%;
+    margin-top: 20px;
+    background-color: black;
+    padding: 0px 30px;
+}
+
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -204,7 +232,11 @@ a:hover.idol_link  {
     }
 
     .right-column {
-        padding: 6px;
+        margin: 0px
+    }
+
+    .right-container {
+        padding: 10px;
     }
 
     table {
@@ -280,5 +312,14 @@ a:hover.idol_link  {
 
     .else-idols-phone td {
         padding: 3px;
+    }
+
+    .bf_image {
+        display: none;
+    }
+
+    .af_image {
+        padding: 0px;
+        margin-bottom: 10px;
     }
 }

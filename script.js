@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
     searchBar.type = 'text';
     searchBar.id = 'search-bar';
     searchBar.className = 'search-bar';
-    searchBar.placeholder = 'アイドル名、衣装・ヘアスタイル、スキル名・効果で検索';
+    searchBar.placeholder = 'アイドル名、衣装・髪型、スキル名・効果で検索';
 
     searchBarContainer.appendChild(searchIcon);
     searchBarContainer.appendChild(searchBar);
@@ -452,7 +452,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     live_skill2_name: cells[14].innerText,
                     live_skill2_effect: cells[15].innerText,
                     live_skill3_name: cells[16].innerText,
-                    live_skill3_effect: cells[17].innerText
+                    live_skill3_effect: cells[17].innerText,
+                    awakening_costume: cells[20].innerText,
+                    awakening_skill_name: cells[21].innerText,
+                    awakening_skill_effect: cells[22].innerText
                 };
                 let show = (
                     character.card_name.toLowerCase().includes(keyword) ||
@@ -462,7 +465,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     character.live_skill2_name.toLowerCase().includes(keyword) ||
                     character.live_skill2_effect.toLowerCase().includes(keyword) ||
                     character.live_skill3_name.toLowerCase().includes(keyword) ||
-                    character.live_skill3_effect.toLowerCase().includes(keyword)
+                    character.live_skill3_effect.toLowerCase().includes(keyword) ||
+                    character.awakening_costume.toLowerCase().includes(keyword) ||
+                    character.awakening_skill_name.toLowerCase().includes(keyword) ||
+                    character.awakening_skill_effect.toLowerCase().includes(keyword)
                 );
                 row.style.display = show ? '' : 'none';
             });
