@@ -1,5 +1,6 @@
+/* 基本設定 */
 body {
-    font-family: 'M PLUS\ 1p','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue','sans-serif';
+    font-family: 'M PLUS 1p', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
@@ -14,18 +15,23 @@ h1 {
     color: #3200FF;
 }
 
+/* バナー */
 .banner {
     background-color: #3200FF;
     color: white;
     text-align: left;
     padding: 15px 30px;
-    font-size: 20px;
+    font-size: 18px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+.banner_title {
+    cursor: pointer;
 }
 
 .back-button {
@@ -35,10 +41,12 @@ h1 {
     transform: translateY(-50%);
     background-color: white;
     color: #3200FF;
-    padding: 5px 10px;
+    padding: 8px 12px; /* ボタンを少し大きく */
     text-decoration: none;
     border-radius: 5px;
     border: 1px solid #3200FF;
+    font-size: 14px; /* フォントサイズを調整 */
+    transition: background-color 0.3s, color 0.3s; /* ホバー時のアニメーション */
 }
 
 .back-button:hover {
@@ -46,6 +54,7 @@ h1 {
     color: white;
 }
 
+/* コンテナ */
 .container {
     display: flex;
     justify-content: space-between;
@@ -64,7 +73,6 @@ h1 {
 }
 
 .right-container {
-    
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -72,9 +80,7 @@ h1 {
     max-height: fit-content;
 }
 
-.right-container-2 {
-}
-
+/* テーブル */
 .table-container {
     overflow-x: auto;
 }
@@ -83,10 +89,11 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
-    table-layout: fixed;
 }
 
-.basic-info-table, .status-table, .live-skill-table {
+.basic-info-table,
+.status-table,
+.live-skill-table {
     width: 100%;
     table-layout: fixed;
 }
@@ -103,31 +110,14 @@ th {
     font-weight: bold;
 }
 
-.br-sp {
-    display: none;
-}
-
-.banner_title {
-    cursor: pointer;
-}
-
 .table_details {
     text-align: right;
 }
 
-a.idol_link {
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px dashed black;
-}
 
-a:hover.idol_link  {
-    background-color: #ddd;
-    border-bottom:none;
-}
-
+/* 個人詳細 */
 .personal-details-table {
-    white-space:nowrap;
+    white-space: nowrap;
     width: auto;
     padding-right: 0;
     margin-right: auto;
@@ -145,8 +135,9 @@ a:hover.idol_link  {
     display: none;
 }
 
+/* その他のアイドル */
 .else-idols table {
-    white-space:nowrap;
+    white-space: nowrap;
     width: auto;
     padding-right: 0;
     margin-right: auto;
@@ -156,13 +147,13 @@ a:hover.idol_link  {
     background-color: #f8f8f8;
 }
 
-.else-idols th,td {
+.else-idols th, td {
     padding: 4px;
 }
 
 .else-idols table th {
     border: none;
-    background-color: #f8f8f8
+    background-color: #f8f8f8;
 }
 
 .else-idols table td {
@@ -170,31 +161,31 @@ a:hover.idol_link  {
     text-align: left;
 }
 
-
 .else-idols-phone {
     display: none;
 }
 
+/* 特定の色設定 */
 .t_vocal {
-    color:#FF469D;
+    color: #FF469D;
 }
 
 .t_dance {
-    color:#3ABAFF;
+    color: #3ABAFF;
 }
 
 .t_visual {
-    color:#FFA900;
+    color: #FFA900;
 }
 
+/* その他 */
 .awakening :empty {
     display: none;
 }
 
-tr:has(td:empty)  {
+tr:has(td:empty) {
     display: none;
 }
-
 
 .af_image {
     width: 90%;
@@ -209,6 +200,19 @@ tr:has(td:empty)  {
     padding: 0px 30px;
 }
 
+a.idol_link {
+    vertical-align: middle; /* アイコンを中央揃え */
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s; /* ホバー時のアニメーション */
+}
+
+a:hover.idol_link {
+    text-decoration: underline;
+    color: gray; /* ホバー時の色変更 */
+}
+
+/* メディアクエリ */
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -232,7 +236,7 @@ tr:has(td:empty)  {
     }
 
     .right-column {
-        margin: 0px
+        margin: 0px;
     }
 
     .right-container {
@@ -249,7 +253,7 @@ tr:has(td:empty)  {
     }
 
     .banner {
-        text-align:left; /* Change text alignment to left */
+        text-align: left; /* Change text alignment to left */
         font-size: 1.2em;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -273,7 +277,7 @@ tr:has(td:empty)  {
         font-size: 0.8em;
     }
 
-    .table_details{
+    .table_details {
         font-size: 0.8em;
     }
 
@@ -282,7 +286,7 @@ tr:has(td:empty)  {
     }
 
     .personal-details-phone {
-        display:block
+        display: block;
     }
 
     .personal-details-table th {
@@ -298,7 +302,7 @@ tr:has(td:empty)  {
     }
 
     .else-idols-phone table {
-        white-space:nowrap;
+        white-space: nowrap;
         width: auto;
         margin-right: auto;
         margin-left: auto;
@@ -307,7 +311,7 @@ tr:has(td:empty)  {
     .else-idols-phone th {
         text-align: center;
         padding-top: 2px;
-        padding-bottom: 0px;;
+        padding-bottom: 0px;
     }
 
     .else-idols-phone td {

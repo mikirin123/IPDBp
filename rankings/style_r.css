@@ -1,14 +1,17 @@
+/* 全体のスタイル */
 body {
     font-family: 'M PLUS 1p', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif';
-    background-color: #f0f0f0;
+    background-color: #f9f9f9; /* 背景色を少し明るく変更 */
     margin: 0;
     padding: 0;
     min-width: 1200px;
     color: #333;
+    line-height: 1.6; /* 行間を広げて読みやすく */
 }
 
+/* バナー */
 .banner {
-    background-color: #87c3e8;
+    background-color: #3200FF;
     color: white;
     text-align: left;
     padding: 15px 30px;
@@ -18,7 +21,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 影を強調 */
 }
 
 .back-button {
@@ -27,18 +30,21 @@ body {
     top: 50%;
     transform: translateY(-50%);
     background-color: white;
-    color: #87c3e8;
-    padding: 5px 10px;
+    color: #3200FF;
+    padding: 8px 12px; /* ボタンを少し大きく */
     text-decoration: none;
     border-radius: 5px;
-    border: 1px solid #87c3e8;
+    border: 1px solid #3200FF;
+    font-size: 14px; /* フォントサイズを調整 */
+    transition: background-color 0.3s, color 0.3s; /* ホバー時のアニメーション */
 }
 
 .back-button:hover {
-    background-color: #87c3e8;
+    background-color: #3200FF;
     color: white;
 }
 
+/* テーブル */
 table {
     border-collapse: collapse;
     font-size: 14px;
@@ -81,6 +87,7 @@ th.sortable.sorted-asc::after {
     color: #35b3ff;
 }
 
+/* その他のスタイル */
 .br-sp {
     display: none;
 }
@@ -97,6 +104,7 @@ th.sortable.sorted-asc::after {
     background-color: #def;
 }
 
+/* スクロールトップボタン */
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
@@ -104,32 +112,112 @@ th.sortable.sorted-asc::after {
     background-color: #87c3e8;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 15px; /* ボタンを少し大きく */
     cursor: pointer;
     display: none;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 影を追加 */
+    transition: background-color 0.3s; /* ホバー時のアニメーション */
 }
 
-#scrollToTopBtn:hover {
-    background-color: #ddd;
+/* ランキングページ全体 */
+.ranking-page-container {
+    display: flex;
+    margin-top: 60px;
 }
 
+/* サイドバー */
+.ranking-sidebar {
+    width: 30%; /* サイドバーの幅を自動調整 */
+    background-color: #ffffff; /* サイドバーの背景を白に */
+    padding: 20px; /* サイドバーの内側の余白を調整 */
+    border-right: 2px solid #87c3e8;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* サイドバーに影を追加 */
+}
+
+.ranking-sidebar h3 {
+    font-size: 18px; /* 見出しを大きく */
+    margin-bottom: 15px;
+    color: #444; /* 少し濃い色に */
+    border-bottom: 2px solid #87c3e8; /* 下線を追加 */
+    padding-bottom: 5px;
+    text-align: center; /* 中央揃え */
+}
+
+.ranking-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ranking-sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.ranking-sidebar ul img {
+    vertical-align: middle; /* アイコンを中央揃え */
+    width: 60px; /* アイコンのサイズを調整 */
+    margin-right: 10px;
+}
+
+.idol_names img {
+    vertical-align: middle; /* アイコンを中央揃え */
+    width: 60px; /* アイコンのサイズを調整 */
+    margin-right: 10px;
+}
+
+.ranking-sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold; /* リンクを強調 */
+    transition: color 0.3s; /* ホバー時のアニメーション */
+    vertical-align: middle; /* アイコンを中央揃え */
+}
+
+.ranking-sidebar ul li a:hover {
+    text-decoration: underline;
+    color: gray; /* ホバー時の色変更 */
+}
+
+/* ランキングテーブル */
 .ranking-table-container {
+    width: 75%; /* テーブル部分を広げる */
+    padding: 20px;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .ranking-table {
     width: auto;
     margin: 0 auto;
+    overflow: hidden; /* 角のはみ出しを防ぐ */
 }
 
 .ranking-table th, .ranking-table td {
-    padding: 9px 9px;
+    padding: 9px 10px; /* セルのパディングを広げる */
     text-align: center;
     white-space: nowrap;
+    border-bottom: 1px solid #ddd; /* セルの下に線を追加 */
+}
+
+.ranking-table th {
+    background-color: #87c3e8;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.ranking-table td {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.ranking-table tr:nth-child(even) td {
+    background-color: #f7f7f7; /* 偶数行の背景色を変更 */
 }
 
 td.status {
@@ -141,16 +229,40 @@ td.status {
 }
 
 a.idol_link {
-    color: black;
+    vertical-align: middle; /* アイコンを中央揃え */
     text-decoration: none;
-    border-bottom: 1px dashed black;
+    color: black;
+    transition: color 0.3s; /* ホバー時のアニメーション */
 }
 
-a:hover.idol_link  {
-    background-color: #ccc;
-    border-bottom:none;
+a:hover.idol_link {
+    text-decoration: underline;
+    color: gray; /* ホバー時の色変更 */
 }
 
+/* 特定列のスタイル */
+.ranking-table th:nth-child(2), /* ボーカル列 */
+.ranking-sidebar h3:nth-of-type(1), /* スコアラーのボーカルTOP5 */
+.ranking-sidebar h3:nth-of-type(2), /* バッファーのボーカルTOP5 */
+.ranking-sidebar h3:nth-of-type(3)  /* サポーターのボーカルTOP5 */ {
+    color: #FF469D; /* ボーカルの色 */
+}
+
+.ranking-table th:nth-child(3), /* ダンス列 */
+.ranking-sidebar h3:nth-of-type(4), /* スコアラーのダンスTOP5 */
+.ranking-sidebar h3:nth-of-type(5), /* バッファーのダンスTOP5 */
+.ranking-sidebar h3:nth-of-type(6)  /* サポーターのダンスTOP5 */ {
+    color: #3ABAFF; /* ダンスの色 */
+}
+
+.ranking-table th:nth-child(4), /* ビジュアル列 */
+.ranking-sidebar h3:nth-of-type(7), /* スコアラーのビジュアルTOP5 */
+.ranking-sidebar h3:nth-of-type(8), /* バッファーのビジュアルTOP5 */
+.ranking-sidebar h3:nth-of-type(9)  /* サポーターのビジュアルTOP5 */ {
+    color: #FFA900; /* ビジュアルの色 */
+}
+
+/* メディアクエリ */
 @media (max-width: 768px) {
     body {
         min-width: 100%;
@@ -167,7 +279,7 @@ a:hover.idol_link  {
         display: none;
     }
 
-    th, td { 
+    th, td {
         border: 1.8px solid rgb(102, 153, 204);
     }
 
@@ -206,7 +318,21 @@ a:hover.idol_link  {
     }
 
     .ranking-table-container {
-        padding: 10px 0px 10px 5px;
-        margin-top: 50px;
+        padding: auto 0px auto 0px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .ranking-sidebar {
+        display: none; /* サイドバーを非表示 */
+    }
+
+    .ranking-table th:nth-child(6), /* パワー列のヘッダー */
+    .ranking-table td:nth-child(6) /* パワー列のデータ */ {
+        display: none;
+    }
+
+    .idol_names img {
+        display: none; /* アイコンを非表示 */
     }
 }
