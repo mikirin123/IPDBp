@@ -66,7 +66,6 @@ th {
     font-weight: bold;
     position: sticky;
     top: 0;
-    z-index: 1;
 }
 
 th.sortable {
@@ -198,7 +197,6 @@ th.sortable.sorted-asc::after {
     padding: 9px 10px; /* セルのパディングを広げる */
     text-align: center;
     white-space: nowrap;
-    border-bottom: 1px solid #ddd; /* セルの下に線を追加 */
 }
 
 .ranking-table th {
@@ -208,7 +206,6 @@ th.sortable.sorted-asc::after {
     font-weight: bold;
     position: sticky;
     top: 0;
-    z-index: 1;
 }
 
 .ranking-table td {
