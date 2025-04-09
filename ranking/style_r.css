@@ -271,9 +271,9 @@ a:hover.idol_link {
 
     table {
         min-width: 100%;
-        overflow-x: auto;
         display: block;
         font-size: 11px;
+        font-weight: bold;
     }
 
     .idol_icon {
@@ -310,15 +310,20 @@ a:hover.idol_link {
     }
 
     .ranking-table th, .ranking-table td {
-        padding: 8px 3px;
+        padding: 8px 1px;
     }
 
     .ranking-table-container {
         margin-top: 0px;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 5px;
+        margin: 2px;
+        padding: 2px;
+    }
+
+    .ranking-table {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden; /* 角のはみ出しを防ぐ */
     }
 
     .ranking-sidebar {
