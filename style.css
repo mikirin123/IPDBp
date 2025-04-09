@@ -575,5 +575,9 @@ a:hover.idol_link {
         width: 28px;
         height: auto;
     }
+
+    .news-content {
+        font-size: 12px;
+    }
 }
 
