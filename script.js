@@ -1,5 +1,12 @@
-const update_info = '<div class="news-content"><b>2025/4/6更新</b><br><br>・全アイドルの能力詳細を追加<br>・詳細ページ(PC)に変化前イラストを表示<br><br><hr><b>2025/3/25更新</b><br><br>・2024年3月までのアイドルを追加<br>・詳細ページにプロフィールと他アイドルを掲載<br><br><hr><b>2025/3/24更新</b><br><br>・2023年12月までのアイドルを追加<br><br><hr><b>2025/3/15更新</b><br><br>・2023年6月までのアイドルを追加<br>・エールの表示方法をアイコンに変更<br><br><hr><b>2025/2/16更新</b><br><br>・2023年3月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br>・検索バーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
+// ==========================
+// 更新情報のHTML
+// ==========================
+const update_info = '<div class="news-content"><b>2025/4/6更新</b><br><br>・全アイドルの能力詳細を追加<br>・詳細ページに変化前イラストを掲載(パソコンのみ)<br><br><hr><b>2025/3/25更新</b><br><br>・2024年3月までのアイドルを追加<br>・詳細ページにプロフィールと他アイドルを掲載<br><br><hr><b>2025/3/24更新</b><br><br>・2023年12月までのアイドルを追加<br><br><hr><b>2025/3/15更新</b><br><br>・2023年6月までのアイドルを追加<br>・エールの表示をアイコンに変更<br><br><hr><b>2025/2/16更新</b><br><br>・2023年3月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br>・検索バーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
+// ==========================
+// フィルタ適用機能
+// ==========================
 function applyFilters() {
+    // フィルタフォームのデータを取得
     const form = document.getElementById('filter-form');
     const formData = new FormData(form);
     const filters = {
@@ -15,6 +22,7 @@ function applyFilters() {
     const sortOrder = formData.get('sort-order') || 'asc';
     const keyword = document.getElementById('search-bar').value.toLowerCase();
 
+    // テーブルの行をフィルタリング
     const rows = Array.from(document.querySelectorAll('#character-table tr:not(:first-child)'));
     rows.forEach(row => {
         const cells = row.getElementsByTagName('td');
@@ -22,8 +30,8 @@ function applyFilters() {
             character: cells[1].innerText,
             rarity: cells[3].innerText,
             obtain: cells[19].innerText,
-            trend: cells[4].getAttribute("value"), // 傾向のvalueを参照
-            type: cells[5].getAttribute("value"),  // タイプのvalueを参照
+            trend: cells[4].getAttribute("value"),
+            type: cells[5].getAttribute("value"),
             skill: cells[6].innerText,
             support: cells[18].getAttribute("value"),
             vocal: parseInt(cells[8].innerText),
@@ -40,12 +48,13 @@ function applyFilters() {
             live_skill3_effect: cells[17].innerText
         };
 
+        // フィルタ条件に基づいて表示/非表示を切り替え
         let show = true;
         if (filters.character && filters.character !== character.character) show = false;
         if (filters.rarity.length && !filters.rarity.includes(character.rarity)) show = false;
         if (filters.obtain && filters.obtain !== character.obtain) show = false;
-        if (filters.trend.length && !filters.trend.includes(character.trend)) show = false; // 傾向フィルタ
-        if (filters.type.length && !filters.type.includes(character.type)) show = false;   // タイプフィルタ
+        if (filters.trend.length && !filters.trend.includes(character.trend)) show = false;
+        if (filters.type.length && !filters.type.includes(character.type)) show = false;
         if (filters.skill.length) {
             if (filters.skill.includes('SP所持') && !character.skill.includes('SP')) show = false;
             if (filters.skill.includes('SP未所持') && character.skill.includes('SP')) show = false;
@@ -68,6 +77,7 @@ function applyFilters() {
         row.style.display = show ? '' : 'none';
     });
 
+    // 並び替え処理
     if (filters.sort) {
         rows.sort((a, b) => {
             const aCells = a.getElementsByTagName('td');
@@ -90,6 +100,9 @@ function applyFilters() {
     }
 }
 
+// ==========================
+// フィルタリセット機能
+// ==========================
 function resetFilters() {
     const form = document.getElementById('filter-form');
     form.reset();
@@ -99,6 +112,7 @@ function resetFilters() {
         row.style.display = '';
     });
 
+    // ID順に並び替え
     rows.sort((a, b) => {
         const aId = parseInt(a.getElementsByTagName('td')[0].innerText);
         const bId = parseInt(b.getElementsByTagName('td')[0].innerText);
@@ -109,6 +123,9 @@ function resetFilters() {
     rows.forEach(row => table.appendChild(row));
 }
 
+// ==========================
+// スクロールトップボタンの表示制御
+// ==========================
 window.onscroll = function() {
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -120,6 +137,9 @@ window.onscroll = function() {
     }
 };
 
+// ==========================
+// スクロールトップボタンのクリックイベント
+// ==========================
 document.getElementById('scrollToTopBtn').addEventListener('click', function() {
     window.scrollTo({
         top: 0,
@@ -127,11 +147,15 @@ document.getElementById('scrollToTopBtn').addEventListener('click', function() {
     });
 });
 
+// ==========================
+// ページ読み込み時の初期化処理
+// ==========================
 document.addEventListener('DOMContentLoaded', function() {
+    // メニューの設定
     const menu = document.querySelector('.menu');
-    menu.tagName = 'button'; // Change the tag to button
+    menu.tagName = 'button'; // タグをbuttonに変更
     menu.style.position = 'absolute';
-    menu.style.right = '60px'; // Adjusted from 30px to 50px
+    menu.style.right = '60px';
     menu.style.top = '50%';
     menu.style.transform = 'translateY(-50%)';
     const menuContent = document.querySelector('.menu-content');
@@ -155,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const menuName = this.innerText;
             popupHeader.innerText = menuName; // ポップアップのヘッダーにタイトルを設定
             if (menuName === 'つかいかた') {
-                popupContent.innerHTML = '<div class="news-content"><b>メインページ</b><br><br>アイプラのゲーム内で実装されている<br>アイドルの詳細を確認できます。<br><br>フィルタ・並び替え・検索機能を活用してみてください。<br><br><hr><b>ステータスランキング</b><br><br>アイドルのステータス、パワーを<br>ランキング形式で確認できます。</p></div>';
+                popupContent.innerHTML = '<div class="news-content"><b>メインページ</b><br><br>ゲーム内で実装されている全アイドルの詳細を確認できます。<br>フィルタ・並び替え・検索機能も活用してみてください。<br><br><hr><b>能力詳細</b><br><br>対象アイドルのステータスやスキル効果などを確認できます。<br><br><hr><b>ステータスランキング</b><br><br>全アイドルのステータスを一覧できます。<br>項目名をクリックすると、<br>昇順・降順で数値を並び替えることもできます。</div>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === 'このツールについて') {
@@ -170,25 +194,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // ポップアップの設定
     const popupOverlay = document.createElement('div');
     popupOverlay.classList.add('popup-overlay');
     document.body.appendChild(popupOverlay);
 
     function closePopup() {
-        popup.style.display = 'none';
-        popupOverlay.style.display = 'none';
+        popup.style.animation = 'fadeOut 0.3s ease-in-out';
+        popupOverlay.style.animation = 'fadeOut 0.3s ease-in-out';
+        setTimeout(() => {
+            popup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+        }, 300);
     }
 
     popupClose.addEventListener('click', closePopup);
     popupOverlay.addEventListener('click', closePopup);
 
+    // ヒントアイコンの設定
     const hintIcons = document.querySelectorAll('.hint-icon');
     const hintPopups = document.querySelectorAll('.hint-popup');
-
     hintIcons.forEach((hintIcon, index) => {
         const hintPopup = hintPopups[index];
         hintIcon.addEventListener('click', function(event) {
-            event.stopPropagation(); // Prevent event from bubbling up
+            event.stopPropagation();
             hintPopup.style.display = hintPopup.style.display === 'block' ? 'none' : 'block';
         });
     });
@@ -201,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // テーブルヘッダーの更新（モバイル対応）
     function updateColumnNamesForMobile() {
         const isMobile = window.innerWidth <= 768;
         const tableHeaders = document.querySelectorAll('#character-table th');
@@ -228,6 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 検索バーの設定
     const searchBarContainer = document.createElement('div');
     searchBarContainer.className = 'search-bar-container';
 
