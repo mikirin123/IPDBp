@@ -10,8 +10,7 @@ function applyFilters() {
         type: formData.getAll('type'),
         skill: formData.getAll('skill'),
         support: formData.get('support'),
-        sort: formData.get('sort'),
-        possession: formData.get('possession')
+        sort: formData.get('sort')
     };
     const sortOrder = formData.get('sort-order') || 'asc';
     const keyword = document.getElementById('search-bar').value.toLowerCase();
@@ -23,8 +22,8 @@ function applyFilters() {
             character: cells[1].innerText,
             rarity: cells[3].innerText,
             obtain: cells[19].innerText,
-            trend: cells[4].innerText,
-            type: cells[5].innerText,
+            trend: cells[4].getAttribute("value"), // 傾向のvalueを参照
+            type: cells[5].getAttribute("value"),  // タイプのvalueを参照
             skill: cells[6].innerText,
             support: cells[18].getAttribute("value"),
             vocal: parseInt(cells[8].innerText),
@@ -45,15 +44,14 @@ function applyFilters() {
         if (filters.character && filters.character !== character.character) show = false;
         if (filters.rarity.length && !filters.rarity.includes(character.rarity)) show = false;
         if (filters.obtain && filters.obtain !== character.obtain) show = false;
-        if (filters.trend.length && !filters.trend.includes(character.trend)) show = false;
-        if (filters.type.length && !filters.type.includes(character.type)) show = false;
+        if (filters.trend.length && !filters.trend.includes(character.trend)) show = false; // 傾向フィルタ
+        if (filters.type.length && !filters.type.includes(character.type)) show = false;   // タイプフィルタ
         if (filters.skill.length) {
             if (filters.skill.includes('SP所持') && !character.skill.includes('SP')) show = false;
             if (filters.skill.includes('SP未所持') && character.skill.includes('SP')) show = false;
             if (filters.skill.includes('AA') && !character.skill.includes('AA')) show = false;
         }
         if (filters.support && filters.support !== character.support) show = false;
-        if (filters.possession === '所持' && !possessedCards.has(character.card_name)) show = false;
         if (keyword && !(
             character.card_name.toLowerCase().includes(keyword) ||
             character.costume.toLowerCase().includes(keyword) ||
@@ -129,130 +127,6 @@ document.getElementById('scrollToTopBtn').addEventListener('click', function() {
     });
 });
 
-let possessionMode = false;
-let possessedCards = new Set();
-let initialPossessedCards = new Set();
-
-function togglePossessionMode() {
-    possessionMode = !possessionMode;
-    const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
-    if (possessionMode) {
-        initialPossessedCards = new Set(possessedCards);
-    }
-    rows.forEach(row => {
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.classList.add('checkbox');
-        checkbox.checked = possessedCards.has(row.cells[2].innerText);
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                possessedCards.add(row.cells[2].innerText);
-            } else {
-                possessedCards.delete(row.cells[2].innerText);
-            }
-        });
-        if (possessionMode) {
-            row.cells[2].prepend(checkbox);
-        } else {
-            row.cells[2].querySelector('.checkbox').remove();
-        }
-    });
-    document.querySelector('.possession-buttons').style.display = possessionMode ? 'flex' : 'none';
-}
-
-function savePossession() {
-    localStorage.setItem('possessedCards', JSON.stringify(Array.from(possessedCards)));
-    togglePossessionMode();
-}
-
-function selectAllPossession() {
-    const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
-    rows.forEach(row => {
-        const checkbox = row.cells[2].querySelector('.checkbox');
-        checkbox.checked = true;
-        possessedCards.add(row.cells[2].innerText);
-    });
-}
-
-function deselectAllPossession() {
-    const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
-    rows.forEach(row => {
-        const checkbox = row.cells[2].querySelector('.checkbox');
-        checkbox.checked = false;
-        possessedCards.delete(row.cells[2].innerText);
-    });
-}
-
-function exportPossession() {
-    const exportPopup = document.querySelector('.export-popup');
-    const exportPopupOverlay = document.querySelector('.export-popup-overlay');
-    const textarea = exportPopup.querySelector('textarea');
-    const ids = Array.from(possessedCards).map(cardName => {
-        const row = Array.from(document.querySelectorAll('#character-table tr')).find(row => row.cells[2].innerText === cardName);
-        return row ? row.cells[0].innerText : '';
-    }).filter(id => id !== '');
-    textarea.value = ids.join('\n');
-    exportPopup.style.display = 'block';
-    exportPopupOverlay.style.display = 'block';
-}
-
-function closeExportPopup() {
-    const exportPopup = document.querySelector('.export-popup');
-    const exportPopupOverlay = document.querySelector('.export-popup-overlay');
-    exportPopup.style.display = 'none';
-    exportPopupOverlay.style.display = 'none';
-}
-
-function copyToClipboard() {
-    const textarea = document.querySelector('.export-popup textarea');
-    textarea.select();
-    document.execCommand('copy');
-}
-
-function importPossession() {
-    const importPopup = document.querySelector('.import-popup');
-    const importPopupOverlay = document.querySelector('.import-popup-overlay');
-    importPopup.style.display = 'block';
-    importPopupOverlay.style.display = 'block';
-}
-
-function closeImportPopup() {
-    const importPopup = document.querySelector('.import-popup');
-    const importPopupOverlay = document.querySelector('.import-popup-overlay');
-    importPopup.style.display = 'none';
-    importPopupOverlay.style.display = 'none';
-}
-
-function saveImportedPossession() {
-    const textarea = document.querySelector('.import-popup textarea');
-    const importedIds = textarea.value.split('\n').filter(id => id.trim() !== '');
-    possessedCards.clear();
-    importedIds.forEach(id => {
-        const row = Array.from(document.querySelectorAll('#character-table tr')).find(row => row.cells[0].innerText === id);
-        if (row) {
-            possessedCards.add(row.cells[2].innerText);
-        }
-    });
-    localStorage.setItem('possessedCards', JSON.stringify(Array.from(possessedCards)));
-    document.querySelector('.import-popup').style.display = 'none';
-    document.querySelector('.import-popup-overlay').style.display = 'none'; // 追加
-    togglePossessionMode();
-    togglePossessionMode();
-}
-
-function exitWithoutSaving() {
-    possessedCards = new Set(initialPossessedCards);
-    const rows = document.querySelectorAll('#character-table tr:not(:first-child)');
-    rows.forEach(row => {
-        const checkbox = row.cells[2].querySelector('.checkbox');
-        if (checkbox) {
-            checkbox.remove();
-        }
-    });
-    document.querySelector('.possession-buttons').style.display = 'none';
-    possessionMode = false;
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const menu = document.querySelector('.menu');
     menu.tagName = 'button'; // Change the tag to button
@@ -279,11 +153,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.menu-content a').forEach(item => {
         item.addEventListener('click', function() {
             const menuName = this.innerText;
-            popupHeader.innerText = menuName;
-            if (menuName === 'エクスポート' || menuName === 'インポート') {
-                menuContent.style.display = 'none';
-            } else if (menuName === 'つかいかた') {
-                popupContent.innerHTML = '<div class="news-content"><b>メインページ</b><br><br>アイプラのゲーム内で実装されている<br>アイドルの詳細を確認できます。<br><br>フィルタ・並び替え・検索機能や<br>所持アイドルチェックも活用してみてください。<br><br><hr><b>所持アイドルチェック</b><br><br>所持アイドルをチェックできます。<br>この情報はフィルタに使用できます。<br><br><b>エクスポート</b><br><br>別の環境に所持アイドル情報を移すとき<br>テキストをコピーしてください。<br><br><b>インポート</b><br><br>エクスポートしたテキストをペーストし<br>インポートボタンを押してください。<br>所持アイドル情報が引き継がれます。<br><br><hr><b>ステータスランキング</b><br><br>アイドルのステータス、パワーを<br>ランキング形式で確認できます。</p></div>';
+            popupHeader.innerText = menuName; // ポップアップのヘッダーにタイトルを設定
+            if (menuName === 'つかいかた') {
+                popupContent.innerHTML = '<div class="news-content"><b>メインページ</b><br><br>アイプラのゲーム内で実装されている<br>アイドルの詳細を確認できます。<br><br>フィルタ・並び替え・検索機能を活用してみてください。<br><br><hr><b>ステータスランキング</b><br><br>アイドルのステータス、パワーを<br>ランキング形式で確認できます。</p></div>';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === 'このツールについて') {
@@ -292,10 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupOverlay.style.display = 'block';
             } else if (menuName === '更新情報') {
                 popupContent.innerHTML = update_info;
-                popup.style.display = 'block';
-                popupOverlay.style.display = 'block';
-            } else if (menuName === '所持アイドルチェックについて') {
-                popupContent.innerHTML = '';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             }
@@ -313,23 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     popupClose.addEventListener('click', closePopup);
     popupOverlay.addEventListener('click', closePopup);
-
-    possessedCards = new Set(JSON.parse(localStorage.getItem('possessedCards') || '[]'));
-
-    document.getElementById('possession-check').addEventListener('click', togglePossessionMode);
-    document.getElementById('possession-export').addEventListener('click', exportPossession);
-    document.getElementById('possession-import').addEventListener('click', importPossession);
-
-    document.querySelector('.export-popup button.copy').addEventListener('click', copyToClipboard);
-    document.querySelector('.export-popup button.close').addEventListener('click', closeExportPopup);
-    document.querySelector('.export-popup-overlay').addEventListener('click', closeExportPopup);
-
-    document.querySelector('.import-popup button.save').addEventListener('click', saveImportedPossession);
-    document.querySelector('.import-popup button.close').addEventListener('click', closeImportPopup);
-    document.querySelector('.import-popup-overlay').addEventListener('click', closeImportPopup);
-
-    document.querySelector('.possession-buttons .deselect-all').addEventListener('click', deselectAllPossession);
-    document.querySelector('.possession-buttons .exit-without-saving').addEventListener('click', exitWithoutSaving);
 
     const hintIcons = document.querySelectorAll('.hint-icon');
     const hintPopups = document.querySelectorAll('.hint-popup');
@@ -349,49 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    const settingsPopup = document.querySelector('.settings-popup');
-    const settingsButton = document.querySelector('#settings');
-    const settingsCloseButton = settingsPopup.querySelector('.close');
-    const imageDisplayCheckbox = settingsPopup.querySelector('input[name="image-display"]');
-    const buttonLayoutCheckbox = settingsPopup.querySelector('input[name="button-layout"]');
-
-    settingsButton.addEventListener('click', openSettingsPopup);
-    settingsCloseButton.addEventListener('click', closeSettingsPopup);
-
-    imageDisplayCheckbox.addEventListener('change', function() {
-        localStorage.setItem('imageDisplay', this.checked);
-        applyImageDisplaySetting();
-    });
-
-    buttonLayoutCheckbox.addEventListener('change', function() {
-        localStorage.setItem('buttonLayout', this.checked);
-        applyButtonLayoutSetting();
-    });
-
-    function applyImageDisplaySetting() {
-        const displayImages = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            img.style.display = displayImages ? '' : 'none';
-        });
-    }
-
-    function applyButtonLayoutSetting() {
-        const horizontalLayout = JSON.parse(localStorage.getItem('buttonLayout') || 'false');
-        const possessionButtons = document.querySelector('.possession-buttons');
-        if (horizontalLayout) {
-            possessionButtons.style.flexDirection = 'row';
-        } else {
-            possessionButtons.style.flexDirection = 'column';
-        }
-    }
-
-    applyImageDisplaySetting();
-    imageDisplayCheckbox.checked = JSON.parse(localStorage.getItem('imageDisplay') || 'true');
-
-    applyButtonLayoutSetting();
-    buttonLayoutCheckbox.checked = JSON.parse(localStorage.getItem('buttonLayout') || 'false');
 
     function updateColumnNamesForMobile() {
         const isMobile = window.innerWidth <= 768;
@@ -474,21 +282,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-function openSettingsPopup() {
-    const settingsPopup = document.querySelector('.settings-popup');
-    const settingsPopupOverlay = document.querySelector('.settings-popup-overlay');
-    settingsPopup.style.display = 'block';
-    settingsPopupOverlay.style.display = 'block';
-}
-
-function closeSettingsPopup() {
-    const settingsPopup = document.querySelector('.settings-popup');
-    const settingsPopupOverlay = document.querySelector('.settings-popup-overlay');
-    settingsPopup.style.display = 'none';
-    settingsPopupOverlay.style.display = 'none';
-}
-
-document.querySelector('#settings').addEventListener('click', openSettingsPopup);
-document.querySelector('.settings-popup button.close').addEventListener('click', closeSettingsPopup);
-document.querySelector('.settings-popup-overlay').addEventListener('click', closeSettingsPopup);
