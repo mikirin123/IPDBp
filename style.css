@@ -318,7 +318,7 @@ h2::before {
 }
 
 .popup-close:hover {
-    background-color: #CC0000;
+    background-color: #1a0080;
 }
 
 .popup-overlay {
@@ -543,6 +543,7 @@ a:hover.idol_link {
     .popup-header {
         position: sticky;
         top: 0;
+        padding: 10px; 
     }
 
     .popup-close {
