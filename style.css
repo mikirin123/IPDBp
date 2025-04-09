@@ -415,6 +415,7 @@ a:hover.idol_link {
 
 .menu_icon {
     width: 17px;
+    height: auto;
     position: relative;
     right: 8px;
     top: 2px;
@@ -447,6 +448,12 @@ a:hover.idol_link {
 
 .idol_image {
     width: 60px;
+    height: auto;
+}
+
+.yell_icon {
+    width: 50px;
+    height: auto;
 }
 
 /* ==========================
@@ -503,7 +510,7 @@ a:hover.idol_link {
     }
 
     th, td {
-        font-size: 10px;
+        font-size: 11px;
         padding: 4px;
     }
 
@@ -550,10 +557,12 @@ a:hover.idol_link {
 
     .yell_icon {
         width: 30px;
+        height: auto;
     }
 
     .idol_image {
         width: 55px;
+        height: auto;
     }
 
     /* 傾向・タイプ表示のコントロール */
@@ -562,7 +571,8 @@ a:hover.idol_link {
     }
     .icon {
         display: inline;
-        width: 30px;
+        width: 28px;
+        height: auto;
     }
 }
 
