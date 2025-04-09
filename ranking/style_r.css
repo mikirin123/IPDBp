@@ -310,12 +310,14 @@ a:hover.idol_link {
     }
 
     .ranking-table th, .ranking-table td {
-        padding: 6px 3px;
+        padding: 8px 3px;
     }
 
     .ranking-table-container {
-        padding: auto 0px auto 0px;
-        margin-top: 10px;
+        padding: 0px;
+        margin-top: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
         width: 100%;
     }
 
