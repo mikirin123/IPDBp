@@ -601,15 +601,15 @@ a:hover.idol_link {
     top: 2px;
 }
 
-.t_vocal, .trend-vocal {
+.trend-vocal {
     color: #FF469D;
 }
 
-.t_dance, .trend-dance {
+.trend-dance {
     color: #3ABAFF;
 }
 
-.t_visual, .trend-visual {
+.trend-visual {
     color: #FFA900;
 }
 
@@ -621,8 +621,13 @@ a:hover.idol_link {
     display: none;
 }
 
+/* 傾向・タイプ表示のコントロール */
+.icon {
+    display: none;
+}
+
 /* メディアクエリ（レスポンシブ対応） */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body {
         min-width: 100%;
     }
@@ -713,41 +718,6 @@ a:hover.idol_link {
         bottom: 0;
     }
 
-    .trend-vocal {
-        background: url('images/icon_vocal.webp') no-repeat center center;
-        background-size: 75%;
-    }
-
-    .trend-dance {
-        background: url('images/icon_dance.webp') no-repeat center center;
-        background-size: 75%;
-    }
-
-    .trend-visual {
-        background: url('images/icon_visual.webp') no-repeat center center;
-        background-size: 75%;
-    }
-
-    .type-scorer {
-        background: url('images/icon_scorer.webp') no-repeat center center;
-        background-size: 50%;
-    }
-
-    .type-buffer {
-        background: url('images/icon_buffer.webp') no-repeat center center;
-        background-size: 50%;
-    }
-
-    .type-supporter {
-        background: url('images/icon_supporter.webp') no-repeat center center;
-        background-size: 50%;
-    }
-
-    .trend-vocal, .trend-dance, .trend-visual,
-    .type-scorer, .type-buffer, .type-supporter {
-        text-indent: -9999px;
-    }
-
     .search-bar-container {
         width: 95%; /* Increase width for mobile */
         margin: 55px auto 0 auto; /* Center align for mobile */
@@ -759,6 +729,15 @@ a:hover.idol_link {
 
     .idol_image {
         width: 55px;
+    }
+
+    /* 傾向・タイプ表示のコントロール */
+    .text {
+        display: none;
+    }
+    .icon {
+        display: inline;
+        width: 30px;
     }
 }
 
