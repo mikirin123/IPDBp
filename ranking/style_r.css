@@ -237,25 +237,30 @@ a:hover.idol_link {
 }
 
 /* 特定列のスタイル */
-.ranking-table th:nth-child(2), /* ボーカル列 */
+.ranking-table th:nth-child(3), /* ボーカル列 */
 .ranking-sidebar h3:nth-of-type(1), /* スコアラーのボーカルTOP5 */
 .ranking-sidebar h3:nth-of-type(2), /* バッファーのボーカルTOP5 */
 .ranking-sidebar h3:nth-of-type(3)  /* サポーターのボーカルTOP5 */ {
     color: #FF469D; /* ボーカルの色 */
 }
 
-.ranking-table th:nth-child(3), /* ダンス列 */
+.ranking-table th:nth-child(4), /* ダンス列 */
 .ranking-sidebar h3:nth-of-type(4), /* スコアラーのダンスTOP5 */
 .ranking-sidebar h3:nth-of-type(5), /* バッファーのダンスTOP5 */
 .ranking-sidebar h3:nth-of-type(6)  /* サポーターのダンスTOP5 */ {
     color: #3ABAFF; /* ダンスの色 */
 }
 
-.ranking-table th:nth-child(4), /* ビジュアル列 */
+.ranking-table th:nth-child(5), /* ビジュアル列 */
 .ranking-sidebar h3:nth-of-type(7), /* スコアラーのビジュアルTOP5 */
 .ranking-sidebar h3:nth-of-type(8), /* バッファーのビジュアルTOP5 */
 .ranking-sidebar h3:nth-of-type(9)  /* サポーターのビジュアルTOP5 */ {
     color: #FFA900; /* ビジュアルの色 */
+}
+
+.idol_type {
+    position: relative;
+    top: 3px;
 }
 
 /* メディアクエリ */
@@ -327,5 +332,9 @@ a:hover.idol_link {
 
     .idol_names img {
         display: none; /* アイコンを非表示 */
+    }
+
+    .hidden {
+        display: none; /* 非表示にするクラス */
     }
 }
