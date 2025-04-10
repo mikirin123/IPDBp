@@ -455,49 +455,6 @@ a:hover.idol_link {
     width: 50px;
     height: auto;
 }
-
-.footer {
-    font-size: 15px;
-    background-color: #1c1c1c; /* 背景色 */
-    color: #fff; /* テキストの色 */
-    text-align: left; /* テキスト中央揃え */
-    padding: 5px 30px; /* 内側余白 */
-    margin-top: 15px; /* 上の外側余白 */
-    white-space: nowrap; /* 折り返さない */
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around; /* 左右の余白を均等に */
-}
-
-.footer-left {
-    width: 30%;
-  }
-  
-.footer-right {
-    width: 30%;
-}
-
-.footer_image {
-    width: 11px;
-    vertical-align: middle; /* アイコンを中央揃え */
-    margin-right: 5px; /* アイコンとテキストの間隔 */
-    background-color: white; /* アイコンの背景色 */
-}
-
-a.footer_link {
-    vertical-align: middle; /* アイコンを中央揃え */
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s; /* ホバー時のアニメーション */
-}
-
-a:hover.footer_link {
-    text-decoration: underline;
-    color: gray; /* ホバー時の色変更 */
-}
-
 /* ==========================
    メディアクエリ（レスポンシブ対応）
    ========================== */
@@ -620,19 +577,6 @@ a:hover.footer_link {
 
     .news-content {
         font-size: 12px;
-    }
-
-    .footer {
-        font-size: 9px;
-        padding: 3px 5px; /* Adjusted padding for mobile */
-    }
-    .footer-container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center align items */
-    }
-    .footer-left, .footer-right {
-        width: 100%; /* Full width for mobile */
-        text-align: center; /* Center align text */
     }
 }
 
