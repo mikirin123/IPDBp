@@ -1,12 +1,12 @@
 /* 全体のスタイル */
 body {
-    font-family: 'M PLUS 1p', 'Segoe UI', sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'M PLUS 1p', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif';
+    background-color: #f0f0f0;; /* 背景色を少し明るく変更 */
     margin: 0;
     padding: 0;
     min-width: 1200px;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.6; /* 行間を広げて読みやすく */
 }
 
 /* バナー */
@@ -21,7 +21,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 影を強調 */
 }
 
 .back-button {
@@ -31,12 +31,12 @@ body {
     transform: translateY(-50%);
     background-color: white;
     color: #3200FF;
-    padding: 8px 12px;
+    padding: 8px 12px; /* ボタンを少し大きく */
     text-decoration: none;
     border-radius: 5px;
     border: 1px solid #3200FF;
-    font-size: 14px;
-    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px; /* フォントサイズを調整 */
+    transition: background-color 0.3s, color 0.3s; /* ホバー時のアニメーション */
 }
 
 .back-button:hover {
@@ -50,6 +50,7 @@ table {
     font-size: 14px;
     table-layout: fixed;
     width: 100%;
+    position: relative;
 }
 
 th, td {
@@ -95,9 +96,13 @@ th.sortable.sorted-asc::after {
 
 .idol_names {
     text-align: left !important;
+}
+
+.idol_img, .idol_names {
     background-color: #def;
 }
 
+/* スクロールトップボタン */
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
@@ -105,12 +110,12 @@ th.sortable.sorted-asc::after {
     background-color: #3200FF;
     color: white;
     border: none;
-    padding: 12px 15px;
+    padding: 12px 15px; /* ボタンを少し大きく */
     cursor: pointer;
     display: none;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 影を追加 */
+    transition: background-color 0.3s; /* ホバー時のアニメーション */
 }
 
 /* ランキングページ全体 */
@@ -121,20 +126,20 @@ th.sortable.sorted-asc::after {
 
 /* サイドバー */
 .ranking-sidebar {
-    width: 30%;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-right: 2px solid black;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: 30%; /* サイドバーの幅を自動調整 */
+    background-color: #f0f0f0;; /* サイドバーの背景を白に */
+    padding: 20px; /* サイドバーの内側の余白を調整 */
+    border-right: 2px solid black; /* サイドバーの右側に境界線を追加 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* サイドバーに影を追加 */
 }
 
 .ranking-sidebar h3 {
-    font-size: 18px;
+    font-size: 18px; /* 見出しを大きく */
     margin-bottom: 15px;
-    color: #444;
+    color: #444; /* 少し濃い色に */
     padding-bottom: 5px;
-    text-align: center;
-    background-color: white;
+    text-align: center; /* 中央揃え */
+    background-color: white; /* テーブルの背景を白に */
 }
 
 .ranking-sidebar ul {
@@ -147,26 +152,33 @@ th.sortable.sorted-asc::after {
     margin-bottom: 10px;
 }
 
-.ranking-sidebar ul img, .idol_names img {
-    vertical-align: middle;
-    width: 60px;
+.ranking-sidebar ul img {
+    vertical-align: middle; /* アイコンを中央揃え */
+    width: 60px; /* アイコンのサイズを調整 */
+    margin-right: 10px;
+}
+
+.idol_names img {
+    vertical-align: middle; /* アイコンを中央揃え */
+    width: 60px; /* アイコンのサイズを調整 */
     margin-right: 10px;
 }
 
 .ranking-sidebar ul li a {
     text-decoration: none;
     color: black;
-    transition: color 0.3s;
+    transition: color 0.3s; /* ホバー時のアニメーション */
+    vertical-align: middle; /* アイコンを中央揃え */
 }
 
 .ranking-sidebar ul li a:hover {
     text-decoration: underline;
-    color: gray;
+    color: gray; /* ホバー時の色変更 */
 }
 
 /* ランキングテーブル */
 .ranking-table-container {
-    width: 75%;
+    width: 75%; /* テーブル部分を広げる */
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -176,11 +188,11 @@ th.sortable.sorted-asc::after {
 .ranking-table {
     width: auto;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: hidden; /* 角のはみ出しを防ぐ */
 }
 
 .ranking-table th, .ranking-table td {
-    padding: 9px 10px;
+    padding: 9px 10px; /* セルのパディングを広げる */
     text-align: center;
     white-space: nowrap;
 }
@@ -190,6 +202,8 @@ th.sortable.sorted-asc::after {
     color: black;
     font-size: 14px;
     font-weight: bold;
+    position: sticky;
+    top: 0;
 }
 
 .ranking-table td {
@@ -198,41 +212,54 @@ th.sortable.sorted-asc::after {
 }
 
 .ranking-table tr:nth-child(even) td {
-    background-color: #f7f7f7;
+    background-color: #f7f7f7; /* 偶数行の背景色を変更 */
+}
+
+td.status {
+    background-color: white;
+}
+
+.number {
+    display: none;
 }
 
 a.idol_link {
-    vertical-align: middle;
+    vertical-align: middle; /* アイコンを中央揃え */
     text-decoration: none;
     color: black;
-    transition: color 0.3s;
+    transition: color 0.3s; /* ホバー時のアニメーション */
 }
 
 a:hover.idol_link {
     text-decoration: underline;
-    color: gray;
+    color: gray; /* ホバー時の色変更 */
 }
 
 /* 特定列のスタイル */
-.ranking-table th:nth-child(3),
-.ranking-sidebar h3:nth-of-type(1),
-.ranking-sidebar h3:nth-of-type(2),
-.ranking-sidebar h3:nth-of-type(3) {
-    color: #FF469D;
+.ranking-table th:nth-child(3), /* ボーカル列 */
+.ranking-sidebar h3:nth-of-type(1), /* スコアラーのボーカルTOP5 */
+.ranking-sidebar h3:nth-of-type(2), /* バッファーのボーカルTOP5 */
+.ranking-sidebar h3:nth-of-type(3)  /* サポーターのボーカルTOP5 */ {
+    color: #FF469D; /* ボーカルの色 */
 }
 
-.ranking-table th:nth-child(4),
-.ranking-sidebar h3:nth-of-type(4),
-.ranking-sidebar h3:nth-of-type(5),
-.ranking-sidebar h3:nth-of-type(6) {
-    color: #3ABAFF;
+.ranking-table th:nth-child(4), /* ダンス列 */
+.ranking-sidebar h3:nth-of-type(4), /* スコアラーのダンスTOP5 */
+.ranking-sidebar h3:nth-of-type(5), /* バッファーのダンスTOP5 */
+.ranking-sidebar h3:nth-of-type(6)  /* サポーターのダンスTOP5 */ {
+    color: #3ABAFF; /* ダンスの色 */
 }
 
-.ranking-table th:nth-child(5),
-.ranking-sidebar h3:nth-of-type(7),
-.ranking-sidebar h3:nth-of-type(8),
-.ranking-sidebar h3:nth-of-type(9) {
-    color: #FFA900;
+.ranking-table th:nth-child(5), /* ビジュアル列 */
+.ranking-sidebar h3:nth-of-type(7), /* スコアラーのビジュアルTOP5 */
+.ranking-sidebar h3:nth-of-type(8), /* バッファーのビジュアルTOP5 */
+.ranking-sidebar h3:nth-of-type(9)  /* サポーターのビジュアルTOP5 */ {
+    color: #FFA900; /* ビジュアルの色 */
+}
+
+.idol_type {
+    position: relative;
+    top: 3px;
 }
 
 /* メディアクエリ */
@@ -247,7 +274,7 @@ a:hover.idol_link {
         font-weight: bold;
     }
 
-    .idol_icon, .back-button, .ranking-sidebar, .ranking-table th:nth-child(6), .ranking-table td:nth-child(6), .idol_names img {
+    .idol_icon {
         display: none;
     }
 
@@ -256,33 +283,66 @@ a:hover.idol_link {
     }
 
     .banner {
-        text-align: left;
-        padding: 10px 0;
+        text-align: left; /* Change text alignment to left */
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     h1 {
         font-size: 1.5em;
     }
 
+    .no_display {
+        display: block;
+    }
+
+    .back-button {
+        display: none;
+    }
+
     #scrollToTopBtn {
+        display: none;
         bottom: 10px;
         right: 10px;
         padding: 5px 10px;
     }
 
-    .ranking-table th, .ranking-table td {
+    .ranking-table th {
         padding: 5px 1px;
     }
 
+    .ranking-table td {
+        padding: 8px 1px;
+    }
+
     .ranking-table-container {
-        margin: 0;
-        padding: 0;
+        margin-top: 0px;
         width: 100%;
+        margin: 0px;
+        padding: 0px;
     }
 
     .ranking-table {
         width: fit-content;
-        margin: 0;
-        padding: 0;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden; /* 角のはみ出しを防ぐ */
+    }
+
+    .ranking-sidebar {
+        display: none; /* サイドバーを非表示 */
+    }
+
+    .ranking-table th:nth-child(6), /* パワー列のヘッダー */
+    .ranking-table td:nth-child(6) /* パワー列のデータ */ {
+        display: none;
+    }
+
+    .idol_names img {
+        display: none; /* アイコンを非表示 */
+    }
+
+    .hidden {
+        display: none; /* 非表示にするクラス */
     }
 }
