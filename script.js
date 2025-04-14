@@ -292,4 +292,34 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // 初期表示で最初の5体のみを表示
+    const table = document.getElementById('character-table');
+    const initialData = JSON.parse(document.getElementById('initial-data').textContent);
+
+    initialData.forEach(rowData => {
+        const row = table.insertRow();
+        rowData.forEach(cellData => {
+            const cell = row.insertCell();
+            cell.outerHTML = cellData; // HTML構造をそのまま挿入
+        });
+    });
+
+    // 「全て表示する」ボタンのクリックイベント
+    const showAllButton = document.getElementById('show-all-btn');
+    showAllButton.addEventListener('click', function() {
+        fetch('remaining_data.json')
+            .then(response => response.json())
+            .then(remainingData => {
+                remainingData.forEach(rowData => {
+                    const row = table.insertRow();
+                    rowData.forEach(cellData => {
+                        const cell = row.insertCell();
+                        cell.outerHTML = cellData; // HTML構造をそのまま挿入
+                    });
+                });
+                showAllButton.style.display = 'none'; // ボタンを非表示にする
+            })
+            .catch(error => console.error('データの取得に失敗しました:', error));
+    });
 });
