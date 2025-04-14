@@ -1,7 +1,7 @@
 /* 全体のスタイル */
 body {
     font-family: 'M PLUS 1p', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif';
-    background-color: white; /* 背景色を少し明るく変更 */
+    background-color: #f0f0f0;; /* 背景色を少し明るく変更 */
     margin: 0;
     padding: 0;
     min-width: 1200px;
@@ -127,7 +127,7 @@ th.sortable.sorted-asc::after {
 /* サイドバー */
 .ranking-sidebar {
     width: 30%; /* サイドバーの幅を自動調整 */
-    background-color: #ffffff; /* サイドバーの背景を白に */
+    background-color: #f0f0f0;; /* サイドバーの背景を白に */
     padding: 20px; /* サイドバーの内側の余白を調整 */
     border-right: 2px solid #3200FF;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* サイドバーに影を追加 */
