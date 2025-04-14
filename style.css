@@ -438,6 +438,11 @@ ul {
     display: none;
 }
 
+.news a {
+    text-decoration: none;
+    color: #3200FF;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
