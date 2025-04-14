@@ -394,7 +394,6 @@ h2::before {
 .menuu-item {
     all: unset; /* すべてのスタイルを無効化 */
     cursor: pointer; /* マウスカーソルはリンクらしく */
-
 }
 
 ul {
