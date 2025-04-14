@@ -1,8 +1,4 @@
 // ==========================
-// 更新情報のHTML
-// ==========================
-const update_info = '<div class="news-content"><b>2025/4/6更新</b><br><br>・全アイドルの能力詳細を追加<br>・詳細ページに変化前イラストを掲載(パソコンのみ)<br><br><hr><b>2025/3/25更新</b><br><br>・2024年3月までのアイドルを追加<br>・詳細ページにプロフィールと他アイドルを掲載<br><br><hr><b>2025/3/24更新</b><br><br>・2023年12月までのアイドルを追加<br><br><hr><b>2025/3/15更新</b><br><br>・2023年6月までのアイドルを追加<br>・エールの表示をアイコンに変更<br><br><hr><b>2025/2/16更新</b><br><br>・2023年3月までのアイドルを追加<br>・ステータスの項目にパワーを追加<br>・検索バーを追加<br><br><hr><b>2025/2/7更新</b><br><br>・2022年4月までのアイドルを追加<br>・ステータスランキングページを追加<br><br><hr><b>2025/2/5更新</b><br><br>・2021年12月までのアイドルを追加<br>・バナータップ時にページ上部に移動<br><br><hr><b>2025/1/25更新</b><br><br>・スマホでの表示簡略化<br>・ポップアップにオーバーレイ追加<br>・設定に所持キャラチェックのボタン配置切り替えを追加<br><br><hr><b>2025/1/23更新</b><br><br>・実装順、降順昇順での並び替えの追加<br>・所持キャラチェックモードのボタン追加<br>・詳細ページの戻るボタン追加<br>・全体的なデザインの改善<br><br><hr><b>2025/1/18更新</b><br><br>・リリース時までの登場アイドルの追加</div>';
-// ==========================
 // フィルタ適用機能
 // ==========================
 function applyFilters() {
@@ -186,11 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupContent.innerHTML = 'このツールはmikiが開発しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr">twitter</a>または<a href="https://forms.gle/Ke99JPag1pFawJw89">Googleフォーム</a>までお願いします。';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
-            } else if (menuName === '更新情報') {
-                popupContent.innerHTML = update_info;
-                popup.style.display = 'block';
-                popupOverlay.style.display = 'block';
-            }
+            } 
         });
     });
 
