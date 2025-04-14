@@ -443,6 +443,12 @@ ul {
     color: #3200FF;
 }
 
+.news a:hover {
+    text-decoration: underline;
+    color: #3200FF;
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
