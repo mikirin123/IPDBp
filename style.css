@@ -394,6 +394,7 @@ h2::before {
 .menuu-item {
     all: unset; /* すべてのスタイルを無効化 */
     cursor: pointer; /* マウスカーソルはリンクらしく */
+
 }
 
 ul {
@@ -448,6 +449,80 @@ ul {
     color: #3200FF;
 }
 
+.event {
+    flex: 1;
+    margin-left: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    display: grid;
+    max-height:250px;
+    display: none;
+}
+
+.event p {
+    margin: 0px 10px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.event hr {
+    margin: 0px 10px;
+}
+
+.event li {
+    text-align: right;
+    font-size: 11px;
+    color: #999;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.event-head {
+    background-image: linear-gradient(-45deg, #fff 25%, #f8f8f8 25%, #f8f8f8 50%, #fff 50%, #fff 75%, #f8f8f8 75%, #f8f8f8);
+    border-bottom: 2px solid #ddd;
+    background-size: 8px 8px;
+    color: black;
+    padding: 7px 10px 7px 15px;
+    font-size: 14px;
+    text-align: left;
+    border-top-left-radius: 10px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.event-head::before {
+    display: none;
+}
+
+.event a {
+    text-decoration: none;
+    color: #3200FF;
+}
+
+.event a:hover {
+    text-decoration: underline;
+    color: #3200FF;
+}
+
+.circle_icon {
+    width:50px;
+    vertical-align: middle; /* アイコンを中央揃え */
+}
+
+.birthday {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.menuu_icon {
+    width: 50px;
+    height: auto;
+    vertical-align: middle; /* アイコンを中央揃え */
+}
 
 @keyframes fadeIn {
     from {
@@ -485,9 +560,6 @@ ul {
     z-index: 3;
     border-radius: 5px;
     max-width: max-content;
-}
-.news-content {
-    text-align: left;
 }
 
 a.idol_link {
@@ -689,10 +761,6 @@ a:hover.idol_link {
         display: inline;
         width: 28px;
         height: auto;
-    }
-
-    .news-content {
-        font-size: 12px;
     }
 
     #phone-hidden {

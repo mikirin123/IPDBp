@@ -1,1 +1,0 @@
-# idoly_tool
