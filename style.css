@@ -333,6 +333,111 @@ h2::before {
     animation: fadeIn 0.3s ease-in-out;
 }
 
+.menuu-container {
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
+
+.item {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.news {
+    flex: 1;
+    margin-left: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    display: grid;
+    max-height:250px
+}
+
+.menuu {
+    flex: 2;
+}
+
+.menuu-head::before {
+    display: none;
+}
+
+.menuu-head {
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    line-height: 1em;
+}
+.menuu-head::after {
+    display: inline-block;
+    height: 2px;
+    background: #3200FF;
+    content: " ";
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-left: 10px;
+}
+
+.menuu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.menuu-item {
+    all: unset; /* すべてのスタイルを無効化 */
+    cursor: pointer; /* マウスカーソルはリンクらしく */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news p {
+    margin: 0px 10px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.news hr {
+    margin: 0px 10px;
+}
+
+.news li {
+    text-align: right;
+    font-size: 11px;
+    color: #999;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.news-head {
+    background-image: linear-gradient(-45deg, #fff 25%, #f8f8f8 25%, #f8f8f8 50%, #fff 50%, #fff 75%, #f8f8f8 75%, #f8f8f8);
+    border-bottom: 2px solid #ddd;
+    background-size: 8px 8px;
+    color: black;
+    padding: 7px 10px 7px 15px;
+    font-size: 14px;
+    text-align: left;
+    border-top-left-radius: 10px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.news-head::before {
+    display: none;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -433,10 +538,6 @@ a:hover.idol_link {
     color: #FFA900;
 }
 
-.top-container {
-    padding-top: 65px;
-}
-
 #possession-check, #possession-export, #possession-import {
     display: none;
 }
@@ -508,10 +609,6 @@ a:hover.idol_link {
         margin-top: 10px;
     }
 
-    .top-container {
-        padding-top: 0px;
-    }
-
     table {
         width: 100%;
     }
@@ -560,7 +657,7 @@ a:hover.idol_link {
 
     .search-bar-container {
         width: 98%; /* Increase width for mobile */
-        margin: 55px auto 0 auto; /* Center align for mobile */
+        margin: 30px auto 0 auto; /* Center align for mobile */
     }
 
     .yell_icon {
@@ -585,6 +682,10 @@ a:hover.idol_link {
 
     .news-content {
         font-size: 12px;
+    }
+
+    #phone-hidden {
+        display: none;
     }
 }
 

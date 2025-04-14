@@ -323,3 +323,14 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('データの取得に失敗しました:', error));
     });
 });
+
+function scrollWithOffset(event) {
+    event.preventDefault(); // 通常のジャンプを止める
+    const href = event.currentTarget.getAttribute("href");
+    const target = document.querySelector(href);
+    if (target) {
+      const offset = 70; // ← ここでずらす量を調整
+      const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: position, behavior: 'smooth' });
+    }
+  }
