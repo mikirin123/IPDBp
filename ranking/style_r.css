@@ -129,7 +129,7 @@ th.sortable.sorted-asc::after {
     width: 30%; /* サイドバーの幅を自動調整 */
     background-color: #f0f0f0;; /* サイドバーの背景を白に */
     padding: 20px; /* サイドバーの内側の余白を調整 */
-    border-right: 2px solid #3200FF;
+    border-right: 2px solid black; /* サイドバーの右側に境界線を追加 */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* サイドバーに影を追加 */
 }
 
@@ -137,9 +137,9 @@ th.sortable.sorted-asc::after {
     font-size: 18px; /* 見出しを大きく */
     margin-bottom: 15px;
     color: #444; /* 少し濃い色に */
-    border-bottom: 2px solid #3200FF; /* 下線を追加 */
     padding-bottom: 5px;
     text-align: center; /* 中央揃え */
+    background-color: white; /* テーブルの背景を白に */
 }
 
 .ranking-sidebar ul {
