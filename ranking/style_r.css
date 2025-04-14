@@ -167,7 +167,6 @@ th.sortable.sorted-asc::after {
 .ranking-sidebar ul li a {
     text-decoration: none;
     color: black;
-    font-weight: bold; /* リンクを強調 */
     transition: color 0.3s; /* ホバー時のアニメーション */
     vertical-align: middle; /* アイコンを中央揃え */
 }
