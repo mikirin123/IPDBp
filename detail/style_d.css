@@ -178,8 +178,7 @@ th {
     color: #FFA900;
 }
 
-/* その他 */
-.awakening :empty {
+tr:has(th:empty) {
     display: none;
 }
 
