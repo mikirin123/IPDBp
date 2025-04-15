@@ -457,7 +457,6 @@ ul {
     overflow-y: auto;
     display: grid;
     max-height:250px;
-    display: none;
 }
 
 .event p {
@@ -465,6 +464,11 @@ ul {
     padding: 10px;
     font-size: 14px;
     line-height: 1.5;
+}
+
+.event-detail {
+    font-size: 10px;
+    color: #999;
 }
 
 .event hr {
