@@ -174,12 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function() {
             const menuName = this.innerText;
             popupHeader.innerText = menuName; // ポップアップのヘッダーにタイトルを設定
-            if (menuName === 'つかいかた') {
-                popupContent.innerHTML = '<div class="news-content"><b>メインページ</b><br><br>ゲーム内で実装されている全アイドルの詳細を確認できます。<br>フィルタ・並び替え・検索機能も活用してみてください。<br><br><hr><b>能力詳細</b><br><br>対象アイドルのステータスやスキル効果などを確認できます。<br><br><hr><b>ステータスランキング</b><br><br>全アイドルのステータスを一覧できます。<br>項目名をクリックすると、<br>昇順・降順で数値を並び替えることもできます。</div>';
+            if (menuName === '') {
+                popupContent.innerHTML = '';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
-            } else if (menuName === 'このサイトについて') {
-                popupContent.innerHTML = 'このサイトはmikiが作成しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr" class="about_link">twitter</a>または<a href="https://forms.gle/gM8HjG6Hzq4YxCmh9" class="about_link">Googleフォーム</a>までお願いします。';
+            } else if (menuName === ' このサイトについて') {
+                popupContent.innerHTML = '● 作成者<br>miki<br><br>● 推薦環境<br>chrome(最新版)<br>Safari (Mac・iOS最新版)<br>Firefox (最新版)<br><br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr" class="about_link">twitter</a>または<a href="https://forms.gle/gM8HjG6Hzq4YxCmh9" class="about_link">Googleフォーム</a>までお願いします。';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } 

@@ -82,8 +82,7 @@ h3 {
 
 .menu-content a {
     display: block;
-    padding: 11px 20px;
-    padding-right: 30px;
+    padding: 10px 20px 10px 15px;
     text-decoration: none;
     color: black;
     font-size: 1em;
@@ -619,14 +618,6 @@ a:hover.idol_link {
     height: 20px;
     background: url('image/m_虫眼鏡.webp') no-repeat center center;
     background-size: contain;
-}
-
-.menu_icon {
-    width: 17px;
-    height: auto;
-    position: relative;
-    right: 8px;
-    top: 2px;
 }
 
 .trend-vocal {
