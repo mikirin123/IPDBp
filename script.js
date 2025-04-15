@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } else if (menuName === 'このサイトについて') {
-                popupContent.innerHTML = 'このサイトはmikiが作成しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr">twitter</a>または<a href="https://forms.gle/gM8HjG6Hzq4YxCmh9">Googleフォーム</a>までお願いします。';
+                popupContent.innerHTML = 'このサイトはmikiが作成しています。<br>改善要望・不具合報告は<br><a href="https://x.com/miki_aipr" class="about_link">twitter</a>または<a href="https://forms.gle/gM8HjG6Hzq4YxCmh9" class="about_link">Googleフォーム</a>までお願いします。';
                 popup.style.display = 'block';
                 popupOverlay.style.display = 'block';
             } 

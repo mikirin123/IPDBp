@@ -543,6 +543,16 @@ ul {
     }
 }
 
+.about_link {
+    text-decoration: none;
+    color: #3200FF;
+}
+
+.about_link:hover {
+    text-decoration: underline;
+    color: #3200FF;
+}
+
 #no_br {
     display: inline-block;
 }
