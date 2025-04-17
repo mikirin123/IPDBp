@@ -8,11 +8,26 @@ body {
     color: #333;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 2em;
-    color: #3200FF;
+.head {
+    position: relative;
+    padding-left: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    color: #3200FF; /* 色を変更 */
+    font-weight: bold; /* 太字に変更 */
+    text-align: left; /* 左寄せに変更 */
+}
+
+.head::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px; /* 高さを幅と同じにして正方形に */
+    background-color: #3200FF;
 }
 
 /* バナー */
@@ -32,6 +47,10 @@ h1 {
 
 .banner_title {
     cursor: pointer;
+}
+
+.banner_title_phone {
+    display: none;
 }
 
 .back-button {
@@ -211,6 +230,23 @@ a:hover.idol_link {
     color: gray; /* ホバー時の色変更 */
 }
 
+.mokuji {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #3200FF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mokuji::after {
+    content: '';
+    flex-grow: 1;
+    height: 2px;
+    background-color: #3200FF;
+    margin: 0 10px;
+}
+
 /* メディアクエリ */
 @media (max-width: 768px) {
     body {
@@ -324,5 +360,13 @@ a:hover.idol_link {
     .af_image {
         padding: 0px;
         margin-bottom: 10px;
+    }
+
+    .banner_title {
+        display: none;
+    }
+
+    .banner_title_phone {
+        display: block;
     }
 }

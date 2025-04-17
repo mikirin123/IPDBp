@@ -24,6 +24,15 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 影を強調 */
 }
 
+.banner_title {
+    cursor: pointer;
+}
+
+.banner_title_phone {
+    display: none;
+}
+
+
 .back-button {
     position: absolute;
     right: 5%;
@@ -90,9 +99,6 @@ th.sortable.sorted-asc::after {
     display: none;
 }
 
-.banner_title {
-    cursor: pointer;
-}
 
 .idol_names {
     text-align: left !important;
@@ -344,5 +350,13 @@ a:hover.idol_link {
 
     .hidden {
         display: none; /* 非表示にするクラス */
+    }
+
+    .banner_title {
+        display: none;
+    }
+
+    .banner_title_phone {
+        display: block;
     }
 }
