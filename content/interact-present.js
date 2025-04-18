@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function saveTableAsImage() {
-    const table = document.getElementById('color_table');
+    const table = document.getElementsByClassName('content');
 
     html2canvas(table).then(canvas => {
         const link = document.createElement('a');
-        link.download = 'idol_color.png';
+        link.download = 'interact-present.png';
         link.href = canvas.toDataURL();
         link.click();
     }).catch(err => {
