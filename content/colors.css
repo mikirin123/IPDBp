@@ -218,6 +218,21 @@ img {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.save {
+    background-color: #3200FF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    position: relative; /* 親要素内で中央配置 */
+    left: 50%; /* 左端から50% */
+    transform: translateX(-50%); /* 自身の幅の半分だけ左に移動 */
+    margin-top: 20px; /* 上部に余白を追加 */
+}
+
 /* メディアクエリ */
 @media (max-width: 768px) {
     body {
