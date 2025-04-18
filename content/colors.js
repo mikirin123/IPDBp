@@ -35,25 +35,10 @@ function copyColorCode(colorCode) {
 
 function saveTableAsImage() {
     const table = document.getElementById('color_table');
-    const siteName = 'IDOLY PRIDE データベースプラス';
 
     html2canvas(table).then(canvas => {
-        const ctx = canvas.getContext('2d');
-        const fontSize = 16;
-        const padding = 10;
-
-        ctx.font = `${fontSize}px Arial`;
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'bottom';
-
-        const x = canvas.width - padding;
-        const y = canvas.height - padding;
-
-        ctx.fillText(siteName, x, y);
-
         const link = document.createElement('a');
-        link.download = 'color_table.png';
+        link.download = 'idol_color.png';
         link.href = canvas.toDataURL();
         link.click();
     }).catch(err => {
