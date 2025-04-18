@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function saveTableAsImage() {
-    const table = document.getElementsByClassName('content');
+    const content = document.querySelector('.content'); // 修正: class="content"を取得
 
-    html2canvas(table).then(canvas => {
+    html2canvas(content).then(canvas => {
         const link = document.createElement('a');
         link.download = 'interact-present.png';
         link.href = canvas.toDataURL();
