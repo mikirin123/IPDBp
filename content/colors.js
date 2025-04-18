@@ -41,7 +41,7 @@ function saveTableAsImage() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
         ctx.textAlign = "right";
-        ctx.fillText(siteName, canvas.width, canvas.height);
+        ctx.fillText(siteName, canvas.width - 10, canvas.height - 10);
 
         const link = document.createElement('a');
         link.download = 'color_table.png';
