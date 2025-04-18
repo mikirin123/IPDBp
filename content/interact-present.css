@@ -14,7 +14,7 @@ h2 {
     padding-left: 15px;
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 
 h2::before {
@@ -107,7 +107,7 @@ h2::before {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 15px;
     width:0;
     white-space:nowrap;
 
@@ -223,11 +223,13 @@ img {
 
     h2 {
         font-size: 14px;
-        margin-top: 0;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     table {
         width: 100%;
+        margin-top: 5px;
     }
 
     th, td {
@@ -244,6 +246,7 @@ img {
 
     p {
         font-size: 12px;
+        margin: 5px 0;
     }
 
     .icon {
