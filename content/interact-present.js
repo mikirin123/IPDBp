@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function saveTableAsImage() {
     const content = document.querySelector('.content'); // 修正: class="content"を取得
+    const names = content.querySelectorAll('a'); // アイドルの名前を取得
+
+    // 名前を一時的に非表示にする
+    names.forEach(name => {
+        name.style.visibility = 'hidden';
+    });
 
     html2canvas(content).then(canvas => {
         const link = document.createElement('a');
@@ -35,5 +41,10 @@ function saveTableAsImage() {
         link.click();
     }).catch(err => {
         console.error('画像の生成に失敗しました: ', err);
+    }).finally(() => {
+        // 名前を再表示する
+        names.forEach(name => {
+            name.style.visibility = 'visible';
+        });
     });
 }
