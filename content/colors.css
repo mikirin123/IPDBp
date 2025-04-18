@@ -104,11 +104,6 @@ h2::before {
     width: fit-content;
 }
 
-.table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -280,7 +275,8 @@ img {
     }
 
     .table-wrapper {
-        margin-top: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     table {
