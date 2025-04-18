@@ -36,6 +36,13 @@ function copyColorCode(colorCode) {
 function saveTableAsImage() {
     const table = document.getElementById('color_table');
     html2canvas(table).then(canvas => {
+        const ctx = canvas.getContext('2d');
+        const siteName = "IDOLY PRIDE データベースプラス";
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+        ctx.textAlign = "right";
+        ctx.fillText(siteName, canvas.width - 10, canvas.height - 10);
+
         const link = document.createElement('a');
         link.download = 'color_table.png';
         link.href = canvas.toDataURL('image/png');
