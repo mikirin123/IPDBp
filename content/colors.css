@@ -289,6 +289,10 @@ img {
         font-size: 12px; /* テキストサイズを調整 */
     }
 
+    .color-box::after {
+        display: none; /* スマホではツールチップを非表示 */
+    }
+
     .save {
         font-size: 12px; /* ボタンのフォントサイズを調整 */
         padding: 8px 16px;

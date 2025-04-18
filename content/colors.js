@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function copyColorCode(colorCode) {
+function copyColorCode(colorCode, characterName) {
     navigator.clipboard.writeText(colorCode).then(() => {
-        alert(`カラーコード ${colorCode} をコピーしました！`);
+        alert(`${characterName}のカラーコードをコピーしました！`);
     }).catch(err => {
         console.error('コピーに失敗しました: ', err);
     });
