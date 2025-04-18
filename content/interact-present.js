@@ -24,3 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function saveTableAsImage() {
+    const table = document.getElementById('color_table');
+
+    html2canvas(table).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'idol_color.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    }).catch(err => {
+        console.error('画像の生成に失敗しました: ', err);
+    });
+}

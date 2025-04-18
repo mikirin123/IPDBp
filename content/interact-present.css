@@ -88,7 +88,6 @@ h2::before {
 }
 
 .content {
-    margin-top: 80px; /* バナーの高さ分のマージン */
     padding: 20px;
     background-color: white;
     border-radius: 5px;
@@ -99,6 +98,7 @@ h2::before {
 }
 
 .container {
+    margin-top: 70px; /* バナーの高さ分のマージン */
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
@@ -172,6 +172,22 @@ img {
     height: 2px;
     background-color: #3200FF;
     margin: 0 10px;
+}
+
+.save {
+    background-color: #3200FF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    position: relative; /* 親要素内で中央配置 */
+    left: 50%; /* 左端から50% */
+    transform: translateX(-50%); /* 自身の幅の半分だけ左に移動 */
+    margin-top: 20px; /* 上部に余白を追加 */
+    margin-bottom: 20px; /* 下部に余白を追加 */
 }
 
 /* メディアクエリ */

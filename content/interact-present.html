@@ -7,6 +7,7 @@
         <title>交流 - プレゼントキャラ別Pt上昇量 - アイドルリスト - IDOLY PRIDE データベースプラス</title>
         <link rel="stylesheet" href="interact-present.css">
         <script src="interact-present.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <link rel="shortcut icon" href="../image/icon.ico">
         <link rel="icon" type="image/png" sizes="180x180" href="../image/icon.png">
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../image/icon.png">
@@ -94,6 +95,7 @@
                     </tr>
                 </table>
             </div>
+            <button onclick="saveTableAsImage()" class="save">画像として保存</button>
         </div>
         <button id="scrollToTopBtn" onclick="scrollToTop()">ページ上部へ</button>
     </body>
