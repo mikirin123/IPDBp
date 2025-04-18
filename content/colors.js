@@ -41,7 +41,8 @@ function saveTableAsImage() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
         ctx.textAlign = "right";
-        ctx.fillText(siteName, canvas.width - 10, canvas.height - 10);
+        ctx.textBaseline = "bottom"; // テキストの基準線を下に設定
+        ctx.fillText(siteName, canvas.width - 10, canvas.height - 10); // 右下隅に配置
 
         const link = document.createElement('a');
         link.download = 'color_table.png';
