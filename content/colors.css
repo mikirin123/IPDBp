@@ -104,13 +104,17 @@ h2::before {
     width: fit-content;
 }
 
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    width:0;
-    white-space:nowrap;
-
+    width: 0;
+    white-space: nowrap;
 }
 th, td {
     text-align: left;
@@ -237,6 +241,7 @@ img {
 @media (max-width: 768px) {
     body {
         min-width: 100%;
+        font-size: 14px; /* スマホ用フォントサイズ */
     }
 
     .banner {
@@ -262,5 +267,34 @@ img {
 
     .banner_title_phone {
         display: block;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px; /* スマホ用の余白を追加 */
+    }
+
+    .content {
+        margin-top: 60px; /* バナーの高さ分のマージンを調整 */
+        padding: 15px;
+    }
+
+    .table-wrapper {
+        margin-top: 10px;
+    }
+
+    table {
+        min-width: 0; /* スマホでの表示に対応 */
+    }
+
+    .color-box {
+        width: 60px; /* スマホ用にサイズを調整 */
+        height: 60px;
+        font-size: 12px; /* テキストサイズを調整 */
+    }
+
+    .save {
+        font-size: 12px; /* ボタンのフォントサイズを調整 */
+        padding: 8px 16px;
     }
 }
