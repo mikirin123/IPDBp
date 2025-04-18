@@ -220,4 +220,42 @@ img {
     .banner_title_phone {
         display: block;
     }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 4px;
+        text-align: center; /* アイコンを中央揃え */
+        vertical-align: middle; /* 垂直方向も中央揃え */
+    }
+
+    table img.icon {
+        display: block; /* ブロック要素にして中央揃えを適用 */
+        margin: 0 auto; /* 左右中央揃え */
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .icon {
+        width: 30px;
+    }
+
+    table a {
+        display: none;
+    }
+
+    .save {
+        margin-top: 5px;
+        font-size: 10px;
+        padding: 5px 10px;
+    }
 }
