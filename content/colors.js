@@ -35,20 +35,20 @@ function copyColorCode(colorCode) {
 
 function saveTableAsImage() {
     const table = document.getElementById('color_table');
+    const siteName = "IDOLY PRIDE データベースプラス";
+
     html2canvas(table).then(canvas => {
         const ctx = canvas.getContext('2d');
-        const siteName = "IDOLY PRIDE データベースプラス";
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-        ctx.textAlign = "right";
-        ctx.textBaseline = "bottom"; // テキストの基準線を下に設定
-        ctx.fillText(siteName, canvas.width - 10, canvas.height - 10); // 右下隅に配置
+        ctx.font = '16px Arial';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+        ctx.textAlign = 'right';
+        ctx.fillText(siteName, canvas.width - 10, canvas.height - 10);
 
         const link = document.createElement('a');
         link.download = 'color_table.png';
-        link.href = canvas.toDataURL('image/png');
+        link.href = canvas.toDataURL();
         link.click();
     }).catch(err => {
-        console.error('テーブルの画像保存に失敗しました: ', err);
+        console.error('画像の生成に失敗しました: ', err);
     });
 }
