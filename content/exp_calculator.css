@@ -9,15 +9,12 @@ body {
     line-height: 1.6;
 }
 
-h2 {
+h3 {
     position: relative;
     padding-left: 15px;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
-h2::before {
+h3::before {
     content: '';
     position: absolute;
     left: 0;
