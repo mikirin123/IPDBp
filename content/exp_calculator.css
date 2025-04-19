@@ -317,6 +317,23 @@ button:active {
     color: #333;
 }
 
+/* ローディングメッセージのスタイル */
+.loading {
+    font-size: 16px;
+    color: #3200FF;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.error {
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
 /* メディアクエリ */
 @media (max-width: 768px) {
     body {

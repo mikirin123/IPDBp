@@ -49,6 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // 計算中の演出を表示
+        const resultContent = document.querySelector('#result .result-content');
+        resultContent.innerHTML = '<div class="loading">計算中...</div>';
+        document.getElementById('result').style.display = 'block';
+
         fetch('exp_list.csv')
             .then(response => response.text())
             .then(data => {
@@ -67,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 totalExp *= idolCount; // アイドル数を掛ける
 
-                const resultContent = document.querySelector('#result .result-content');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
                 resultContent.innerHTML = `
                     <div>現在のレベル: ${currentLevel}</div>
@@ -76,14 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div>必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})</div>
                 `;
 
-                // 計算結果を表示
-                document.getElementById('result').style.display = 'block';
-
                 // 過去の計算結果を保存
                 pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
                 updatePastResults();
             })
-            .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
+            .catch(err => {
+                console.error('CSVの読み込みに失敗しました: ', err);
+                resultContent.innerHTML = '<div class="error">計算に失敗しました。</div>';
+            });
     });
 
     // 過去の計算結果を更新する関数
