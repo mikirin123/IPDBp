@@ -70,7 +70,7 @@
                 </script>
                 <div class="table-wrapper">
                     <div class="phone">
-                        <table class="birthday_table">
+                        <table id="birthday_table_p">
                             <tr>
                                 <th class="set">1月<br><span style="font-size: 12px; font-weight: normal;">January</span></th>
                                 <td><img src="../image/circle_icon/佐伯遙子.webp" class="icon"><br>3日<br><span style="font-size: 12px;">山羊座</span></td>
@@ -117,10 +117,11 @@
                                 <td><img src="../image/circle_icon/長瀬琴乃.webp" class="icon"><br>25日<br><span style="font-size: 12px;">山羊座</span></td>
                             </tr>
                         </table>
+                        <button onclick="saveTableAsImage_p()" class="save">画像として保存</button>
                     </div>
                 </div>
                     <div  class="pc">
-                        <table class="birthday_table">
+                        <table id="birthday_table">
                             <tr>
                                 <th class="set" colspan="2">1月<br><span style="font-size: 12px; font-weight: normal;">January</span></th>
                                 <th class="set" colspan="2">2月<br><span style="font-size: 12px; font-weight: normal;">February</span></th>
@@ -167,9 +168,9 @@
                                 <td><img src="../image/circle_icon/赤崎こころ.webp" class="icon"><br>6日<br><span style="font-size: 12px;">射手座</span></td>
                                 <td><img src="../image/circle_icon/長瀬琴乃.webp" class="icon"><br>25日<br><span style="font-size: 12px;">山羊座</span></td>
                             </tr>
-                        </table>                     
+                        </table>       
+                        <button onclick="saveTableAsImage()" class="save">画像として保存</button>              
                     </div>
-                <button onclick="saveTableAsImage()" class="save">画像として保存</button>
             </div>
         </div>
         <button id="scrollToTopBtn" onclick="scrollToTop()">ページ上部へ</button>

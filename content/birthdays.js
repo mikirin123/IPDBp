@@ -26,7 +26,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function saveTableAsImage() {
-    const table = document.getElementsByClassName('birthday_table');
+    const table = document.getElementById('birthday_table');
+
+    html2canvas(table).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'idol_birthday.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    }).catch(err => {
+        console.error('画像の生成に失敗しました: ', err);
+    });
+}
+
+function saveTableAsImage_p() {
+    const table = document.getElementById('birthday_table_p');
 
     html2canvas(table).then(canvas => {
         const link = document.createElement('a');
