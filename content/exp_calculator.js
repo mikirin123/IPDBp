@@ -93,6 +93,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveResultBtn = document.getElementById('saveResultBtn');
     saveResultBtn.addEventListener('click', function() {
         const calculator = document.querySelector('.calculator');
+
+        // input要素の値を一時的にspan要素にコピー
+        const inputs = calculator.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            const span = document.createElement('span');
+            span.textContent = input.value;
+            span.style.cssText = `
+                display: inline-block;
+                width: ${input.offsetWidth}px;
+                height: ${input.offsetHeight}px;
+                line-height: ${input.offsetHeight}px;
+                text-align: center;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                background-color: white;
+            `;
+            input.style.display = 'none'; // inputを非表示
+            input.parentNode.insertBefore(span, input);
+            input._span = span; // 後で削除するために参照を保存
+        });
+
+        // html2canvasで画像を生成
         html2canvas(calculator).then(canvas => {
             const link = document.createElement('a');
             link.download = 'exp_calculation_result.png';
@@ -100,6 +122,15 @@ document.addEventListener('DOMContentLoaded', function() {
             link.click();
         }).catch(err => {
             console.error('画像の生成に失敗しました: ', err);
+        }).finally(() => {
+            // 元の状態に戻す
+            inputs.forEach(input => {
+                input.style.display = ''; // inputを再表示
+                if (input._span) {
+                    input._span.remove(); // 一時的なspanを削除
+                    delete input._span;
+                }
+            });
         });
     });
 });
