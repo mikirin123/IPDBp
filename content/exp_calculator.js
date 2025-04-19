@@ -43,9 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 let totalExp = 0;
 
                 for (let i = currentLevel; i < targetLevel; i++) {
-                    const exp = parseInt(rows[i - 1]?.split(',')[1], 10);
-                    if (!isNaN(exp)) {
-                        totalExp += exp;
+                    const row = rows.find(row => row.startsWith(`${i}.`));
+                    if (row) {
+                        const exp = parseInt(row.split('.')[1], 10);
+                        if (!isNaN(exp)) {
+                            totalExp += exp;
+                        }
                     }
                 }
 
