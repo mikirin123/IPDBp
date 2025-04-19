@@ -51,8 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const resultContainer = document.getElementById('result');
         resultContainer.style.display = 'block';
-        resultContainer.style.opacity = '0'; // 初期状態で透明
-        resultContainer.style.transform = 'translateY(-20px)'; // 初期位置を上に設定
+
+        // フェードイン演出をリセット
+        resultContainer.style.animation = 'none';
+        setTimeout(() => {
+            resultContainer.style.animation = '';
+        }, 10);
 
         fetch('exp_list.csv')
             .then(response => response.text())
@@ -75,20 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const resultContent = document.querySelector('#result .result-content');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
                 resultContent.innerHTML = `
-                    <div>現在のレベル: ${currentLevel}</div>
+                    <div>開始レベル: ${currentLevel}</div>
                     <div>目標レベル: ${targetLevel}</div>
                     <div>アイドル数: ${idolCount}</div>
                     <div>必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})</div>
                 `;
 
-                // フェードインアニメーションを適用
-                setTimeout(() => {
-                    resultContainer.style.opacity = '1';
-                    resultContainer.style.transform = 'translateY(0)';
-                }, 50);
-
                 // 過去の計算結果を保存
-                pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
+                pastResults.push(`開始レベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const resultContent = document.querySelector('#compareResult .result-content');
                 resultContent.innerHTML = `
-                    <div>計算1: 現在のレベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
-                    <div>計算2: 現在のレベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
+                    <div>計算1: 開始レベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
+                    <div>計算2: 開始レベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
                     <div>差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
 
@@ -166,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('compareResult').style.display = 'block';
 
                 // 過去の計算結果に追加
-                pastResults.push(`【比較計算】計算1: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
+                pastResults.push(`【比較計算】計算1: 開始レベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: 開始レベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
