@@ -211,21 +211,8 @@ img {
     border-radius: 3px;
 }
 
-.calculator button {
-    background-color: #3200FF;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.calculator button:hover {
-    background-color: #0000FF;
-}
-
-button#saveResultBtn, button#saveCompareResultBtn {
+/* ボタンのスタイル共通化 */
+button {
     background-color: #3200FF;
     color: white;
     padding: 5px 10px;
@@ -237,14 +224,15 @@ button#saveResultBtn, button#saveCompareResultBtn {
     margin-top: 10px; /* 上部に余白を追加 */
 }
 
-button#saveResultBtn:hover, button#saveCompareResultBtn:hover {
+button:hover {
     background-color: #0000FF;
 }
 
-button#saveResultBtn:active, button#saveCompareResultBtn:active {
+button:active {
     background-color: #0000CC;
 }
 
+/* 計算結果のスタイル共通化 */
 .calculator .result, #compareResult {
     margin-top: 10px;
     padding: 10px;
@@ -253,14 +241,12 @@ button#saveResultBtn:active, button#saveCompareResultBtn:active {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-weight: bold;
     color: #3200FF;
-    text-align: center;
+    text-align: left;
 }
 
 /* 比較結果のスタイル */
 #compareResult {
     margin-top: 20px;
-    font-weight: bold;
-    color: #3200FF;
 }
 
 /* 過去の計算結果 */
