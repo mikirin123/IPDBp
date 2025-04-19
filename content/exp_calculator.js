@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const resultElement = document.getElementById('result');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
+                resultElement.classList.add('result'); // クラスを追加
                 resultElement.innerHTML = `
                     <div>【1体計算】</div>
                     <div>現在のレベル: ${currentLevel}</div>
