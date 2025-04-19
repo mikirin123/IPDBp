@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function saveTableAsImage() {
-    const table = document.getElementById('birthday_table');
+    const table = document.getElementsByClassName('birthday_table');
 
     html2canvas(table).then(canvas => {
         const link = document.createElement('a');
