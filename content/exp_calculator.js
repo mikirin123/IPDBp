@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 数値を簡略化して表示する関数
     function formatSimplifiedNumber(num) {
         if (num >= 1e8) {
-            return `${(num / 1e8).toFixed(2)}億`;
+            return `${Math.floor(num / 1e8)}億`;
         } else if (num >= 1e4) {
-            return `${(num / 1e4).toFixed(2)}万`;
+            return `${Math.floor(num / 1e4)}万`;
         } else {
-            return num.toString();
+            return num.toLocaleString();
         }
     }
 
