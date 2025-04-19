@@ -266,6 +266,7 @@ button:active {
     color: #3200FF;
     font-weight: bold;
     margin-top: 20px;
+    animation: fadeInFromTop 0.5s ease-out;
 }
 
 .result-container h4 {
@@ -279,6 +280,18 @@ button:active {
     font-weight: bold;
     color: #3200FF;
     text-align: left;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 計算結果のスタイル共通化 */
@@ -315,23 +328,6 @@ button:active {
     margin-bottom: 5px;
     font-size: 14px;
     color: #333;
-}
-
-/* ローディングメッセージのスタイル */
-.loading {
-    font-size: 16px;
-    color: #3200FF;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.error {
-    font-size: 16px;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
 }
 
 /* メディアクエリ */

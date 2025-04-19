@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // 計算中の演出を表示
-        const resultContent = document.querySelector('#result .result-content');
-        resultContent.innerHTML = '<div class="loading">計算中...</div>';
-        document.getElementById('result').style.display = 'block';
+        const resultContainer = document.getElementById('result');
+        resultContainer.style.display = 'block';
+        resultContainer.style.opacity = '0'; // 初期状態で透明
+        resultContainer.style.transform = 'translateY(-20px)'; // 初期位置を上に設定
 
         fetch('exp_list.csv')
             .then(response => response.text())
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 totalExp *= idolCount; // アイドル数を掛ける
 
+                const resultContent = document.querySelector('#result .result-content');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
                 resultContent.innerHTML = `
                     <div>現在のレベル: ${currentLevel}</div>
@@ -80,14 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div>必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})</div>
                 `;
 
+                // フェードインアニメーションを適用
+                setTimeout(() => {
+                    resultContainer.style.opacity = '1';
+                    resultContainer.style.transform = 'translateY(0)';
+                }, 50);
+
                 // 過去の計算結果を保存
                 pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
                 updatePastResults();
             })
-            .catch(err => {
-                console.error('CSVの読み込みに失敗しました: ', err);
-                resultContent.innerHTML = '<div class="error">計算に失敗しました。</div>';
-            });
+            .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
 
     // 過去の計算結果を更新する関数
