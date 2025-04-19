@@ -71,6 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
                 resultElement.textContent = `必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`; // カンマ区切りと簡略表記を追加
 
+                // 計算結果を表示
+                resultElement.style.display = 'block';
+                document.getElementById('saveResultBtn').style.display = 'block';
+
                 // 過去の計算結果を保存
                 pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
                 updatePastResults();
@@ -98,21 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
         html2canvas(resultElement).then(canvas => {
             const link = document.createElement('a');
             link.download = 'exp_calculation_result.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }).catch(err => {
-            console.error('画像の生成に失敗しました: ', err);
-        });
-    });
-
-    const saveCompareResultBtn = document.getElementById('saveCompareResultBtn');
-    saveCompareResultBtn.addEventListener('click', function() {
-        const compareResultElement = document.getElementById('compareResult');
-
-        // html2canvasで画像を生成
-        html2canvas(compareResultElement).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'compare_calculation_result.png';
             link.href = canvas.toDataURL();
             link.click();
         }).catch(err => {
@@ -167,7 +156,40 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div>計算2: 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
                     <div>差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
+
+                // 比較結果を表示
+                resultElement.style.display = 'block';
+                document.getElementById('saveCompareResultBtn').style.display = 'block';
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
+
+    // 比較結果を画像として保存
+    const saveCompareResultBtn = document.getElementById('saveCompareResultBtn');
+    saveCompareResultBtn.addEventListener('click', function() {
+        const compareResultElement = document.getElementById('compareResult');
+
+        // html2canvasで画像を生成
+        html2canvas(compareResultElement).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'compare_calculation_result.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }).catch(err => {
+            console.error('画像の生成に失敗しました: ', err);
+        });
+    });
 });
+
+function saveTableAsImage() {
+    const content = document.querySelector('.content'); // 修正: class="content"を取得
+
+    html2canvas(content).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'interact-present.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    }).catch(err => {
+        console.error('画像の生成に失敗しました: ', err);
+    });
+}
