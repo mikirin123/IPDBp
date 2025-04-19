@@ -25,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 必要経験値計算機のロジック
+    const pastResults = []; // 過去の計算結果を保存する配列
+
+    // 有効数字3桁で表記する関数
+    function formatSimplifiedNumber(num) {
+        if (num >= 1e8) {
+            return `${(num / 1e8).toFixed(2)}億`;
+        } else if (num >= 1e4) {
+            return `${(num / 1e4).toFixed(2)}万`;
+        } else {
+            return num.toString();
+        }
+    }
+
     const calculateBtn = document.getElementById('calculateBtn');
     calculateBtn.addEventListener('click', function() {
         const currentLevel = parseInt(document.getElementById('currentLevel').value, 10);
@@ -55,10 +68,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalExp *= characterCount; // キャラの数を掛ける
 
                 const resultElement = document.getElementById('result');
-                resultElement.textContent = `必要経験値: ${totalExp.toLocaleString()}`; // カンマ区切りを追加
+                const simplifiedResult = formatSimplifiedNumber(totalExp);
+                resultElement.textContent = `必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`; // カンマ区切りと簡略表記を追加
+
+                // 過去の計算結果を保存
+                pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, キャラ数: ${characterCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
+                updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
+
+    // 過去の計算結果を更新する関数
+    function updatePastResults() {
+        const pastResultsElement = document.getElementById('pastResults');
+        pastResultsElement.innerHTML = ''; // 一旦クリア
+        pastResults.forEach(result => {
+            const resultItem = document.createElement('div');
+            resultItem.textContent = result;
+            pastResultsElement.appendChild(resultItem);
+        });
+    }
 
     // 計算結果を画像として保存
     const saveResultBtn = document.getElementById('saveResultBtn');
