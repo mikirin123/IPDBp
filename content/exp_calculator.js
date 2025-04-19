@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let totalExp = 0;
 
                 for (let i = currentLevel; i < targetLevel; i++) {
-                    const row = rows.find(row => row.startsWith(`${i}\t`)); // タブ区切りに対応
+                    const row = rows.find(row => row.startsWith(`${i},`)); // カンマ区切りに対応
                     if (row) {
-                        const exp = parseInt(row.split('\t')[1], 10); // 必要経験値を取得
+                        const exp = parseInt(row.split(',')[1], 10); // 必要経験値を取得
                         if (!isNaN(exp)) {
                             totalExp += exp;
                         }
