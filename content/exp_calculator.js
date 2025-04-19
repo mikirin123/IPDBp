@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const resultElement = document.getElementById('result');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
-                resultElement.textContent = `必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`; // カンマ区切りと簡略表記を追加
+                resultElement.textContent = `【1体計算】必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`; // カンマ区切りと簡略表記を追加
 
                 // 計算結果を表示
                 resultElement.style.display = 'block';
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('saveCompareResultBtn').style.display = 'block';
 
                 // 過去の計算結果に追加
-                pastResults.push(`【比較結果】計算1: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
+                pastResults.push(`【比較計算】計算1: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
