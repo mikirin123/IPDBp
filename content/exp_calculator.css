@@ -235,10 +235,12 @@ button:active {
 /* 計算結果のコンテナスタイル */
 .result-container {
     margin-top: 20px;
-    padding: 15px;
+    padding: 20px;
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #3200FF;
+    font-weight: bold;
 }
 
 .result-container h4 {
