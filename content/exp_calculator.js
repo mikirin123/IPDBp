@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 必要経験値計算機のロジック
     const pastResults = []; // 過去の計算結果を保存する配列
 
-    // 有効数字3桁で表記する関数
+    // 数値を簡略化して表示する関数
     function formatSimplifiedNumber(num) {
         if (num >= 1e8) {
             return `${(num / 1e8).toFixed(2)}億`;
