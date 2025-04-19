@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 resultContent.innerHTML = `
                     <div>【パターンA】 レベル: ${currentLevel1} ~ ${targetLevel1}, 人数: ${idolCount1}, 必要レスピ: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
                     <div>【パターンB】 レベル: ${currentLevel2} ~ ${targetLevel2}, 人数: ${idolCount2}, 必要レスピ: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
-                    <div>【A】-【B】：　${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
+                    <div>【A】-【B】 ： ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
 
                 // パターン比較の結果を表示

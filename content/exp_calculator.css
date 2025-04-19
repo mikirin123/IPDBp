@@ -84,16 +84,6 @@ h3::before {
     transition: background-color 0.3s;
 }
 
-.content {
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-}
-
 .container {
     margin-top: 70px; /* バナーの高さ分のマージン */
     margin-left: auto;
@@ -105,13 +95,15 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
-    width:0;
-    white-space:nowrap;
-
+    width: 0;
+    white-space: nowrap;
+    border: 1px solid #ccc; /* 外枠を追加 */
+    border-radius: 5px; /* 角を丸く */
+    overflow: hidden; /* 角丸を適用 */
 }
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center; /* 中央揃え */
     vertical-align: middle;
     border: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -119,6 +111,7 @@ th, td {
 th {
     background-color: #f2f2f2;
     font-weight: bold;
+    color: #3200FF; /* ヘッダーの文字色を変更 */
 }
 td {
     background-color: #fff;
@@ -139,21 +132,6 @@ a:hover {
     text-decoration: underline;
 }
 
-.icon {
-    width: 45px;
-}
-
-.table-container {
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-img {
-    vertical-align: middle;
-}
-
 .head {
     display: flex;
     align-items: center;
@@ -169,22 +147,6 @@ img {
     height: 2px;
     background-color: #3200FF;
     margin: 0 10px;
-}
-
-.save {
-    background-color: #3200FF;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: center;
-    position: relative; /* 親要素内で中央配置 */
-    left: 50%; /* 左端から50% */
-    transform: translateX(-50%); /* 自身の幅の半分だけ左に移動 */
-    margin-top: 20px; /* 上部に余白を追加 */
-    margin-bottom: 20px; /* 下部に余白を追加 */
 }
 
 /* 必要経験値計算機 */
@@ -242,12 +204,13 @@ button {
     border-radius: 3px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     margin-top: 10px; /* 上部に余白を追加 */
 }
 
 button:hover {
     background-color: #0000FF;
+    transform: scale(1.05);
 }
 
 button:active {
@@ -386,21 +349,25 @@ button:active {
         margin: 5px 0;
     }
 
-    .icon {
-        width: 30px;
-    }
-
     table a {
         display: none;
     }
 
-    .save {
-        margin-top: 5px;
-        font-size: 10px;
-        padding: 5px 10px;
-    }
-
     .content {
         padding: 10px;
+    }
+
+    .calculator label {
+        display: block; /* ラベルをブロック要素に */
+        margin-bottom: 5px; /* 下部に余白を追加 */
+    }
+
+    .calculator input[type="number"] {
+        width: 100%; /* 入力フィールドを幅100%に */
+        margin-bottom: 10px; /* 下部に余白を追加 */
+    }
+
+    .result-container {
+        padding: 10px; /* パディングを調整 */
     }
 }
