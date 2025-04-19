@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 計算結果を表示
                 document.getElementById('result').style.display = 'block';
-                document.getElementById('saveResultBtn').style.display = 'block';
 
                 // 過去の計算結果を保存
                 pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
@@ -106,22 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
             resultsContainer.appendChild(resultItem);
         });
     }
-
-    // 計算結果を画像として保存
-    const saveResultBtn = document.getElementById('saveResultBtn');
-    saveResultBtn.addEventListener('click', function() {
-        const resultElement = document.getElementById('result');
-
-        // html2canvasで画像を生成
-        html2canvas(resultElement).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'exp_calculation_result.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }).catch(err => {
-            console.error('画像の生成に失敗しました: ', err);
-        });
-    });
 
     const compareBtn = document.getElementById('compareBtn');
     compareBtn.addEventListener('click', function() {
@@ -164,17 +147,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const totalExp1 = calculateTotalExp(currentLevel1, targetLevel1, idolCount1);
                 const totalExp2 = calculateTotalExp(currentLevel2, targetLevel2, idolCount2);
 
-                const resultElement = document.getElementById('compareResult');
-                resultElement.innerHTML = `
-                    <div>【比較計算】</div>
+                const resultContent = document.querySelector('#compareResult .result-content');
+                resultContent.innerHTML = `
                     <div>計算1: 現在のレベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
                     <div>計算2: 現在のレベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
                     <div>差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
 
                 // 比較結果を表示
-                resultElement.style.display = 'block';
-                document.getElementById('saveCompareResultBtn').style.display = 'block';
+                document.getElementById('compareResult').style.display = 'block';
 
                 // 過去の計算結果に追加
                 pastResults.push(`【比較計算】計算1: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
@@ -182,33 +163,4 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
-
-    // 比較結果を画像として保存
-    const saveCompareResultBtn = document.getElementById('saveCompareResultBtn');
-    saveCompareResultBtn.addEventListener('click', function() {
-        const compareResultElement = document.getElementById('compareResult');
-
-        // html2canvasで画像を生成
-        html2canvas(compareResultElement).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'compare_calculation_result.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }).catch(err => {
-            console.error('画像の生成に失敗しました: ', err);
-        });
-    });
 });
-
-function saveTableAsImage() {
-    const content = document.querySelector('.content'); // 修正: class="content"を取得
-
-    html2canvas(content).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'interact-present.png';
-        link.href = canvas.toDataURL();
-        link.click();
-    }).catch(err => {
-        console.error('画像の生成に失敗しました: ', err);
-    });
-}
