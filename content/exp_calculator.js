@@ -168,4 +168,27 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
+
+    // 結果をコピーする関数
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('結果をコピーしました！');
+        }).catch(err => {
+            console.error('コピーに失敗しました: ', err);
+        });
+    }
+
+    // 必要レスピ計算の結果をコピー
+    const copyResultBtn = document.getElementById('copyResultBtn');
+    copyResultBtn.addEventListener('click', function() {
+        const resultContent = document.querySelector('#result .result-content').innerText;
+        copyToClipboard(resultContent);
+    });
+
+    // パターン比較の結果をコピー
+    const copyCompareResultBtn = document.getElementById('copyCompareResultBtn');
+    copyCompareResultBtn.addEventListener('click', function() {
+        const compareResultContent = document.querySelector('#compareResult .result-content').innerText;
+        copyToClipboard(compareResultContent);
+    });
 });
