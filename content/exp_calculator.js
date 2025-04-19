@@ -85,11 +85,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // 過去の計算結果を更新する関数
     function updatePastResults() {
         const pastResultsElement = document.getElementById('pastResults');
-        pastResultsElement.innerHTML = ''; // 一旦クリア
+        const resultsContainer = document.getElementById('resultsContainer');
+
+        if (!resultsContainer) {
+            const container = document.createElement('div');
+            container.id = 'resultsContainer';
+            pastResultsElement.appendChild(container);
+        } else {
+            resultsContainer.innerHTML = ''; // 一旦クリア
+        }
+
         pastResults.forEach(result => {
             const resultItem = document.createElement('div');
             resultItem.textContent = result;
-            pastResultsElement.appendChild(resultItem);
+            resultsContainer.appendChild(resultItem);
         });
     }
 
@@ -160,6 +169,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 比較結果を表示
                 resultElement.style.display = 'block';
                 document.getElementById('saveCompareResultBtn').style.display = 'block';
+
+                // 過去の計算結果に追加
+                pastResults.push(`【比較結果】計算1: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
+                updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
