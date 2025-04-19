@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>必要経験値計算機 - IDOLY PRIDE データベースプラス</title>
+    <title>必要レスピ計算機 - IDOLY PRIDE データベースプラス</title>
     <link rel="stylesheet" href="exp_calculator.css">
     <script src="exp_calculator.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -14,39 +14,39 @@
 </head>
 <body>
     <div class="banner">
-        <div class="banner_title">IDOLY PRIDE データベースプラス - 必要経験値計算機</div>
-        <div class="banner_title_phone">必要経験値計算機</div>
+        <div class="banner_title">IDOLY PRIDE データベースプラス - 必要レスピ計算機</div>
+        <div class="banner_title_phone">必要レスピ計算機</div>
         <a href="../index.html" class="back-button">メインページに戻る</a>
     </div>
     <div class="container"></div>
 
-    <!-- 1体計算 -->
+    <!-- 必要レスピ計算 -->
     <div class="calculator">
-        <h3>1体計算</h3>
+        <h3>必要レスピ計算</h3>
         <label for="currentLevel">開始レベルを入力:</label>
         <input type="number" id="currentLevel" min="1" max="220" value="1">
         <label for="targetLevel">目標レベルを入力:</label>
         <input type="number" id="targetLevel" min="1" max="220" value="220">
-        <label for="idolCount">アイドル数を入力:</label>
+        <label for="idolCount">人数を入力:</label>
         <input type="number" id="idolCount" min="1" value="1">
-        <button id="calculateBtn">必要経験値を計算</button>
+        <button id="calculateBtn">必要レスピを計算</button>
     </div>
 
-    <!-- 1体計算の計算結果 -->
+    <!-- 必要レスピ計算の計算結果 -->
     <div id="result" class="result-container" style="display: none;">
-        <h4>1体計算の結果</h4>
+        <h4>必要レスピ計算の結果</h4>
         <div class="result-content"></div>
     </div>
 
-    <!-- 比べる計算 -->
+    <!-- パターン比較 -->
     <div class="calculator">
-        <h3>比較計算</h3>
+        <h3>パターン比較</h3>
         <h4>計算1</h4>
         <label for="currentLevel1">開始レベルを入力:</label>
         <input type="number" id="currentLevel1" min="1" max="220" value="1">
         <label for="targetLevel1">目標レベルを入力:</label>
         <input type="number" id="targetLevel1" min="1" max="220" value="220">
-        <label for="idolCount1">アイドル数を入力:</label>
+        <label for="idolCount1">人数を入力:</label>
         <input type="number" id="idolCount1" min="1" value="1">
 
         <h4>計算2</h4>
@@ -54,14 +54,14 @@
         <input type="number" id="currentLevel2" min="1" max="220" value="1">
         <label for="targetLevel2">目標レベルを入力:</label>
         <input type="number" id="targetLevel2" min="1" max="220" value="220">
-        <label for="idolCount2">アイドル数を入力:</label>
+        <label for="idolCount2">人数を入力:</label>
         <input type="number" id="idolCount2" min="1" value="1">
-        <button id="compareBtn">2つの計算を比較</button>
+        <button id="compareBtn">2つのパターンを比較</button>
     </div>
 
-    <!-- 比べる計算の計算結果 -->
+    <!-- パターン比較の計算結果 -->
     <div id="compareResult" class="result-container" style="display: none;">
-        <h4>比較計算の結果</h4>
+        <h4>パターン比較の結果</h4>
         <div class="result-content"></div>
     </div>
 

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     calculateBtn.addEventListener('click', function() {
         const currentLevel = parseInt(document.getElementById('currentLevel').value, 10);
         const targetLevel = parseInt(document.getElementById('targetLevel').value, 10);
-        const idolCount = parseInt(document.getElementById('idolCount').value, 10); // アイドル数
+        const idolCount = parseInt(document.getElementById('idolCount').value, 10); // 人数
 
         if (isNaN(currentLevel) || isNaN(targetLevel) || isNaN(idolCount) || currentLevel >= targetLevel || idolCount <= 0) {
             alert('正しい値を入力してください。');
@@ -74,19 +74,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
-                totalExp *= idolCount; // アイドル数を掛ける
+                totalExp *= idolCount; // 人数を掛ける
 
                 const resultContent = document.querySelector('#result .result-content');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
                 resultContent.innerHTML = `
                     <div>開始レベル: ${currentLevel}</div>
                     <div>目標レベル: ${targetLevel}</div>
-                    <div>アイドル数: ${idolCount}</div>
+                    <div>人数: ${idolCount}</div>
                     <div>必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})</div>
                 `;
 
                 // 過去の計算結果を保存
-                pastResults.push(`開始レベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
+                pastResults.push(`開始レベル: ${currentLevel}, 目標レベル: ${targetLevel}, 人数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
                     }
-                    return totalExp * idolCount; // アイドル数を掛ける
+                    return totalExp * idolCount; // 人数を掛ける
                 };
 
                 const totalExp1 = calculateTotalExp(currentLevel1, targetLevel1, idolCount1);
@@ -155,16 +155,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const resultContent = document.querySelector('#compareResult .result-content');
                 resultContent.innerHTML = `
-                    <div>計算1: 開始レベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
-                    <div>計算2: 開始レベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
+                    <div>計算1: 開始レベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, 人数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
+                    <div>計算2: 開始レベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, 人数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
                     <div>差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
 
-                // 比較結果を表示
+                // パターン比較の結果を表示
                 document.getElementById('compareResult').style.display = 'block';
 
                 // 過去の計算結果に追加
-                pastResults.push(`【比較計算】計算1: 開始レベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: 開始レベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
+                pastResults.push(`【パターン比較】計算1: 開始レベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, 人数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), 計算2: 開始レベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, 人数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), 差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
