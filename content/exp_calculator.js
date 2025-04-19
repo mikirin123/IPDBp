@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let totalExp = 0;
 
                 for (let i = currentLevel; i < targetLevel; i++) {
-                    const row = rows.find(row => row.startsWith(`${i}.`));
+                    const row = rows.find(row => row.startsWith(`${i},`));
                     if (row) {
-                        const exp = parseInt(row.split('.')[1], 10);
+                        const exp = parseInt(row.split(',')[1], 10);
                         if (!isNaN(exp)) {
                             totalExp += exp;
                         }
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalExp *= characterCount; // キャラの数を掛ける
 
                 const resultElement = document.getElementById('result');
-                resultElement.textContent = `必要経験値: ${totalExp}`;
+                resultElement.textContent = `必要経験値: ${totalExp.toLocaleString()}`; // カンマ区切りを追加
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
