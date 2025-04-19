@@ -248,14 +248,14 @@ button:active {
     font-weight: bold;
 }
 
-.result-container .result {
+.result-container .result-content {
     font-weight: bold;
     color: #3200FF;
     text-align: left;
 }
 
 /* 計算結果のスタイル共通化 */
-.result {
+.calculator .result, #compareResult {
     margin-top: 10px;
     padding: 10px;
     background-color: #f9f9f9;

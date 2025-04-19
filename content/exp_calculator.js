@@ -67,10 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 totalExp *= idolCount; // アイドル数を掛ける
 
-                const resultElement = document.getElementById('result');
+                const resultContent = document.querySelector('#result .result-content');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
-                resultElement.innerHTML = `
-                    <div>【1体計算】</div>
+                resultContent.innerHTML = `
                     <div>現在のレベル: ${currentLevel}</div>
                     <div>目標レベル: ${targetLevel}</div>
                     <div>アイドル数: ${idolCount}</div>
@@ -78,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
 
                 // 計算結果を表示
-                resultElement.style.display = 'block';
+                document.getElementById('result').style.display = 'block';
                 document.getElementById('saveResultBtn').style.display = 'block';
 
                 // 過去の計算結果を保存
