@@ -123,6 +123,7 @@ th {
 th.set {
     min-width: 90px; /* セルの最小幅を設定 */
 }
+
 td {
     padding: 10px;
     text-align: center; /* 文字を中央揃え */
@@ -206,6 +207,14 @@ img {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.phone {
+    display: none; /* デフォルトでは非表示 */
+}
+
+.pc {
+    display: block; /* PCでは表示 */
+}
+
 /* メディアクエリ */
 @media (max-width: 768px) {
     body {
@@ -260,5 +269,31 @@ img {
     .save {
         font-size: 12px; /* ボタンのフォントサイズを調整 */
         padding: 8px 16px;
+    }
+
+    .icon {
+        width: 40px; /* アイコンの幅を調整 */
+        margin-left: 10px; /* 左右の余白を調整 */
+        margin-right: 10px;
+    }
+
+    th, td {
+        font-size: 12px; /* セルの文字サイズを調整 */
+    }
+
+    th.set {
+        min-width: 70px; /* セルの最小幅を設定 */
+    }
+
+    td {
+        padding: 5px; /* セルのパディングを調整 */
+    }
+
+    .phone {
+        display: block; /* スマホでは表示する */
+    }
+
+    .pc {
+        display: none; /* PCでは非表示 */
     }
 }
