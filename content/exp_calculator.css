@@ -231,6 +231,13 @@ img {
     color: #3200FF;
 }
 
+/* 比較結果のスタイル */
+#compareResult {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #3200FF;
+}
+
 /* 過去の計算結果 */
 .past-results {
     margin-top: 20px;

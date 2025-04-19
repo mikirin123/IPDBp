@@ -133,17 +133,55 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-});
 
-function saveTableAsImage() {
-    const content = document.querySelector('.content'); // 修正: class="content"を取得
+    const compareBtn = document.getElementById('compareBtn');
+    compareBtn.addEventListener('click', function() {
+        const currentLevel1 = parseInt(document.getElementById('currentLevel1').value, 10);
+        const targetLevel1 = parseInt(document.getElementById('targetLevel1').value, 10);
+        const idolCount1 = parseInt(document.getElementById('idolCount1').value, 10);
 
-    html2canvas(content).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'interact-present.png';
-        link.href = canvas.toDataURL();
-        link.click();
-    }).catch(err => {
-        console.error('画像の生成に失敗しました: ', err);
+        const currentLevel2 = parseInt(document.getElementById('currentLevel2').value, 10);
+        const targetLevel2 = parseInt(document.getElementById('targetLevel2').value, 10);
+        const idolCount2 = parseInt(document.getElementById('idolCount2').value, 10);
+
+        if (
+            isNaN(currentLevel1) || isNaN(targetLevel1) || isNaN(idolCount1) ||
+            isNaN(currentLevel2) || isNaN(targetLevel2) || isNaN(idolCount2) ||
+            currentLevel1 >= targetLevel1 || idolCount1 <= 0 ||
+            currentLevel2 >= targetLevel2 || idolCount2 <= 0
+        ) {
+            alert('正しい値を入力してください。');
+            return;
+        }
+
+        fetch('exp_list.csv')
+            .then(response => response.text())
+            .then(data => {
+                const rows = data.split('\n').slice(1); // ヘッダー行を除外
+                const calculateTotalExp = (currentLevel, targetLevel, idolCount) => {
+                    let totalExp = 0;
+                    for (let i = currentLevel; i < targetLevel; i++) {
+                        const row = rows[i - 1]; // レベルに対応する行を取得 (インデックスは0ベース)
+                        if (row) {
+                            const exp = parseInt(row.split(',')[1], 10); // 必要経験値を取得
+                            if (!isNaN(exp)) {
+                                totalExp += exp;
+                            }
+                        }
+                    }
+                    return totalExp * idolCount; // アイドル数を掛ける
+                };
+
+                const totalExp1 = calculateTotalExp(currentLevel1, targetLevel1, idolCount1);
+                const totalExp2 = calculateTotalExp(currentLevel2, targetLevel2, idolCount2);
+
+                const resultElement = document.getElementById('compareResult');
+                resultElement.innerHTML = `
+                    <div>計算1: 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
+                    <div>計算2: 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
+                    <div>差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
+                `;
+            })
+            .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
     });
-}
+});
