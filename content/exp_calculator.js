@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let totalExp = 0;
 
                 for (let i = currentLevel; i < targetLevel; i++) {
-                    const row = rows.find(row => row.startsWith(`${i},`)); // カンマ区切りに対応
+                    const row = rows[i - 1]; // レベルに対応する行を取得
                     if (row) {
                         const exp = parseInt(row.split(',')[1], 10); // 必要経験値を取得
                         if (!isNaN(exp)) {
