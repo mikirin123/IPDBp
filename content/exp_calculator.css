@@ -234,7 +234,6 @@ button:active {
 
 /* 計算結果のコンテナスタイル */
 .result-container {
-    margin-top: 20px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 5px;
