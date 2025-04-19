@@ -69,7 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const resultElement = document.getElementById('result');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
-                resultElement.textContent = `【1体計算】必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`; // カンマ区切りと簡略表記を追加
+                resultElement.innerHTML = `
+                    <div>【1体計算】</div>
+                    <div>現在のレベル: ${currentLevel}</div>
+                    <div>目標レベル: ${targetLevel}</div>
+                    <div>アイドル数: ${idolCount}</div>
+                    <div>必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})</div>
+                `;
 
                 // 計算結果を表示
                 resultElement.style.display = 'block';
@@ -161,8 +167,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const resultElement = document.getElementById('compareResult');
                 resultElement.innerHTML = `
-                    <div>計算1: 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
-                    <div>計算2: 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
+                    <div>【比較計算】</div>
+                    <div>計算1: 現在のレベル: ${currentLevel1}, 目標レベル: ${targetLevel1}, アイドル数: ${idolCount1}, 必要経験値: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
+                    <div>計算2: 現在のレベル: ${currentLevel2}, 目標レベル: ${targetLevel2}, アイドル数: ${idolCount2}, 必要経験値: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
                     <div>差分: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
 
