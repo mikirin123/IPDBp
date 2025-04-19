@@ -225,17 +225,35 @@ img {
     background-color: #0000FF;
 }
 
-.calculator .result {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #3200FF;
+button#saveResultBtn, button#saveCompareResultBtn {
+    background-color: #3200FF;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* 上部に余白を追加 */
 }
 
-/* 比較結果のスタイル */
-#compareResult {
-    margin-top: 20px;
+button#saveResultBtn:hover, button#saveCompareResultBtn:hover {
+    background-color: #0000FF;
+}
+
+button#saveResultBtn:active, button#saveCompareResultBtn:active {
+    background-color: #0000CC;
+}
+
+.calculator .result, #compareResult {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-weight: bold;
     color: #3200FF;
+    text-align: center;
 }
 
 /* 過去の計算結果 */
