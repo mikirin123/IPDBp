@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
     calculateBtn.addEventListener('click', function() {
         const currentLevel = parseInt(document.getElementById('currentLevel').value, 10);
         const targetLevel = parseInt(document.getElementById('targetLevel').value, 10);
-        const characterCount = parseInt(document.getElementById('characterCount').value, 10);
+        const idolCount = parseInt(document.getElementById('idolCount').value, 10); // アイドル数
 
-        if (isNaN(currentLevel) || isNaN(targetLevel) || isNaN(characterCount) || currentLevel >= targetLevel || characterCount <= 0) {
+        if (isNaN(currentLevel) || isNaN(targetLevel) || isNaN(idolCount) || currentLevel >= targetLevel || idolCount <= 0) {
             alert('正しい値を入力してください。');
             return;
         }
@@ -65,14 +65,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
-                totalExp *= characterCount; // キャラの数を掛ける
+                totalExp *= idolCount; // アイドル数を掛ける
 
                 const resultElement = document.getElementById('result');
                 const simplifiedResult = formatSimplifiedNumber(totalExp);
                 resultElement.textContent = `必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`; // カンマ区切りと簡略表記を追加
 
                 // 過去の計算結果を保存
-                pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, キャラ数: ${characterCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
+                pastResults.push(`現在のレベル: ${currentLevel}, 目標レベル: ${targetLevel}, アイドル数: ${idolCount}, 必要経験値: ${totalExp.toLocaleString()} (${simplifiedResult})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
