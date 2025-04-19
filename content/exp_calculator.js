@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('exp_list.csv')
             .then(response => response.text())
             .then(data => {
-                const rows = data.split('\n');
+                const rows = data.split('\n').slice(1); // ヘッダー行を除外
                 let totalExp = 0;
 
                 for (let i = currentLevel; i < targetLevel; i++) {
-                    const row = rows.find(row => row.startsWith(`${i},`));
+                    const row = rows.find(row => row.startsWith(`${i},`)); // レベルに対応する行を検索
                     if (row) {
-                        const exp = parseInt(row.split(',')[1], 10);
+                        const exp = parseInt(row.split(',')[1], 10); // 必要経験値を取得
                         if (!isNaN(exp)) {
                             totalExp += exp;
                         }
