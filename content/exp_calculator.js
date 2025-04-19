@@ -156,14 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 resultContent.innerHTML = `
                     <div>【パターン1】 レベル: ${currentLevel1} ~ ${targetLevel1}, 人数: ${idolCount1}, 必要レスピ: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)})</div>
                     <div>【パターン2】 レベル: ${currentLevel2} ~ ${targetLevel2}, 人数: ${idolCount2}, 必要レスピ: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)})</div>
-                    <div>: 【1】-【2】${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
+                    <div>【1】-【2】：　${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})</div>
                 `;
 
                 // パターン比較の結果を表示
                 document.getElementById('compareResult').style.display = 'block';
 
                 // 過去の計算結果に追加
-                pastResults.push(`【パターン比較】[パターン1] レベル: ${currentLevel1} ~ ${targetLevel1}, 人数: ${idolCount1}, 必要レスピ: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), [パターン2] レベル: ${currentLevel2} ~ ${targetLevel2}, 人数: ${idolCount2}, 必要レスピ: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), [1]-[2]: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
+                pastResults.push(`【パターン比較】[1] レベル: ${currentLevel1} ~ ${targetLevel1}, 人数: ${idolCount1}, 必要レスピ: ${totalExp1.toLocaleString()} (${formatSimplifiedNumber(totalExp1)}), [2] レベル: ${currentLevel2} ~ ${targetLevel2}, 人数: ${idolCount2}, 必要レスピ: ${totalExp2.toLocaleString()} (${formatSimplifiedNumber(totalExp2)}), [1]-[2]: ${(totalExp1 - totalExp2).toLocaleString()} (${formatSimplifiedNumber(Math.abs(totalExp1 - totalExp2))})`);
                 updatePastResults();
             })
             .catch(err => console.error('CSVの読み込みに失敗しました: ', err));
